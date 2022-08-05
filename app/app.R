@@ -3,7 +3,7 @@
 ## Purpose of the script: Using shiny to analyze DNA methylation array data and dwonstream analysis 
 ## Author(s): Jyotirmoy Das, Ph.D.
 ## Date Created: 2019-03-21
-## Date Last Modified: 2022-04-17
+## Date Last Modified: 2022-08-05
 ## Copyright statement: GNU3 open license
 ## Contact information: jyotirmoy.das@liu.se
 ## Please cite: 
@@ -177,6 +177,9 @@ bodyHome <- tabItem(tabName = "main",
                         ),
                         div(style = "font-size:16px; color:black",
                           HTML("Here we introduce methylR, a complete pipeline for the analysis of both 450K and EPIC Illumi-na arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data")
+                        ),
+                        div(style = "font-size:16px; font-weight: bold; color:red",
+                          HTML("NOTICE: YOUR INPUT DATA FILES AND RESULT WILL BE DELETED AS SOON AS YOU CLOSE THE BROWSER. WE DONOT READ/STORE YOUR DATA AND NOT RESPONSIBLE FOR IT.")
                         )),
                       fluidRow(
                         box(width = 12, status = "success",
@@ -263,8 +266,10 @@ bodyMethylysis <- tabItem(tabName = "methylysis",
                                                                     "Illumina HumanMethylationEPIC" = 3),
                                                      selected = 3),
                                          numericInput("adjpval",
-                                                      h4("adjusted P-value"),
-                                                      value = 0.05),
+                                                      label = "adjusted P-value",
+                                                      value = 0.05,
+                                                      min = 0,
+                                                      max = 1),
                                          selectInput("normalization", h4("Choose normalization method"),
                                                      choices = list("BMIQ" = "BMIQ",
                                                                     "SWAN" = "SWAN",
@@ -334,11 +339,17 @@ bodyMethylysis <- tabItem(tabName = "methylysis",
                                       div(style = "font-size:20px; color: #468499; font-family: papyrus",
                                           HTML("<b>Technical parameters</b>")),
                                          numericInput("cores",
-                                                      h4("Number of cores"),
-                                                      value = 4),
+                                                      label = "Number of cores (max. 4 cores)",
+                                                      value = 2,
+                                                      min = 1,
+                                                      max = 4, 
+                                                      step = 1),
 
-                                         shinyDirButton("directory", "Choose sample directory", "Upload"),
-                                         textOutput('directory_name'),
+                                        #  shinyDirButton("directory", "Choose sample directory", "Upload"),
+                                        #  textOutput('directory_name'),
+                                        fileInput("directory",
+                                                h4("Select the zip data file", div(style = "font-size:14px; color:blue",tags$a(href = "https://methylr.netlify.app/methylysis.html", "Check manual for file structure", target = "_blank"))),
+                                                accept = '.zip'),
                                         waiter::use_waiter(),
                                         actionButton("runMethylysis", "Run Analysis") 
                                       )
@@ -1598,7 +1609,7 @@ bodyPathway <- tabItem(tabName = "pathway",
 
 
 #========================================#
-## Pathway enrichment analysis
+## Manual
 #========================================#
 bodyManual <- tabItem(tabName = "manual",
                       fluidRow(
@@ -1733,6 +1744,9 @@ server <- function(input, output, session) {
     deleteAfterDownload2 <- list.files("www/", pattern = "\\.pdf$", full.names = TRUE)
     file.remove(deleteAfterDownload2)
 
+    deleteAfterDownload3 <- list.files("experiment_data/", pattern = "*.*", full.names = TRUE, recursive =TRUE)
+    file.remove(deleteAfterDownload3)
+
   }
   )
 # track_usage(storage_mode = store_json(path = "."))
@@ -1801,18 +1815,18 @@ server <- function(input, output, session) {
   ## methylysis module ####
   #====================================================#
   # methylation analysis
-  shinyDirChoose(
-    input,
-    'directory',
-    roots = c(home = '~'),
-    filetypes = c('', 'txt', 'bigWig', "tsv", "csv", "bw")
-  )
+  # shinyDirChoose(
+  #   input,
+  #   'directory',
+  #   roots = c(home = '~'),
+  #   filetypes = c('', 'txt', 'bigWig', "tsv", "csv", "bw")
+  # )
 
   global <- reactiveValues(datapath = getwd())
-  dir <- reactive(input$directory)
-  output$directory <- renderText({
-    global$datapath
-  })
+  # dir <- reactive(input$directory)
+  # output$directory <- renderText({
+  #   global$datapath
+  # })
 
 observeEvent(input$analysisType, {
   updateTabsetPanel(session, "methylysisType",
@@ -1823,13 +1837,22 @@ observeEvent(input$analysisType, {
                eventExpr = {
                  input$directory
                },
-               handlerExpr = {
-                 if (!"path" %in% names(dir())) return()
-                 home <- normalizePath("~")
-                 global$datapath <-
-                   file.path(home, paste(unlist(dir()$path[-1]), collapse = .Platform$file.sep))
+                handlerExpr = {
+              #    if (!"path" %in% names(dir())) return()
+              #    home <- normalizePath("~")
+              #    global$datapath <-
+              #      file.path(home, paste(unlist(dir()$path[-1]), collapse = .Platform$file.sep))
+    if(dir.exists("experiment_data")){
+      unlink("experiment_data", recursive = TRUE)
+    
+    unzip(input$directory$datapath, exdir = "experiment_data")
+    inputData <- "experiment_data"
+    } 
 
-                 illuminaArray <- eventReactive(input$runMethylysis, {
+    # return()
+
+
+    illuminaArray <- eventReactive(input$runMethylysis, {
                    switch(input$arrayType,
                           "Illumina HumanMethylation450K" = 2,
                           "Illumina HumanMethylationEPIC" = 3)
@@ -1843,7 +1866,7 @@ observeEvent(input$analysisType, {
                    on.exit(removeNotification(id_methylysis_epic), add = TRUE)
 
                      #myLoad_EPIC <- champ.load(global$datapath)
-                     myLoad_EPIC <- champ.load(global$datapath, arraytype="EPIC")
+                     myLoad_EPIC <- champ.load(inputData, arraytype="EPIC")
                      # running quality control of the sample
                      champ.QC(beta = myLoad_EPIC$beta,
                               pheno = myLoad_EPIC$pd$Sample_Group,
@@ -2937,7 +2960,7 @@ output$dmcTable <- downloadHandler(
 
                  })
   }
-)
+ )
 
 
 #====================================================#
@@ -2949,7 +2972,7 @@ observeEvent(input$download_btn, {
     title = HTML('<span style="color:SteelBlue; font-size: 26px; font-weight:bold; font-family:sans-serif ">Proceed to download results<span>
               <button type = "button" class="close" data-dismiss="modal" ">
                </button> '),
-    HTML('<span style="color:LightCoral; font-size: 20px; font-weight:bold; font-family:sans-serif ">NOTE: Your data will be deleted from the server once you close the browser<span>
+    HTML('<span style="color:LightCoral; font-size: 20px; font-weight:bold; font-family:sans-serif ">NOTE: Your data (uploaded files and results) will be deleted from the server as soon as you close the browser<span>
               <button type = "button" class="close" data-dismiss="modal" ">
                </button> '),
     footer = actionButton("Confirm", "Confirm"),
