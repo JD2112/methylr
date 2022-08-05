@@ -32,7 +32,7 @@ jobs:
         name: build and push
         uses: docker/build-push-action@v3
         with:
-          file: app/Dockerfile
+          file: Dockerfile
           context: .
           platforms: linux/amd64, linux/arm64, linux/ppc64le
           push: true
