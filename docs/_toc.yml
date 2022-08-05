@@ -1,0 +1,35 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: DNA methylation
+    numbered: True 
+    chapters:
+    - file: methylysis
+  - caption: Feature analyses
+    numbered: True
+    chapters:
+    - file: multid
+    - file: genomicfeatures
+    - file: pairwise
+    - file: volcano
+  - caption: Association study
+    numbered: True
+    chapters:
+    - file: go
+    - file: pathwayanalysis
+  - caption: Set analysis
+    numbered: True
+    chapters:
+    - file: vennanalysis
+    - file: upset
+  - caption: References
+    numbered: True
+    chapters:
+    - file: markdown
+  - caption: Appendices
+    numbered: True
+    chapters:
+    - file: notebooks  
