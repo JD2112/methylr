@@ -1,42 +1,44 @@
 ![image](artworks/logo-final.png)
 [![Docker Image CI](https://github.com/JD2112/MethylationAnalysis/actions/workflows/docker-image.yml/badge.svg)](https://github.com/JD2112/MethylationAnalysis/actions/workflows/docker-image.yml)[![Docker Image CI](https://github.com/JD2112/MethylationAnalysis/actions/workflows/docker-image.yml/badge.svg)](https://github.com/JD2112/MethylationAnalysis/actions/workflows/docker-image.yml)
 
+# **methylr: a single shiny solution from sequencer data to pathway analysis**
 
-**methylr: a single shiny solution from sequencer data to pathway analysis**
+- [Description](#description)
+- [Diagram](#diagram)
+- [Quick start](#quick-starte)
+    - [test data](#test-data)
+    - [web server](#web-server)
+    - [local run](#local-use)
+        - [requirements](#computational-requirements)
+        - [run command](#run-from-terminal)
 
-## How to use
-### Option 1: 
-Go to the webserver and run the complete tool for different analysis - [methylr.it.liu.se](https://methylr.it.liu.se)
+
+## Description
+For non-commercial Academic and Research purpose only!
+Here we introduce methylR, a complete pipeline for the analysis of both 450K and EPIC Illumi-na arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
+
+NOTE: methylR has a signed docker container with 2048-bit RSA encryption. User requires the key to run the container locally. Please contact the developer.
+
+## Diagram
+
+## Test data
+1. All required test data except DNA methylation raw files, can be found [here](https://github.com/JD2112/methylr/tree/main/data)
+2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
+
+## Quick start
+### Web-server: 
+Go to the webserver and run the complete tool for different analysis - [methylr.research.liu.se](https://methylr.research.liu.se)
 
 
-### Option 2:
-1. singularity using the docker container
-#### Installing singularity
-Singularity can be installed from the singularity source as mentioned in the [documentation](https://singularity-tutorial.github.io/01-installation/) or [here](https://sylabs.io/guides/3.7/user-guide/quick_start.html)
-```
-export VERSION=3.7.0 && # adjust this as necessary \
-    wget https://github.com/hpcng/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
-    tar -xzf singularity-${VERSION}.tar.gz && \
-    cd singularity
+### Local use:
+### Computational requirements
+- MacOS - AMD64, ARM64 (tested on Monterey 12.5)
+- Linux - AMD64 (tested on Ubuntu 20.04)
+- Windows (not tested)
+- [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
+- [Docker](https://docs.docker.com/get-docker/) (latest only)
 
-./mconfig && \
-    make -C builddir && \
-    sudo make -C builddir install
-```
-#### Get Docker
-Docker should be installed on the computer. Please see the details [here](https://docs.docker.com/get-docker/)
-```
-## For Linux only
-wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.8.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
-sudo dpkg -i docker-desktop-4.8.0-amd64.deb
-docker version
-```
-#### Run the methylR from your local computer
+### Run from terminal
 ```
 singularity run docker://jd21/methylr:latest
 ```
-
-###### Notes on multi-OS architecture
-Currently we have docker container for both amd64 and arm64 architecture to use in Linux, Mac OS.
-1. amd64
-2. arm64
