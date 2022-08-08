@@ -37,3 +37,4 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/ppc64le
           push: true
           tags: ${{secrets.DOCKER_USER}}/methylr-gh:latest
+
