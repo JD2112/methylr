@@ -14,11 +14,11 @@
 
 
 ## Description
-For non-commercial Academic and Research purpose only!
+For non-commercial Academic and Research purpose only! \
 Here we introduce methylR, a complete pipeline for the analysis of both 450K and EPIC Illumi-na arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
 
-$$\textcolor{red}{\text{NOTE: methylR has a signed docker container with 2048-bit RSA encryption.}}$$
-$$\textcolor{red}{\text{User who requires the key to run the container locally, please contact the developer.}}$$  
+$$\textcolor{red}{\text{NOTE: methylR has a RSA-encrypted signed docker container. To access it, please contact the developer.}}$$
+
 
 ## Diagram
 
