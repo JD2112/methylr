@@ -43,7 +43,7 @@ jobs:
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Build action image
-          run: PLATFORM="${{ matrix.platform }}" IMAGE_TAG="docker.io/jd21:${{ matrix.platform-tag }}-latest" make docker-build
+          run: PLATFORM="${{ matrix.platform }}" IMAGE_TAG="docker.io/jd21:${{ matrix.platform-tag }}-latest" make Dockerfile
           env:
             DOCKER_BUILDKIT: 1
 
