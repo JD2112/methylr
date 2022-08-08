@@ -11,7 +11,17 @@
     - [local run](#local-use)
         - [requirements](#computational-requirements)
         - [run command](#run-from-terminal)
-- [Step-by-step guide]()
+- [Step-by-step guide](#step-by-step-guide)
+- [Workflow summaries](#workflow-summaries)
+    - [input dataset](#input-dataset)
+    - [component tools](#component-tools)
+    - [third-party tools/dependencies](#third-party-toolsdenpendencies)
+- [Additional notes](#additional-notes)
+- [HELP/FAQ/Troubleshooting](#helpfaqtroubleshooting)
+- [Licence(s)](#licences)
+- [Acknowledgement](#acknowledgement)
+- [Citation](#citation)
+- [Credits](#credits)
 
 ## Description
 For non-commercial Academic and Research purpose only! \
@@ -39,13 +49,13 @@ $$\textcolor{red}{\text{NOTE: methylR has a RSA-encrypted signed docker containe
 - [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
 - [Docker](https://docs.docker.com/get-docker/) (latest only)
 
-**NOTE: multi-arch docker image available for*
-*- linux/amd64,*
-*- linux/arm64,*
-*- linux/ppc64le,*
-*- linux/s390x,*
-*- linux/386,*
-*- linux/arm/v7,*
+**NOTE: multi-arch docker image available for* \
+*- linux/amd64,* \
+*- linux/arm64,* \
+*- linux/ppc64le,* \
+*- linux/s390x,* \
+*- linux/386,* \
+*- linux/arm/v7,* \
 *- linux/arm/v6.*
 
 ### Run from terminal
