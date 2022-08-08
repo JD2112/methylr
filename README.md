@@ -18,7 +18,7 @@
     - [third-party tools/dependencies](#third-party-toolsdenpendencies)
 - [Additional notes](#additional-notes)
 - [HELP/FAQ/Troubleshooting](#helpfaqtroubleshooting)
-- [Licence(s)](#licences)
+- [License(s)](#licenses)
 - [Acknowledgement](#acknowledgement)
 - [Citation](#citation)
 - [Credits](#credits)
@@ -75,7 +75,7 @@ Check the [manual for more details](https://methylr.netlify.app/intro.html)
 
 ## HELP/FAQ/Troubleshooting
 
-## Licence(s)
+## License(s)
 [GNU-3 public license](https://www.gnu.org/licenses/gpl-3.0.en.html)
 ## Acknowledgement
 We are thankful to the Linköping University IT-division for providing the server support to release the package. 

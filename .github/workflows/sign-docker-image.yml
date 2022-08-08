@@ -1,0 +1,20 @@
+name: Sign Docker image
+on:
+ push:
+   branches: [ main ]
+ pull_request:
+   branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: docker content trust
+        run: |
+          docker trust key load ${{ secrets.DOCKER_PER_KEY }} --name methylr
+          docker trust signer add --key ${{ secrets.DOCKER_PUB_KEY }} methylr docker.io/jd21/methylr-gh:latest
+          docker trust sign docker.io/jd21/methylr-gh:latest      
