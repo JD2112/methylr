@@ -39,7 +39,15 @@ $$\textcolor{red}{\text{NOTE: methylR has a RSA-encrypted signed docker containe
 - [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
 - [Docker](https://docs.docker.com/get-docker/) (latest only)
 
-**NOTE: multi-arch docker image available for linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6.**
+**NOTE: multi-arch docker image available for*
+*- linux/amd64,*
+*- linux/arm64,*
+*- linux/ppc64le,*
+*- linux/s390x,*
+*- linux/386,*
+*- linux/arm/v7,*
+*- linux/arm/v6.*
+
 ### Run from terminal
 ```
 singularity run docker://jd21/methylr:latest
