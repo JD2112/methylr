@@ -7,6 +7,7 @@ parts:
   - caption: DNA methylation
     numbered: True 
     chapters:
+    - file: inputzip
     - file: methylysis
   - caption: Feature analyses
     numbered: True
