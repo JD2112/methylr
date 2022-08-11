@@ -11,7 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
 
     steps:
       -
@@ -35,6 +35,6 @@ jobs:
         with:
           file: Dockerfile
           context: .
-          platforms: linux/amd64,linux/arm64,linux/ppc64le
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{secrets.DOCKER_USER}}/methylr-gh:latest
