@@ -15,6 +15,7 @@ parts:
     - file: genomicfeatures
     - file: pairwise
     - file: volcano
+    - file: chromosome
   - caption: Association study
     numbered: True
     chapters:
