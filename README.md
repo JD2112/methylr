@@ -38,9 +38,8 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 ### Web-server: 
 Go to the webserver and run the complete tool for different analysis - [methylr.research.liu.se](https://methylr.research.liu.se)
 
-
 ### Local use:
-$$\textcolor{red}{\text{NOTE: methylR has a RSA-encrypted signed docker container. To access it, please contact the developer.}}$$
+We provide a lite version for local use with Docker container. 
 
 ### Computational requirements
 - MacOS - AMD64, ARM64 (tested on Monterey 12.5)
@@ -68,6 +67,8 @@ Check the [manual for more details](https://methylr.netlify.app/intro.html)
 
 ## Workflow summaries
 ### Input dataset
+
+A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The dataset contains three samples in each group and it is solid tissues (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial*
 ### Component tools
 ### Third party tools/denpendencies
 
