@@ -29,7 +29,7 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 
 
 ## Diagram
-<img src = "https://raw.githubusercontent.com/JD2112/methylr/main/artworks/Flowchart.png?token=GHSAT0AAAAAABWAX777ACTONRMFVHUK5LJQYYDQCTA" width="200" height="400">
+<img src = "https://raw.githubusercontent.com/JD2112/methylr/main/artworks/Flowchart.png?token=GHSAT0AAAAAABWAX776B4ZMRWFZ2W6XMM7EYYDRDNQ" width="300" height="400">
 
 ## Test data
 1. All required test data except DNA methylation raw files, can be found [here](https://github.com/JD2112/methylr/tree/main/data)
@@ -84,7 +84,7 @@ A test dataset from a previously published result ([GSE207426](https://www.ncbi.
 10. upset analysis: [UpSetR](https://cran.r-project.org/web/packages/UpSetR/UpSetR.pdf)
 
 ## HELP/FAQ/Troubleshooting
-Please check [the manual](https://methylr.netlify.app/intro.html) for details. If you have additional problems, check the [google group](https://groups.google.com/g/methylr) or contact [the developer](mailto: methylr@googlegroups.com). 
+Please check [the manual](https://methylr.netlify.app/intro.html) for details. If you have additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(methylr@googlegroups.com). 
 
 ## License(s)
 [GNU-3 public license](https://www.gnu.org/licenses/gpl-3.0.en.html)
