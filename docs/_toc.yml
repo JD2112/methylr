@@ -34,4 +34,5 @@ parts:
     numbered: True
     chapters:
     - file: notebooks
-    - file: inputzip  
+    - file: inputzip
+    - file: calculationtime
