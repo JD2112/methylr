@@ -17,7 +17,10 @@ Please download the testdata from [here](https://github.com/JD2112/methylr)
 
 ### Local use
 *methylR* is packed into docker container that is available online. Singularity can also be used to run the docker container directly from terminal. 
-Please use the [github link](https://https://github.com/JD2112/methylr)
+Please check the [github link](https://https://github.com/JD2112/methylr) to run the container from your local computer.
+
+
+DISCLAIMER: All packages used in *methylr* are publicly avaible and open-source license. We have modified the source as required for *methylr*.  Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene) package {cite:p}`khan2017intervene`, we modified as required for *methylr*.
 
 ```{tableofcontents}
 ```
