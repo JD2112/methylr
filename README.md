@@ -29,7 +29,8 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 
 
 ## Diagram
-![flowchart](artworks/Flowchart.png)
+<img src = "https://raw.githubusercontent.com/JD2112/methylr/main/artworks/Flowchart.png?token=GHSAT0AAAAAABWAX776RJYBDHRNB2K4ASTGYYDGBYQ" width="200" height="400">
+
 ## Test data
 1. All required test data except DNA methylation raw files, can be found [here](https://github.com/JD2112/methylr/tree/main/data)
 2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
