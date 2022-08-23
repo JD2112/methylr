@@ -25,7 +25,7 @@
 
 ## Description
 For non-commercial Academic and Research purpose only! \
-Here we introduce methylR, a complete pipeline for the analysis of both 450K and EPIC Illumi-na arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
+Here we introduce methylR, a complete pipeline for the analysis of both 450K and EPIC Illumina arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
 
 
 ## Diagram
@@ -34,6 +34,10 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 
 ## Test data
 1. All required test data except DNA methylation raw files, can be found [here](https://github.com/JD2112/methylr/tree/main/data)
+    i. testDataFile1 - differentially methylated data file, can be used for gene features, Volcano plot, chromosome map, gene ontology and pathway enrichment analysis modules.
+    ii. testDataFile2 - normalized beta value data table, can be used for MDS, PCA plots. PCA plot requires additional group data information, 'groupData'.
+    iii. heatmapMatrix - heatmap matrix test data file added in the testdata directory.
+
 2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
 
 ## Quick start
@@ -70,7 +74,7 @@ Check the [manual for more details](https://methylr.netlify.app/intro.html)
 ## Workflow summaries
 ### Input dataset
 
-A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The dataset contains three samples in each group and it is solid tissues (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial*
+A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The test  dataset contains three samples in each group and the samples collected from solid tissue (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial*
 
 ### Component tools
 1. methylysis: [ChAMP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904520/); [minfi](https://academic.oup.com/bioinformatics/article/30/10/1363/267584?login=true)
