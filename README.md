@@ -34,9 +34,9 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 
 ## Test data
 1. All required test data except DNA methylation raw files, can be found [here](https://github.com/JD2112/methylr/tree/main/data) \
-    i. testDataFile1 - differentially methylated data file, can be used for gene features, Volcano plot, chromosome map, gene ontology and pathway enrichment analysis modules. \
-    ii. testDataFile2 - normalized beta value data table, can be used for MDS, PCA plots. PCA plot requires additional group data information, 'groupData'. \
-    iii. heatmapMatrix - heatmap matrix test data file added in the testdata directory.
+    i. **testDataFile1** - differentially methylated data file, can be used for gene features, Volcano plot, chromosome map, gene ontology and pathway enrichment analysis modules. \
+    ii. **testDataFile2** - normalized beta value data table, can be used for MDS, PCA plots. PCA plot requires additional group data information, 'groupData'. \
+    iii. **heatmapMatrix** - heatmap matrix test data file added in the testdata directory.
 
 2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
 
