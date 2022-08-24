@@ -1,0 +1,7 @@
+Sample_Name,Sample_Well,Sample_Plate,Sample_Group,Pool_ID,Sentrix_ID,Sentrix_Position,Condition,Treatment,Sex,Age,Tumor_classification
+Sample1,,,short_survival,2,205292900172,R02C01,methylated_MGMT,TMZ,Female,67,Glioblastoma_IDH_wildtype
+Sample2,,,short_survival,2,205292900172,R08C01,methylated_MGMT,TMZ,Male,70,Glioblastoma_IDH_wildtype
+Sample3,,,short_survival,3,205061410119,R01C01,methylated_MGMT,TMZ,Female,70,Glioblastoma_IDH_wildtype
+Sample4,,,long_survival,1,205134980122,R06C01,methylated_MGMT,TMZ,Male,69,Glioblastoma_IDH_wildtype
+Sample5,,,long_survival,4,205061400024,R02C01,methylated_MGMT,TMZ,Female,60,Glioblastoma_IDH_wildtype
+Sample6,,,long_survival,5,205061400067,R03C01,methylated_MGMT,TMZ,Female,66,Glioblastoma_IDH_wildtype
