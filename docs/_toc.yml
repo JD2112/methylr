@@ -33,6 +33,5 @@ parts:
   - caption: Appendices
     numbered: True
     chapters:
-    - file: notebooks
     - file: inputzip
     - file: calculationtime

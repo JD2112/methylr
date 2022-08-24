@@ -48,20 +48,11 @@ Go to the webserver and run the complete tool for different analysis - [methylr.
 We provide a lite version for local use with Docker container. 
 
 ### Computational requirements
-- MacOS - AMD64, ARM64 (tested on Monterey 12.5)
 - Linux - AMD64 (tested on Ubuntu 20.04)
 - Windows (not tested)
 - [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
 - [Docker](https://docs.docker.com/get-docker/) (latest only)
 
-**NOTE: multi-arch docker image available for* \
-*- linux/amd64,* \
-*- linux/arm64,* \
-*- linux/ppc64le,* \
-*- linux/s390x,* \
-*- linux/386,* \
-*- linux/arm/v7,* \
-*- linux/arm/v6.*
 
 ### Run from terminal
 ```
