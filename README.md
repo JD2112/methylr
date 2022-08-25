@@ -99,7 +99,7 @@ We are thankful to the Linköping University IT-division for providing the serve
 
 ## Citation
 
-We have submitted the manuscript to the journal and update here once it published.
+We have submitted the manuscript to the journal and update once it published.
 
 ## Credits
 Massimiliano Volpe, Jyotirmoy Das
