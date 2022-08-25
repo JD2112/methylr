@@ -35,3 +35,4 @@ parts:
     chapters:
     - file: inputzip
     - file: calculationtime
+    - file: faqs
