@@ -31,3 +31,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# Add binder path
+launch_buttons:
+  binderhub_url: "https://mybinder.org/v2/gh/JD2112/methylr/main?urlpath=docs"
