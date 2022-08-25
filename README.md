@@ -63,7 +63,12 @@ singularity run docker://jd21/methylr:latest
 Check the [manual for more details](https://methylr.netlify.app/intro.html)
 
 ## Workflow summaries
-### Input dataset
+
+### Prepare your input data for methylation analysis
+
+MethylR module mythylysis requires a zipped file as the input dataset that contains Illumina IDAT files and a Sample_sheet as CSV format (See details in the [manual](https://methylr.netlify.app/methylysis.html)). To ease the task for the user, we provided a bash script (['createInputZip.sh'](createInputZip.sh)) to make the input zip file with IDAT and sample_sheet files (See details in the [manual](https://methylr.netlify.app/inputzip.html)). 
+
+### Input test dataset
 
 A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The test  dataset contains three samples in each group and the samples collected from solid tissue (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *[Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial](https://www.frontiersin.org/articles/10.3389/fgene.2022.934519/abstract)* (Lysiak, M et al; 2022)
 
