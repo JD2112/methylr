@@ -60,7 +60,7 @@ singularity run docker://jd21/methylr:latest
 ```
 
 ## Step-by-step guide
-Check the [manual for more details](https://methylr.netlify.app/intro.html)
+Check the [manual for more details](https://methylr.netlify.app/intro.html). You can also find a complete PDF manual [here](MethylR-manual%20—%20DNA%20Methylation%20Data%20Analysis.pdf)
 
 ## Workflow summaries
 
