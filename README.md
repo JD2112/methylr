@@ -49,7 +49,7 @@ We provide a lite version for local use with Docker container.
 
 ### Computational requirements
 - Linux - AMD64 (tested on Ubuntu 20.04)
-- Windows (not tested)
+- MacOS/ Windows (not tested)
 - [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
 - [Docker](https://docs.docker.com/get-docker/) (latest only)
 
