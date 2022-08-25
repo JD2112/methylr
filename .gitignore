@@ -1,12 +1,2 @@
 .DS_Store
-.pem
-.pub
-.DS_Store
-*.pem
-*.pub
 .idea/*
-CalculationTime.xlsx
-FlowChart.pptx
-methylr-full/*
-methylr-lite/*
-methylr-pro/*
