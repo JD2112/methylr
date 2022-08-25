@@ -75,7 +75,7 @@ A test dataset from a previously published result ([GSE207426](https://www.ncbi.
 ### Component tools
 1. methylysis: [ChAMP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904520/); [minfi](https://academic.oup.com/bioinformatics/article/30/10/1363/267584?login=true)
 2. multi-D analysis: [MDS](https://rdrr.io/bioc/minfi/man/mdsPlot.html); [PCA](https://rdrr.io/cran/FactoMineR/)
-3. gene feature analysis: piechart
+3. gene feature analysis: [plotly](https://plotly.com/r/); piechart
 4. heatmap analysis: [heatmap.2](https://cran.r-project.org/web/packages/gplots/gplots.pdf); [d3heatmap](https://github.com/talgalili/d3heatmap)
 5. volcano plot: [plotly](https://plotly.com/r/)
 6. chromosome map: [chromPlot](https://bioconductor.org/packages/release/bioc/html/chromPlot.html)
@@ -85,13 +85,17 @@ A test dataset from a previously published result ([GSE207426](https://www.ncbi.
 10. upset analysis: [UpSetR](https://cran.r-project.org/web/packages/UpSetR/UpSetR.pdf)
 
 ## HELP/FAQ/Troubleshooting
-Please check [the manual](https://methylr.netlify.app/intro.html) for details. If you have additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(methylr@googlegroups.com). 
+Please check [the manual](https://methylr.netlify.app/intro.html) for details. 
+
+For additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(methylr@googlegroups.com).
+
+Please create [issues on github](https://github.com/JD2112/methylr-full/issues)
 
 ## License(s)
-[GNU-3 public license](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[GNU-3 public license - click to read details](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Acknowledgement
-We are thankful to the Linköping University IT-division for providing the server support to release the package. We would also like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.  
+We are thankful to the Linköping University IT-division for providing the server support to release the package online. We would also like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.  
 
 ## Citation
 
