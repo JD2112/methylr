@@ -1,7 +1,0 @@
-group
-short
-short
-short
-long
-long
-long
