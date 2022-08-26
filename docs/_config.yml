@@ -34,4 +34,4 @@ html:
 
 # Add binder path
 launch_buttons:
-  binderhub_url: "https://mybinder.org/v2/gh/JD2112/methylr/main?urlpath=docs"
+  binderhub_url: "https://mybinder.org/v2/gh/JD2112/methylr/main?labpath=docs"
