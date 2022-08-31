@@ -1,11 +1,11 @@
-if [[ ! -e tmp ]]; then
-    mkdir tmp
-elif [[ ! -d tmp ]]; then
-    rm -rf tmp/
+if [[ ! -e tempData ]]; then
+    mkdir tempData
+elif [[ ! -d tempData ]]; then
+    rm -rf tempData/
 fi
 
-find . -name '*.idat' -exec cp "{}" tmp \;
-cd tmp
+find . -name '*.idat' -exec cp "{}" tempData \;
+cd tempData
 
 if [[ ! -e idat ]]; then
     mkdir idat
@@ -17,10 +17,10 @@ mv *.idat idat/
 
 wait
 cd ..
-find . -name '*.csv' -exec cp "{}" tmp \;
+find . -name '*.csv' -exec cp "{}" tempData \;
 
 wait
-zip -r Data.zip tmp/
+zip -r Data.zip tempData/
 
 wait
-rm -rf tmp/
+rm -rf tempData/
