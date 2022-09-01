@@ -11,7 +11,7 @@ Here, in *methylR*, we presented a shiny-based web server approach to minimize t
 *methylR* has a dedicated web server to run all modules. 
 [methylr.research.liu.se](https://methylr.it.liu.se)
 
-Note: If you want to run with the test data, Please download the testdata from [https://sourceforge.net/projects/methylr/files/testData.zip/](https://sourceforge.net/projects/methylr/files/testData.zip)
+Note: If you want to run with the test data, Please download the testdata from [https://sourceforge.net/projects/methylr/files/testData.zip](https://sourceforge.net/projects/methylr/files/testData.zip)
 
 ### Local use
 *methylR* is packed into docker container that is available online. Singularity can also be used to run the docker container directly from terminal. 
