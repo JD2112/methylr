@@ -1,7 +1,7 @@
 group
-short
-short
-short
-long
-long
-long
+short_survival
+short_survival
+short_survival
+long_survival
+long_survival
+long_survival
