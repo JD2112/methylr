@@ -5,6 +5,11 @@ Epigenetic research has its roots in plant science, which emerged in the early 2
 To find the methylated site or the CpG site, Illumina(R) uses DNA methylation array-based technology. Till date three different array platforms are available from Illumina for human genome to identify the CpG site or specific DNA methylation location, namely 27K, 450K or 850K. A more detail history and timeline can be found here in this [article](https://www.frontiersin.org/articles/10.3389/fgene.2011.00074/full) by Harrison and Pari-McDermott (2011){cite:p}`harrison2011dna`. After performing the array, the major part is the analysis of the raw data generated from the machine. Numerous tools are available to analyze the data using different operating system, various computational languages. And all of these tools require extensive handling of computational resources. For the Biologist or those who have limited computational knowledge, it is extremely difficult to handle all these tools.
 
 Here, in *methylR*, we presented a shiny-based web server approach to minimize the above-mentioned difficulties. MethylR has graphical user interface to support and understand the various options used in the DNA methylation analysis with an extensive manual/tutorial how to use it. The background computational power depends on the user's computer which can also be optimized. We successfully tested the pipeline on Mac and Linux based system. 
+\
+![Figure 1](images/Figure1.png)\
+\
+![full_pipeline](images/full.gif)
+\
 
 ## How to Use
 ### Web server
