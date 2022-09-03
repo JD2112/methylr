@@ -54,6 +54,8 @@ We provide a lite version for local use with Docker container.
 - [Singularity](https://singularity-tutorial.github.io/01-installation/) (version >=3.7.1)
 - [Docker](https://docs.docker.com/get-docker/) (latest only)
 
+We built docker container that supported for follwing OS architectures 
+- linux/amd64,linux/arm64,linux/ppc64le,linux/arm/v7,linux/arm/v6,linux/s390x,linux/386
 
 ### Run from terminal
 ```
