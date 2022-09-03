@@ -23,7 +23,7 @@ Note: If you want to run with the test data, Please download the testdata from [
 Please check the [github link](https://github.com/JD2112/methylr) to run the container from your local computer.
 
 
-DISCLAIMER: All packages used in *methylr* are publicly available and open-source license. We have modified the source as required for *methylr*.  Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene) package {cite:p}`khan2017intervene`, we modified as required for *methylr*.
+DISCLAIMER: All packages used in *methylR* are publicly available and open-source license. We have modified the source as required for *methylR*.  Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene) package {cite:p}`khan2017intervene`, we modified as required for *methylR*.
 
 ```{tableofcontents}
 ```
