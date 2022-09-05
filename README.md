@@ -42,11 +42,9 @@ Here we introduce methylR, a complete pipeline for the analysis of both 450K and
 2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
 
 ## Quick start
-### Web-server: 
-Go to the webserver and run the complete tool for different analysis - [methylr.research.liu.se](https://methylr.research.liu.se)
 
 ### Local use:
-We provide a lite version for local use with Docker container. 
+We provide Docker container for local use. 
 
 ### Computational requirements
 - Linux - AMD64 (tested on Ubuntu 20.04)

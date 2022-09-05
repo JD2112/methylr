@@ -12,16 +12,14 @@ Here, in *methylR*, we presented a shiny-based web server approach to minimize t
 \
 
 ## How to Use
-### Web server
-*methylR* has a dedicated web server to run all modules. 
-[methylr.research.liu.se](https://methylr.it.liu.se)
-
-Note: If you want to run with the test data, Please download the testdata from [https://sourceforge.net/projects/methylr/files/testData.zip](https://sourceforge.net/projects/methylr/files/testData.zip)
 
 ### Local use
 *methylR* is packed into docker container that is available online. Singularity can also be used to run the docker container directly from terminal. 
 Please check the [github link](https://github.com/JD2112/methylr) to run the container from your local computer. \
 <span style="color:orange; font-size: 16px;">**For convenient analysis, after one complete analysis (either with *ChAMP* or *minfi*), close the browser (to clear the temporary memory) and start again.**</span>
+
+Note: If you want to run with the test data, Please download the testdata from [https://sourceforge.net/projects/methylr/files/testData.zip](https://sourceforge.net/projects/methylr/files/testData.zip)
+
 
 DISCLAIMER: All packages used in *methylR* are publicly available and open-source license. We have modified the source as required for *methylR*.  Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene) package {cite:p}`khan2017intervene`, we modified as required for *methylR*.
 
