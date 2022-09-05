@@ -96,7 +96,7 @@ Please create [issues on github](https://github.com/JD2112/methylr-full/issues)
 [GNU-3 public license - click to read details](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Acknowledgement
-We are thankful to the Linköping University IT-division for providing the server support to release the package online. We would also like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.  
+We would like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.  
 
 ## Citation
 
