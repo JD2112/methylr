@@ -57,7 +57,16 @@ We built docker container that supported for follwing OS architectures
 
 ### Run from terminal
 ```
+# with docker container
+docker run --rm -p 80:80 jd21/methylr:latest
 singularity run docker://jd21/methylr:latest
+
+# with singularity container
+singularity run library://jd2112/methylr/methylr:latest
+```
+*NOTE* If you have trouble running docker command to run the container, please use (mostly work for remote connection)
+```
+sudo docker run --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" jd21/methylr:latest
 ```
 
 ## Step-by-step guide
