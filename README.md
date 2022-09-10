@@ -8,7 +8,6 @@
 - [Diagram](#diagram)
 - [Quick start](#quick-starte)
     - [test data](#test-data)
-    - [web server](#web-server)
     - [local run](#local-use)
         - [requirements](#computational-requirements)
         - [run command](#run-from-terminal)
