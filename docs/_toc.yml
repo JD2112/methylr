@@ -34,5 +34,6 @@ parts:
     numbered: True
     chapters:
     - file: inputzip
+    - file: bedscript
     - file: calculationtime
     - file: faqs
