@@ -33,6 +33,7 @@ parts:
   - caption: Appendices
     numbered: True
     chapters:
+    - file: dockercontainer
     - file: inputzip
     - file: bedscript
     - file: calculationtime

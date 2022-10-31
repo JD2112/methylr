@@ -81,9 +81,9 @@ singularity run docker://jd21/methylr:latest
 #### Step:2 - web-browser
 Open the web-browser (check above for your OS), and type:
 ```
-localhost:3838
+https://localhost:3838
 ```
-*NOTE*: The follwing command can be run directly from Windows *PowerShell* or *CMD*, Ubuntu *terminal*, MacOS *terminal* or the docker image can run using the **Docker Desktop** as well. If you run using *terminal*, open the web-browser and type *localhost:3838* on the address bar. It will take few moments to load the entire app. Using the *Docker Desktop*, open the web-browser and type *localhost:3838* and wait till it loads the app. Please refresh the web-browser, if not loading (wait few minutes before refreshing the web-browser.)
+*NOTE*: The follwing command can be run directly from Windows *PowerShell* or *CMD*, Ubuntu *terminal*, MacOS *terminal* or the docker image can run using the **Docker Desktop** as well. If you run using *terminal*, open the web-browser and type *localhost:3838* on the address bar. It will take few moments to load the entire app. Using the *Docker Desktop*, open the web-browser and type *localhost:3838* and wait till it loads the app. Please refresh the web-browser, if not loading (wait few minutes before refreshing the web-browser). If you want to use the **Docker Desktop** to run the app, please follow the instrctions on the [manual]()
 
 
 ## Step-by-step guide
