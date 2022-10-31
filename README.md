@@ -72,7 +72,7 @@ We provide Docker container for local use.
 #### Step:1 - from terminal
 ```
 # with docker container
-docker run --rm -p 80:80 jd21/methylr:latest
+docker run --rm -p 3838:3838 jd21/methylr:latest
 
 # with singularity container
 singularity run docker://jd21/methylr:latest
@@ -83,7 +83,7 @@ Open the web-browser (check above for your OS), and type:
 ```
 https://localhost:3838
 ```
-*NOTE*: The follwing command can be run directly from Windows *PowerShell* or *CMD*, Ubuntu *terminal*, MacOS *terminal* or the docker image can run using the **Docker Desktop** as well. If you run using *terminal*, open the web-browser and type *localhost:3838* on the address bar. It will take few moments to load the entire app. Using the *Docker Desktop*, open the web-browser and type *localhost:3838* and wait till it loads the app. Please refresh the web-browser, if not loading (wait few minutes before refreshing the web-browser). If you want to use the **Docker Desktop** to run the app, please follow the instrctions on the [manual]()
+*NOTE*: The follwing command can be run directly from Windows *PowerShell* or *CMD*, Ubuntu *terminal*, MacOS *terminal* or the docker image can run using the **Docker Desktop** as well. If you run using *terminal*, open the web-browser and type *localhost:3838* on the address bar. It will take few moments to load the entire app. Using the *Docker Desktop*, open the web-browser and type *localhost:3838* and wait till it loads the app. Please refresh the web-browser, if not loading (wait few minutes before refreshing the web-browser). If you want to use the **Docker Desktop** to run the app, please follow the instructions on the [manual](https://methylr.netlify.app/dockercontainer.html)
 
 
 ## Step-by-step guide
@@ -93,7 +93,7 @@ Check the [manual for more details](https://methylr.netlify.app/intro.html). You
 
 ### Prepare your input data for methylation analysis
 
-*MethylR* module mythylysis requires a zipped file as the input dataset that contains Illumina IDAT files and a Sample_sheet as CSV format (See details in the [manual](https://methylr.netlify.app/methylysis.html)). To ease the task for the user, we provided a bash script (['createInputZip.sh'](createInputZip.sh)) to make the input zip file with IDAT and sample_sheet files (See details in the [manual](https://methylr.netlify.app/inputzip.html)). 
+*MethylR* module *mythylysis* requires a zipped file as the input dataset that contains Illumina IDAT files and a Sample_sheet as CSV format (See details in the [manual](https://methylr.netlify.app/methylysis.html)). To ease the task for the user, we provided a bash script (['createInputZip.sh'](createInputZip.sh)) to make the input zip file with IDAT and sample_sheet files (See details in the [manual](https://methylr.netlify.app/inputzip.html)). 
 
 ### Input test dataset
 
@@ -108,8 +108,8 @@ A test dataset from a previously published result ([GSE207426](https://www.ncbi.
 6. **chromosome map**: [chromPlot](https://bioconductor.org/packages/release/bioc/html/chromPlot.html)
 7. **gene ontology**: [clusterProfiler](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
 8. **pathway analysis**: [clusterProfiler](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
-9. **venn analysis**: [Vennerable](https://github.com/js229/Vennerable)
-10. **upset analysis**: [UpSetR](https://cran.r-project.org/web/packages/UpSetR/UpSetR.pdf)
+9. **venn analysis**: [Vennerable](https://github.com/js229/Vennerable); [intervene](https://intervene.shinyapps.io/intervene/)
+10. **upset analysis**: [UpSetR](https://cran.r-project.org/web/packages/UpSetR/UpSetR.pdf); [intervene](https://intervene.shinyapps.io/intervene/)
 
 ## Additional notes
 We provided an additional *python* script, *ChAMP2bed.py* for advanced users who want to visualize their DNA methylation results (from *ChAMP* workflow result) with additional annotation in [Integrative Genomics Viewer (IGV)](https://software.broadinstitute.org/software/igv/). Please check the [manual](https://methylr.netlify.app/bedscript.html) for more details.
@@ -117,7 +117,7 @@ We provided an additional *python* script, *ChAMP2bed.py* for advanced users who
 ## HELP/FAQ/Troubleshooting
 Please check [the manual](https://methylr.netlify.app/intro.html) for details. 
 
-For additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(methylr@googlegroups.com).
+For additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(mailto:methylr@googlegroups.com).
 
 Please create [issues on github](https://github.com/JD2112/methylr-full/issues)
 
