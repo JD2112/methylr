@@ -45,12 +45,12 @@ Here we introduce *methylR*, a complete pipeline for the analysis of both 450K a
 ### Local use:
 We provide Docker container for local use. 
 
-### Computational requirements/compatibility
-- **LinuxOS** - 
-    - *Ubuntu 20.04LTS* (AMD64)
+### Computational requirements/compatibility (AMD64 only)
+- **LinuxOS** - (AMD64)
+    - *Ubuntu 20.04LTS* 
     - *Docker* (version 20.10.18)
     - *web-browser*: *Firefox* (version 105)
-- **MacOS** 
+- **MacOS** - (AMD64)
     - *Monterey (version 12.5.1)* 
     - *Docker* (version 20.10.17)
     - *Docker Desktop* (version 4.12.0)
@@ -58,7 +58,7 @@ We provide Docker container for local use.
         - *Google Chrome* (version 106), 
         - *Firefox* (version 106), 
         - *Apple Safari* (version 15.6.1)
-- **WindowsOS** -
+- **WindowsOS** - (AMD64)
     - *Windows 10* (version 21H2)
     - *Docker* (version 20.10.20)
     - *Docker Desktop* (version 4.13.0)
