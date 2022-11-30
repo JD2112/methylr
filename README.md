@@ -68,6 +68,8 @@ We provide Docker container for local use.
         - Google Chrome (version 107), 
         - Microsoft Edge (version 106).
 
+NOTE: the ARM64 chipset architecture is actually not supported by methylR.
+
 ### Run the app
 #### Step:1 - from terminal
 ```

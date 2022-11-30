@@ -9,7 +9,31 @@ Here, in *methylR*, we presented a shiny-based web server approach to minimize t
 ![Figure 1](images/Figure1.png)\
 \
 ![full_pipeline](images/full.gif)
-\
+
+## Requirements
+- **LinuxOS** - (AMD64)
+    - *Ubuntu 20.04LTS* 
+    - *Docker* (version 20.10.18)
+    - *web-browser*: *Firefox* (version 105)
+- **MacOS** - (AMD64)
+    - *Monterey (version 12.5.1)* 
+    - *Docker* (version 20.10.17)
+    - *Docker Desktop* (version 4.12.0)
+    - *web-browsers*: 
+        - *Google Chrome* (version 106), 
+        - *Firefox* (version 106), 
+        - *Apple Safari* (version 15.6.1)
+- **WindowsOS** - (AMD64)
+    - *Windows 10* (version 21H2)
+    - *Docker* (version 20.10.20)
+    - *Docker Desktop* (version 4.13.0)
+    - *WSL2* - (**Ubuntu 20.04LTS**)
+    - web-browsers: 
+        - Firefox (version 106), 
+        - Google Chrome (version 107), 
+        - Microsoft Edge (version 106).
+        
+NOTE: the ARM64 chipset architecture is actually not supported by methylR.
 
 ## How to Use
 
