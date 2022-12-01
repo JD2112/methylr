@@ -1,11 +1,11 @@
-if [[ ! -e tempData ]]; then
-    mkdir tempData
-elif [[ ! -d tempData ]]; then
-    rm -rf tempData/
+if [[ ! -e noData ]]; then
+    mkdir noData
+elif [[ ! -d noData ]]; then
+    rm -rf noData/
 fi
 
-find . -name '*.idat' -exec cp "{}" tempData \;
-cd tempData
+find . -name '*.idat' -exec cp "{}" noData \;
+cd noData
 
 if [[ ! -e idat ]]; then
     mkdir idat
@@ -17,10 +17,12 @@ mv *.idat idat/
 
 wait
 cd ..
-find . -name '*.csv' -exec cp "{}" tempData \;
+find . -name '*.csv' -exec cp "{}" noData \;
 
 wait
-zip -r Data.zip tempData/
+rm Data.zip
+cd noData && zip -r "$OLDPWD/Data.zip" .
 
 wait
-rm -rf tempData/
+cd ..
+rm -rf noData/
