@@ -43,14 +43,14 @@ Here we introduce *methylR*, a complete pipeline for the analysis of both 450K a
 2. DNA methylation test data can be found [here](https://sourceforge.net/projects/methylr/files/testData.zip)
 
 ### Local use:
-We provide Docker container for local use. 
+We provide Docker container for local use. Please note, the docker container was built on AMD64 OS architecture to get the full functional capabilities of Shiny/R.
 
 ### Computational requirements/compatibility (AMD64 only)
 - **LinuxOS** - (AMD64)
     - *Ubuntu 20.04LTS* 
     - *Docker* (version 20.10.18)
     - *web-browser*: *Firefox* (version 105)
-- **MacOS** - (AMD64)
+- **MacOS** - (Intel, AMD64 only)
     - *Monterey (version 12.5.1)* 
     - *Docker* (version 20.10.17)
     - *Docker Desktop* (version 4.12.0)
@@ -68,10 +68,12 @@ We provide Docker container for local use.
         - Google Chrome (version 107), 
         - Microsoft Edge (version 106).
 
-NOTE: the ARM64 chipset architecture is actually not supported by methylR.
+**PLEASE NOTE: the ARM64 chipset architecture is actually not supported by *methylR*.**
 
-### Run the app
-#### Step:1 - from terminal
+### Run the app 
+
+#### Linux AMD64 OS architecture
+##### Step:1 - from terminal
 ```
 # with docker container
 docker run --rm -p 3838:3838 jd21/methylr:latest
@@ -80,13 +82,15 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
 singularity run docker://jd21/methylr:latest
 ```
 
-#### Step:2 - web-browser
+##### Step:2 - web-browser
 Open the web-browser (check above for your OS), and type:
 ```
 http://localhost:3838
 ```
-*NOTE*: The follwing command can be run directly from Windows *PowerShell* or *CMD*, Ubuntu *terminal*, MacOS *terminal* or the docker image can run using the **Docker Desktop** as well. If you run using *terminal*, open the web-browser and type *localhost:3838* on the address bar. It will take few moments to load the entire app. Using the *Docker Desktop*, open the web-browser and type *localhost:3838* and wait till it loads the app. Please refresh the web-browser, if not loading (wait few minutes before refreshing the web-browser). If you want to use the **Docker Desktop** to run the app, please follow the instructions on the [manual](https://methylr.netlify.app/dockercontainer.html)
 
+
+#### MacOS (Intel) and Windows AMD64 OS architecture
+**Please follow the [manual](https://methylr.netlify.app/dockercontainer.html)**. 
 
 ## Step-by-step guide
 Check the [manual for more details](https://methylr.netlify.app/intro.html). You can also find a complete PDF manual [here](MethylR-manual%20—%20DNA%20Methylation%20Data%20Analysis.pdf)
