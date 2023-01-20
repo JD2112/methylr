@@ -93,7 +93,7 @@ http://localhost:3838
 **Please follow the [manual](https://methylr.netlify.app/dockercontainer.html)**. 
 
 ## Step-by-step guide
-Check the [manual for more details](https://methylr.netlify.app/intro.html). You can also find a complete PDF manual [here](MethylR-manual%20—%20DNA%20Methylation%20Data%20Analysis.pdf)
+Check the [manual for more details](https://methylr.netlify.app/intro.html). You can also find a complete PDF manual [here](MethylR-manual%20—%20DNA%20Methylation%20Data%20Analysis.pdf).
 
 ## Workflow summaries
 
@@ -103,7 +103,7 @@ Check the [manual for more details](https://methylr.netlify.app/intro.html). You
 
 ### Input test dataset
 
-A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The test  dataset contains three samples in each group and the samples collected from solid tissue (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *[Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial](https://www.frontiersin.org/articles/10.3389/fgene.2022.934519/abstract)* (Lysiak, M et al; 2022)
+A test dataset from a previously published result ([GSE207426](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207426)) with RAW IDAT files for Illumina EPIC array can be found at [https://sourceforge.net/projects/methylr/](https://sourceforge.net/projects/methylr/). The test  dataset contains three samples in each group and the samples collected from solid tissue (will not work for 'Cell type heterogeneity'). More about the dataset can be found on the *[Methylome analysis for prediction of long and short-term survival in glioblastoma patients from the Nordic trial](https://www.frontiersin.org/articles/10.3389/fgene.2022.934519/abstract)* (Lysiak, M et al; 2022).
 
 ### Component tools
 1. **methylysis**: [ChAMP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3904520/); [minfi](https://academic.oup.com/bioinformatics/article/30/10/1363/267584?login=true)
@@ -125,13 +125,13 @@ Please check [the manual](https://methylr.netlify.app/intro.html) for details.
 
 For additional problems, check the [google group](https://groups.google.com/g/methylr) or contact the developer(mailto:methylr@googlegroups.com).
 
-Please create [issues on github](https://github.com/JD2112/methylr-full/issues)
+Please create [issues on github](https://github.com/JD2112/methylr-full/issues).
 
 ## License(s)
-[GNU-3 public license - click to read details](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[GNU-3 public license - click to read details](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Acknowledgement
-We would like to acknowledge the **Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden** and **Clinical Genomics Linköping, Science for Life Laboratory, Sweden** for their support.  
+We would like to acknowledge the **Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden** and **Clinical Genomics Linköping, Science for Life Laboratory, Sweden** for their support.
 
 ## Citation
 
