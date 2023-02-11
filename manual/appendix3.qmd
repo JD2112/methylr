@@ -1,0 +1,26 @@
+# Convert DMCs table to BED {#sec-bed}
+
+This section describes how to convert the DMCs table to standard BED format using the ChAMP2bed.py script.
+
+
+## Method
+Python3 must be installed on your system, no additional libraries are required. If your system lacks any python installation, please refer to this page: [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/).
+
+### Description
+To use ChAMP2bed.py open a terminal and move to the directory storing your main *methylR* results. ChAMP2bed.py must be in the same directory storing your DMCs table:
+
+![BED format: figure 1](_images/bed2.png)
+
+Run the command:
+
+```
+python3 ChAMP2bed.py myDMC_EPIC_BatchCorrected.txt
+```
+
+Or adjust with the actual filename for your table. It will produce a new file with the same filename from your table but with the *.bed* extension:
+
+![BED format: figure 2](_images/bed3.png)
+
+You can use this file as input for Gviz or import it either in IGV or as a custom track in any other genome browser. Be sure to match the proper genome version used to perform the analysis and to download the correct GTF/GFF3 file if you want to display the CpG (["blue"]{style="color: blue;"}) together with additional features, such as genes (["green"]{style="color: green;"}):
+
+![BED format: figure 3](_images/bed4.png)

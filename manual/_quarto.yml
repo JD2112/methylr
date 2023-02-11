@@ -1,0 +1,105 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "MethylR manual"
+  website:
+    site-url: "https://methylr.research.liu.se"
+    google-analytics: "G-FSXW2SG2XZ"
+  cover-image: cover.png
+  repo-url: https://github.com/JD2112/methylr
+  repo-actions: issue
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  subtitle: "methylR: from sequencer to publication"
+  margin-header: |
+    ![](_images/logo-final.png)
+  body-footer: "Copyright &copy; 2022-2023. Massimiliano Volpe and Jyotirmoy Das."
+  crossref:
+    appendix-title: "App."
+    appendix-delim: ":"
+  author:
+    - name: Massimiliano Volpe
+    - name: Jyotirmoy Das
+  chapters:
+    - index.qmd
+    - part: intro.qmd
+      chapters:
+        - methylysis.qmd
+    - part: feanaly.qmd
+      chapters:
+        - Multi_D_Analysis.qmd
+        - Gene_Features_analysis.qmd
+        - pairwise_analysis.qmd
+        - Volcano_plot.qmd
+        - Chromosome_plot.qmd
+    - part: assco.qmd
+      chapters:
+        - go_analysis.qmd
+        - pathway_analysis.qmd
+    - part: setana.qmd
+      chapters: 
+        - venn_analysis.qmd
+        - upset_plot.qmd
+  appendices:  
+    - appendix1.qmd
+    - appendix2.qmd
+    - appendix3.qmd
+    - appendix4.qmd
+    - appendix5.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    cover-image: cover.png
+    page-layout: article
+  epub:
+    cover-image: cover.png
+  pdf:
+    documentclass: scrreport
+    classoption: ["oneside", "open=any"]
+    cite-method: biblatex
+    biblatexoptions: 
+        - citestyle = authoryear
+    papersize: a4
+    number-sections: true
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    toccolor: 'blue'
+    lof: true
+    highlight-style: github
+    colorlinks: true
+    fig-pos: 'H'
+    fig-align: 'center'
+    titlepage-geometry:
+        - top=3in
+        - bottom=1in
+        - right=1in
+        - left=1in
+    title-bg-image: "logo-final.png"
+    title-bg-location: "UL"
+    title-bg-size: 0.5
+    keep-tex: true
+    template-partials:
+        - title.tex
+    include-in-header:
+          text: |
+            \usepackage[noblocks]{authblk}
+            \renewcommand*{\Authsep}{, }
+            \renewcommand*{\Authand}{, }
+            \renewcommand*{\Authands}{, }
+            \renewcommand\Affilfont{\small}
+    header-includes:
+      - \usepackage{fancyhdr}
+      - \usepackage{xcolor}
+      - \usepackage{iftex}
+      - \usepackage[english]{babel}
+      - \pagestyle{fancy}
+      - \fancyhead[RO, RE]{\url{https://github.com/JD2112/methylr}}
+      - \fancyfoot[RO, RE]{\color{violet} \textcopyright Volpe, M \& Das, J}
+

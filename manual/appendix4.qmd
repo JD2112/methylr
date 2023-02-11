@@ -1,0 +1,21 @@
+# Time calculation {#sec-calctime}
+
+Here we showed the calculation time of each process in *methylR* for both full and lite versions.
+
+| module    | processes | calculation time (mm:ss) |
+|-----------|-----------|--|
+| methylysis | local run - ChAMP   |  |
+|              | (params: BMIQ, batch correction, cores = 4) | 03:11 s|
+|   |  server run - ChAMP |   |
+|   |  (params: BMIQ, batch correction, cores = 2) | 03:10 s*  |
+|   |  local run - minfi |   |
+|   |  (params: raw, filters, cores = 4) | 04:01 s  |
+|   |  server run - minfi |   |
+|   | (params: raw, filters, cores = 2)  |  03:40 s |
+| multi-D  |   | 00:2 s  |
+| gene features |   |  00:02 s |
+| heatmap   |   |  00:01 s |
+| volcano  |   |  00:18 s |
+| chromosome  |   | 00:04 s  |
+| gene ontology  |   | 01:30 s  |
+| pathway analysis |   | 00:18 s  |
