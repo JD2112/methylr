@@ -4,9 +4,6 @@ project:
 
 book:
   title: "MethylR manual"
-  website:
-    site-url: "https://methylr.research.liu.se"
-    google-analytics: "G-FSXW2SG2XZ"
   cover-image: cover.png
   repo-url: https://github.com/JD2112/methylr
   repo-actions: issue
@@ -16,9 +13,6 @@ book:
   margin-header: |
     ![](_images/logo-final.png)
   body-footer: "Copyright &copy; 2022-2023. Massimiliano Volpe and Jyotirmoy Das."
-  crossref:
-    appendix-title: "App."
-    appendix-delim: ":"
   author:
     - name: Massimiliano Volpe
     - name: Jyotirmoy Das
