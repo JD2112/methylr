@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -148,7 +148,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -319,6 +319,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -326,7 +327,7 @@ div.csl-indent {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Gene Ontology is a very well-known method for accessing the functions of the gene identified through methylation analysis or expression analysis. Here in <em>methylR</em>, we used ontology analysis using the clusterProfiler package (latest version) <span class="citation" data-cites="yu2012clusterprofiler wu2021clusterprofiler">(<a href="references.html#ref-yu2012clusterprofiler" role="doc-biblioref">Yu et al. 2012</a>; <a href="references.html#ref-wu2021clusterprofiler" role="doc-biblioref">Wu et al. 2021</a>)</span>.</p>
+<p>Gene Ontology is a very well-known method for accessing the functions of the gene identified through methylation analysis or expression analysis. Here in <em>methylR</em>, we used ontology analysis using the <a href="https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html">clusterProfiler package</a> <span class="citation" data-cites="yu2012clusterprofiler wu2021clusterprofiler">(<a href="references.html#ref-yu2012clusterprofiler" role="doc-biblioref">Yu et al. 2012</a>; <a href="references.html#ref-wu2021clusterprofiler" role="doc-biblioref">Wu et al. 2021</a>)</span>.</p>
 <section id="how-to-use" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">7.1</span> How to use</h2>
 <section id="data-upload-parameters-setup" class="level3" data-number="7.1.1">
@@ -334,17 +335,17 @@ div.csl-indent {
 <section id="parameters-setup" class="level4" data-number="7.1.1.1">
 <h4 data-number="7.1.1.1" class="anchored" data-anchor-id="parameters-setup"><span class="header-section-number">7.1.1.1</span> Parameters setup</h4>
 <ol type="1">
-<li><em>Choose GO analysis type</em>: user can choose to do the analysis whether <strong>over-representation analysis</strong> or the <strong>gene-set enrichment analysis</strong> (GSEA) from the dropå-down menu.</li>
-<li><em>Select the adjusted p-value</em>: user can also choose the adjusted p-value for the analysis. Default is set to 0.05.</li>
+<li><em>Choose GO analysis type</em>: user can choose to do the analysis whether <strong>over-representation analysis</strong> or the <strong>gene-set enrichment analysis</strong> (GSEA) from the drop-down menu.</li>
+<li><em>Select the adjusted p-value</em>: user can also choose the adjusted <em>p</em>-value for the analysis. Default is set to 0.05.</li>
 <li><em>Select the adjusted q-value</em>: q-value or the FDR can also be adjusted as per user’s requirement. Default is 0.05.</li>
 <li><em>Select number of ontology classes</em>: to see the number of ontologies on the graph, user can setup different number. Default is 20.</li>
-<li><em>Select P-value adjustment method</em> As per clusterProfiler, we set different p-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.</li>
+<li><em>Select P-value adjustment method</em> As per clusterProfiler, we set different <em>p</em>-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.</li>
 <li><em>Select ontology class</em>: As defined in GO classification, we included all three ontology classes which user can select to show the plot.</li>
 </ol>
 </section>
 <section id="data-upload" class="level4" data-number="7.1.1.2">
 <h4 data-number="7.1.1.2" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">7.1.1.2</span> Data upload</h4>
-<p>At present, user can upload the DMC data produced by the main analysis ( see <em>methylysis</em> <a href="methylysis.html"><span>Chapter&nbsp;1</span></a> ) directly. The input file should be in a <strong>text (tab-delimited)</strong> format.</p>
+<p>At present, user can upload the DMC data produced by the main analysis (see <a href="methylysis.html"><span>Chapter&nbsp;1</span></a> ) directly. The input file should be in a <strong>text (tab-delimited)</strong> format.</p>
 </section>
 </section>
 </section>
@@ -488,7 +489,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -524,24 +542,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

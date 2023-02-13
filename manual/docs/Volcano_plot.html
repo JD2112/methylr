@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -299,6 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -306,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical p-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner. Here with <em>methylR</em>, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective p-values (adjusted p-values) and the logFC (or mean methylation difference).</p>
+<p>Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical <em>p</em>-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner. Here with <em>methylR</em>, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective <em>p</em>-values (adjusted <em>p</em>-values) and the logFC (or mean methylation difference).</p>
 <section id="how-to-use" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">5.1</span> How to use</h2>
 <section id="data-upload-parameters-setup" class="level3" data-number="5.1.1">
@@ -314,10 +315,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-upload" class="level4" data-number="5.1.1.1">
 <h4 data-number="5.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">5.1.1.1</span> Data upload</h4>
 <ol type="1">
-<li>User needs to upload a text (tab-delimited) file with adjusted p-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (<em>methylysis</em> section <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
-<li>To setup the adjusted p-value, user can change the cut-off. Default is setup to 0.01.</li>
+<li>User needs to upload a <strong>Tab</strong> (.txt) file with adjusted <em>p</em>-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (see <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
+<li>To setup the adjusted <em>p</em>-value, user can change the cut-off. Default is setup to 0.01.</li>
 <li>LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.</li>
-<li>After the file upload and setting up the cut-off for adjusted P-value and logFC, click the “Run Analysis” button.</li>
+<li>After the file upload and setting up the cut-off for adjusted <em>p</em>-value and logFC, click the “Run Analysis” button.</li>
 </ol>
 </section>
 </section>
@@ -327,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="volcano-plot" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="volcano-plot"><span class="header-section-number">5.2.1</span> Volcano plot</h3>
 <ol type="1">
-<li>The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure <a href="appendix4.html">See Chapter&nbsp;<span>D</span></a>. It is noteworthy that this big data in volcano plot, may be unstable in the browser.</li>
+<li>The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). It is noteworthy that this big data in volcano plot, may be unstable in the browser.</li>
 <li>User can download the plot as figure (same as before) and the dynamic figure as a html file.<br>
 </li>
 </ol>
@@ -364,7 +365,7 @@ Tip
 </div>
 </div>
 <ol start="3" type="1">
-<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (<em>methylysis</em> <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
+<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
 </ol>
 </section>
 <section id="volcano-data" class="level3" data-number="5.2.2">
@@ -436,7 +437,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -472,24 +490,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

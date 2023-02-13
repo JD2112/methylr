@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -147,7 +147,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -302,6 +302,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -343,6 +344,13 @@ Hansen. 2014. <span>“Functional Normalization of 450k Methylation Array
 Data Improves Replication in Large Cancer Studies.”</span> <em>Genome
 Biology</em> 15 (11): 1–17.
 </div>
+<div id="ref-Gillespie2021" class="csl-entry" role="doc-biblioentry">
+Gillespie, Marc, Bijay Jassal, Ralf Stephan, Marija Milacic, Karen
+Rothfels, Andrea Senff-Ribeiro, Johannes Griss, et al. 2021.
+<span>“<span class="nocase">The reactome pathway knowledgebase
+2022</span>.”</span> <em>Nucleic Acids Research</em> 50 (D1): D687–92.
+<a href="https://doi.org/10.1093/nar/gkab1028">https://doi.org/10.1093/nar/gkab1028</a>.
+</div>
 <div id="ref-harrison2011dna" class="csl-entry" role="doc-biblioentry">
 Harrison, Alan, and Anne Parle-McDermott. 2011. <span>“DNA Methylation:
 A Timeline of Methods and Applications.”</span> <em>Frontiers in
@@ -359,6 +367,11 @@ Cell Mixture Distribution.”</span> <em>BMC Bioinformatics</em> 13 (1):
 Johnson, W Evan, Cheng Li, and Ariel Rabinovic. 2007. <span>“Adjusting
 Batch Effects in Microarray Expression Data Using Empirical Bayes
 Methods.”</span> <em>Biostatistics</em> 8 (1): 118–27.
+</div>
+<div id="ref-Kanehisa2000" class="csl-entry" role="doc-biblioentry">
+Kanehisa, Minoru, and Susumu Goto. 2000. <span>“<span class="nocase">KEGG: Kyoto Encyclopedia of Genes and
+Genomes</span>.”</span> <em>Nucleic Acids Research</em> 28 (1): 27–30.
+<a href="https://doi.org/10.1093/nar/28.1.27">https://doi.org/10.1093/nar/28.1.27</a>.
 </div>
 <div id="ref-khan2017intervene" class="csl-entry" role="doc-biblioentry">
 Khan, Aziz, and Anthony Mathelier. 2017. <span>“Intervene: A Tool for
@@ -382,6 +395,11 @@ Maksimovic, Jovana, Lavinia Gordon, and Alicia Oshlack. 2012.
 Infinium HumanMethylation450 BeadChips.”</span> <em>Genome Biology</em>
 13 (6): 1–12.
 </div>
+<div id="ref-martens2020nar" class="csl-entry" role="doc-biblioentry">
+Martens, Marvin, Ammar Ammar, Anders Riutta, Andra Waagmeester, Denise N
+Slenter, Kristina Hanspers, Ryan A. Miller, et al. 2020. <span>“<span class="nocase">WikiPathways: connecting communities</span>.”</span>
+<em>Nucleic Acids Research</em> 49 (D1): D613–21. <a href="https://doi.org/10.1093/nar/gkaa1024">https://doi.org/10.1093/nar/gkaa1024</a>.
+</div>
 <div id="ref-moore2013dna" class="csl-entry" role="doc-biblioentry">
 Moore, Lisa D, Thuc Le, and Guoping Fan. 2013. <span>“DNA Methylation
 and Its Basic Function.”</span> <em>Neuropsychopharmacology</em> 38 (1):
@@ -390,6 +408,11 @@ and Its Basic Function.”</span> <em>Neuropsychopharmacology</em> 38 (1):
 <div id="ref-mugavin2008multidimensional" class="csl-entry" role="doc-biblioentry">
 Mugavin, Marie E. 2008. <span>“Multidimensional Scaling: A Brief
 Overview.”</span> <em>Nursing Research</em> 57 (1): 64–68.
+</div>
+<div id="ref-pico2008plos" class="csl-entry" role="doc-biblioentry">
+Pico, Thomas AND van Iersel, Alexander R AND Kelder. 2008.
+<span>“WikiPathways: Pathway Editing for the People.”</span> <em>PLOS
+Biology</em> 6 (7): 1–4. <a href="https://doi.org/10.1371/journal.pbio.0060184">https://doi.org/10.1371/journal.pbio.0060184</a>.
 </div>
 <div id="ref-skolnick2000structural" class="csl-entry" role="doc-biblioentry">
 Skolnick, Jeffrey, Jacquelyn S Fetrow, and Andrzej Kolinski. 2000.
@@ -473,7 +496,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -509,24 +549,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

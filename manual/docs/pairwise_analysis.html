@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -299,6 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -311,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="4.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">4.1</span> How to use</h2>
 <section id="upload" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="upload"><span class="header-section-number">4.1.1</span> Upload</h3>
-<p>User can upload the input data matrix in CSV, text or semicolon-separated format. If you don’t have the matrix, this modules provides the functionality to make it starting from the main results coming from <em>methylysis</em> (<a href="methylysis.html">see chapter&nbsp;<span>1</span></a>). Either ChAMP and minfi will provide the input data or you can get test data by clicking on “Matrix example data” and “List example data” buttons. For a better view of the result, we added the functionality to change the number of variables on the heatmap.</p>
+<p>User can upload the input data matrix in <strong>Tab</strong> (.txt) or <strong>Comma</strong> (.csv) or <strong>Semicolon</strong> (.csv but with ;) separated format. If you don’t have the matrix, this modules provides the functionality to make it starting from the main results coming from <em>methylysis</em> (see <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>). Either ChAMP and minfi will provide the input data or you can get test data by clicking on “Matrix example data” and “List example data” buttons. For a better view of the result, we added the functionality to change the number of variables on the heatmap.</p>
 </section>
 <section id="settings" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="settings"><span class="header-section-number">4.1.2</span> Settings</h3>
@@ -333,7 +334,7 @@ Important
 </div>
 </div>
 <ol start="3" type="1">
-<li><strong>Agglomeration method for hclust</strong> - different agglomeration method for hierarchical cluster analysis provided in the module, 1) war.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7) Median, and 8) Centroid. Default chosen ‘Complete’.</li>
+<li><strong>Agglomeration method for hclust</strong> - different agglomeration method for hierarchical cluster analysis provided in the module, 1) ward.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7) Median, and 8) Centroid. Default chosen ‘Complete’.</li>
 <li><strong>No.&nbsp;of clusters for hclust</strong> - user can set the number of hierarchical cluster for their data. Default is 3.</li>
 <li><strong>Distance Matrix computation</strong> - different types of distance matrix calculation can be applied to generate the heatmap, 1) Euclidean, 2) Manhattan, 3) Canberra, 4) Minkowski or 5) none. Default is ‘Euclidean’.</li>
 <li><strong>Dendrogram</strong> - user can choose to show the dendrogram on the row and/or column list.</li>
@@ -382,7 +383,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>** Correlation plot** - for correlation plot, please adjust the ‘Settings’, ‘Plot type’ to <strong><em>Corrplot</em></strong> and ‘Correlation Coefficient’ to <strong><em>Pearson/Spearman/Kendall</em></strong>.</p>
+<p><strong>Correlation plot</strong> - for correlation plot, please adjust the ‘Settings’, ‘Plot type’ to <strong><em>Corrplot</em></strong> and ‘Correlation Coefficient’ to <strong><em>Pearson/Spearman/Kendall</em></strong>.</p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -470,7 +471,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -506,24 +524,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

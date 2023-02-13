@@ -1,7 +1,7 @@
 # Venn analysis {#sec-venn}
 ^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
 
-Venn analysis can be performed to show the logical relation between sets. In this module, user will need two or more analyses (max 6 datasets) to perform the Venn analysis.
+Venn analysis can be performed to show the logical relation between sets. In this module, user will need two or more analyses (max 6 datasets) to perform the Venn analysis. We adopt the part from [intervene](https://github.com/asntech/intervene) [@khan2017intervene] application and modified as required for *methylR* use.
 
 ## How to use
 Below given the details for the use of Venn analysis module.
@@ -26,7 +26,7 @@ Below given the details for the use of Venn analysis module.
 
     iv. *Border line type*: border line type can be selected from the drop-down menu.
 
-    v. *zoom in/out Venn diagram*: select the zoom option on the slide bar.
+    v. *Zoom in/out Venn diagram*: select the zoom option on the slide bar.
 
 3. *Font & Color*: multiple ooptions are included for font and colours -
 
@@ -37,7 +37,7 @@ Below given the details for the use of Venn analysis module.
     iii. *Number font size*: Change the font size of the number.
 
 ## Results
-User can download the figure in different format.
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
 ![Venn Result](_images/Venndiag.png)
 

@@ -1,0 +1,214 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Acknowledgements}{4}{chapter*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{\numberline {I}Welcome to methylR: DNA Methylation Data Analysis Pipeline}{5}{part.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Requirements}{7}{section*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{How to Use}{8}{section*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{Local use}{8}{section*.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Methylysis}{9}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}How to use}{10}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.1}Data upload \& Parameters setup}{10}{subsection.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.2}Structure of sample\_sheet.csv}{10}{subsection.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Parameters setup}{10}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}Choose analysis algorithm}{10}{subsection.1.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.1.1}\textbf {ChAMP pipeline parameters}}{11}{subsubsection.1.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.1.2}\textbf {Minfi pipeline parameters}}{14}{subsubsection.1.2.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Technical setup:}{15}{section.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Requirement for data upload}{16}{section.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{\numberline {II}Feature Analysis}{17}{part.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Multi-D Analysis}{18}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}How to use}{18}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.1}Data Upload}{18}{subsection.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Analysis result}{19}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}MDS plot}{19}{subsection.2.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}PCA plot}{19}{subsection.2.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}R packages used}{20}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Gene Features analysis}{22}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}How to use}{22}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Data upload \& Parameters setup}{22}{subsection.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.1.1.1}Data upload}{22}{subsubsection.3.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Gene Features Analysis Result}{23}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Gene Feature Plot}{23}{subsection.3.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Gene Feature Table}{23}{subsection.3.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}R packages used}{24}{section.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Pairwise analysis (Heatmap)}{25}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}How to use}{25}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Upload}{25}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Settings}{25}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.3}Font \& Color}{26}{subsection.4.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.4}Matrix preparation}{26}{subsection.4.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Analysis result}{27}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}R packages used}{29}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Volcano plot}{31}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}How to use}{31}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1.1}Data upload \& Parameters setup}{31}{subsection.5.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {5.1.1.1}Data upload}{31}{subsubsection.5.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Analysis result}{31}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Volcano plot}{31}{subsection.5.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Volcano data}{33}{subsection.5.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}R packages used}{33}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Chromosome plot}{34}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}How to use}{34}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1.1}Data upload \& Parameters setup}{34}{subsection.6.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1.1}Data upload}{34}{subsubsection.6.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Analysis result}{35}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2.1}Chromosome plot}{35}{subsection.6.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}R packages}{36}{section.6.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{\numberline {III}Association Study}{37}{part.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Gene Ontology (GO) enrichment analysis}{38}{chapter.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}How to use}{38}{section.7.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1.1}Data upload \& Parameters setup}{38}{subsection.7.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {7.1.1.1}Parameters setup}{38}{subsubsection.7.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {7.1.1.2}Data upload}{39}{subsubsection.7.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Analysis result}{39}{section.7.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2.1}Biological processes}{39}{subsection.7.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2.2}Cellular component}{40}{subsection.7.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2.3}Molecular function}{40}{subsection.7.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}R packages used}{41}{section.7.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {8}Pathway enrichment analysis}{42}{chapter.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.1}How to use}{42}{section.8.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {8.1.1}Data upload \& Parameters setup}{42}{subsection.8.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.1.1.1}Data upload}{42}{subsubsection.8.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.1.1.2}Parameters setup}{42}{subsubsection.8.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.2}Analysis result}{43}{section.8.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.3}R packages used}{45}{section.8.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{\numberline {IV}Set Analysis}{46}{part.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {9}Venn analysis}{47}{chapter.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.1}How to use}{47}{section.9.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.1.1}Data upload \& Parameters setup}{47}{subsection.9.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {9.1.1.1}Parameters setup}{47}{subsubsection.9.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.2}Results}{48}{section.9.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.3}R packages used}{49}{section.9.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {10}UpSet Plots}{50}{chapter.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10.1}How to use}{50}{section.10.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.1.1}Data upload}{50}{subsection.10.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {10.1.2}Parameters setup}{51}{subsection.10.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10.2}Result}{52}{section.10.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10.3}R packages used}{52}{section.10.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{Appendices}{52}{Item.138}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Create the input zip file for \emph {methylR}}{53}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}Methods}{53}{section.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.1.1}Description}{53}{subsection.A.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}1. Windows zip utility (Windows 7, 8, 10, 11)}{54}{section.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.3}2. 7-zip utility (Windows 7, 8, 10, 11)}{55}{section.A.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}3. Bash script (MacOS/Linux)}{56}{section.A.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.4.1}Linux:}{56}{subsection.A.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.4.2}MacOS:}{56}{subsection.A.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.5}4. Command line (Linux)}{57}{section.A.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Use of Docker Container}{58}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}On Windows}{58}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}On MacOS}{60}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.3}On Linux (Ubuntu 20.04LTS)}{61}{section.B.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}Convert DMCs table to BED}{62}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.1}Method}{62}{section.C.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {C.1.1}Description}{62}{subsection.C.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {D}Time calculation}{64}{appendix.D}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {E}FAQs/Troubleshooting}{65}{appendix.E}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {E.1}Troubleshooting}{65}{section.E.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{References}{66}{chapter*.39}%

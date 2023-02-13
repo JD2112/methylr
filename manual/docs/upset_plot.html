@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -129,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -296,6 +315,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -303,7 +323,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>UpSet plot will show the relation between different sets.</p>
+<p>UpSet plot will show the relation between different sets. We adopt the part from <a href="https://github.com/asntech/intervene">intervene</a> <span class="citation" data-cites="khan2017intervene">(<a href="references.html#ref-khan2017intervene" role="doc-biblioref">Khan and Mathelier 2017</a>)</span> application and modified as required for <em>methylR</em> use.</p>
+<section id="how-to-use" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">10.1</span> How to use</h2>
+<section id="data-upload" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">10.1.1</span> Data upload</h3>
+<ol type="1">
+<li><p><em>Upload</em>: Data can be uploaded as <strong>Tab</strong> (.txt) or <strong>Comma</strong> (.csv) or <strong>Semicolon</strong> (.csv but with ;) separated format. Please look into the example data file. A demo test dataset is running by default and it is available for download by clicking on the “List example data” button. UpSet module takes three types of inputs.</p>
+<ol type="i">
+<li><em>List type data</em>: List data is a correctly formatted csv/text file, with lists of names. Each column represents a set, and each row represents an element (names/gene/SNPs). Header names (first row) will be used as set names.</li>
+<li><em>Binary type data</em>: In the binary input file each column represents a set, and each row represents an element. If a names is in the set then it is represented as a 1, else it is represented as a 0.</li>
+<li><em>Combination/expression type data:</em> Combination/expression type data is the possible combinations of set intersections.</li>
+</ol></li>
+</ol>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -317,18 +349,6 @@ Note
 <p>PLEASE NOTE: <strong><em>“OR enter set combinations/expression”</em></strong> has the priority over <strong>“Upload file”</strong>. If you use the “set combinations”, and then want to “upload file”, please remove the “set combination” from the input box. To see how the “OR enter set combinations/expression” works, please use the example below the box (not the list/binary example file).</p>
 </div>
 </div>
-<section id="how-to-use" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">10.1</span> How to use</h2>
-<section id="data-upload" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">10.1.1</span> Data upload</h3>
-<ol type="1">
-<li><p><em>Upload</em>: Data can be uploaded as <strong>Tab</strong> (.txt) or <strong>Comma</strong> (.csv) or <strong>Semicolon</strong> (.csv but with ;) separated format. Please look into the example data file. A demo test dataset is running by default and it is available for download by clicking on the “List example data” button. UpSet module takes three types of inputs.</p>
-<ol type="i">
-<li><em>List type data</em>: List data is a correctly formatted csv/text file, with lists of names. Each column represents a set, and each row represents an element (names/gene/SNPs). Header names (first row) will be used as set names.</li>
-<li><em>Binary type data</em>: In the binary input file each column represents a set, and each row represents an element. If a names is in the set then it is represented as a 1, else it is represented as a 0.</li>
-<li><em>Combination/expression type data:</em> Combination/expression type data is the possible combinations of set intersections.</li>
-</ol></li>
-</ol>
 </section>
 <section id="parameters-setup" class="level3" data-number="10.1.2">
 <h3 data-number="10.1.2" class="anchored" data-anchor-id="parameters-setup"><span class="header-section-number">10.1.2</span> Parameters setup</h3>
@@ -370,16 +390,20 @@ Note
 </ol></li>
 <li><p><em>Font &amp; Color</em>: multiple options are included for font and colours -</p>
 <ol type="i">
-<li><p><em>Select color theme</em>: Colour theme can be chosen from the drop-down menu.</p></li>
-<li><p><em>Label font size</em>: Change the font size of the Label.</p></li>
-<li><p><em>Number font size</em>: Change the font size of the number.</p></li>
+<li><p><em>Select main bar colour</em>: Change colour of the bars of intersection size.</p></li>
+<li><p><em>Select set bar colour</em>: Change the set bar colour on the side (set).</p></li>
+<li><p><em>Font size of intersection size label</em>: Change the font size of the intersection size.</p></li>
+<li><p><em>Set size label font</em>: Change the font size of the set label.</p></li>
+<li><p><em>Set size ticks font</em>: Change the tick size (numerical value) on the set size bar.</p></li>
+<li><p><em>Intersection size numbers font size</em>: Change the tick size (numerical value) on the intersection set bar.</p></li>
+<li><p><em>Set names font size</em>: Change the font size for the set names.</p></li>
 </ol></li>
 </ol>
 </section>
 </section>
 <section id="result" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="result"><span class="header-section-number">10.2</span> Result</h2>
-<p>User can download the figure in different format.</p>
+<p>User can download the figure in different format, PDF, PNG, SVG or TIFF.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="_images/upset.png" class="img-fluid figure-img"></p>
@@ -395,6 +419,11 @@ Note
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-khan2017intervene" class="csl-entry" role="doc-biblioentry">
+Khan, Aziz, and Anthony Mathelier. 2017. <span>“Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.”</span> <em>BMC Bioinformatics</em> 18 (1): 1–8.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -445,7 +474,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -481,24 +527,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

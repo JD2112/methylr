@@ -4,11 +4,11 @@ Those are alternative pipelines and, although the user has the freedom to decide
 Both pipelines offer different input options and parameters that can be modified based on the user's actual data. If users wish to compare the results from both the pipelines, *methylR* offers this possibility through the downstream processing (Venn Analysis see @sec-venn and UpSet Plot see @sec-upset sections).
 
 ::: {.callout-tip}
-1. After uploading the zip file [See Appendix @sec-inputzip, how to create the zip file], the pipeline will start automatically by displaying the notification ["Computing methylysis, please wait..."]{style="color: teal;"} \textcolor{teal}{"Computing methylysis, please wait..."}. When the notification turns off, the user can go to different tabs to display the result. Please wait 5-10 seconds (see Chapter @sec-calctime: Calculation Time for each process) to display the result on the tab. Depending on the sample size, it may requires more time to display properly. 
+1. After uploading the zip file [See Appendix @sec-inputzip, how to create the zip file], the pipeline will start automatically by displaying the notification ["Computing methylysis, please wait..."]{style="color: teal;"} \textcolor{teal}{"Computing methylysis, please wait..."}. When the notification turns off, the user can go to different tabs to display the result. Please wait 5-10 seconds (see @sec-calctime, *Calculation Time for each process*) to display the result on the tab. Depending on the sample size, it may requires more time to display properly. 
 :::
 
 ::: {.callout-tip}
-2. If the *methylysis* page goes ["dim/disconnected"]{style="color: gray;"}\textcolor{gray}{dim/disconnected}, the analysis may encounter some errors during the run and the program stops working. Please refresh the page and run the same analysis again with different filters. Example, for ChAMP pipeline, if the user selects the  "adjusted P-value" = 0.05 (as default), may be for the sample data, there is no differentially methylated CpGs at that value. Please change the adjusted P-value (recommend to set it at 1, and check the table after the run that what is appropriate cut-off) and run the pipeline again.
+2. If the *methylysis* page goes ["dim/disconnected"]{style="color: gray;"}\textcolor{gray}{dim/disconnected}, the analysis may encounter some errors during the run and the program stops working. Please refresh the page and run the same analysis again with different filters/parameters. Example, for ChAMP pipeline, if the user selects the  "adjusted P-value" = 0.05 (as default), may be for the sample data, there is no differentially methylated CpGs at that value. Please change the adjusted P-value (recommend to set it at 1, and check the table after the run that what is appropriate cut-off) and run the pipeline again.
 :::
 
 ## How to use
@@ -42,7 +42,7 @@ Currently, we have included two most usable algorithms to analyze the data - ChA
 #### **ChAMP pipeline parameters**
 
 ::: {.callout-note}
-**PLEASE NOTE**: ChAMP will do all filtration automatically, independent of User's input. The following filtration will be done - \
+**PLEASE NOTE**: ChAMP process will do all filtration automatically, independent of User's input. The following filtration will be done - \
 i. *filtering probes with detection p-value > 0.01*, \
 ii. *filter out probes with <3 beads in at least 5% of samples per probe*, \
 iii. *filter all non-CpG probes* \
@@ -59,11 +59,20 @@ vi. *filter all probes located in X and Y chromosomes*
     - BMIQ (Beta-Mixture Quantile Normalization) [@teschendorff2013beta],
     - PBC (Peak-Based Correction) [@dedeurwaerder2011evaluation],
 
-The default setup will run with the BMIQ normalization method. Please check references for different type of normalization method
+The default setup will run with the BMIQ normalization method. 
 
-4. *Batch Effect Correction*: *ComBat* function is used to correct the batch effect. User can choose whether to compute the batch effect or not by clicking the button. When the button is ["green"]{style="color: green;"} \textcolor{green}{green} (ON), it will prompt to select the factors for the batch effect correction, Slide, Array, Age, Sex, or Other. Select as necessary and should have the column in the Sample_sheet. If you have other option than Slide, Array, Age or Sex, rename the column as **'Other'** and run batch effect correction. If the button is ["red"]{style="color: red;"} \textcolor{red}{red} (OFF), the pipeline will continue without analyzing the batch effect. Please check the reference for the batch effect correction using combat method [@johnson2007adjusting].
+:::{.callout-tip}
+Please check references for different type of normalization method. 
+:::
 
-5. *Cell Type Heterogeneity*: Houseman et al (2013) [@houseman2012dna] algorithm is applied to calculate the cell-type heterogeneity from PBMC dataset using the *refbase* function. This is deactivated as default. Press the button to activate and run during the analysis. \
+4. *Batch Effect Correction*: *ComBat* function is used to correct the batch effect. User can choose whether to compute the batch effect or not by clicking the button. When the button is ["green"]{style="color: green;"} \textcolor{green}{green} (**ON**), it will prompt to select the factors for the batch effect correction, *Slide*, *Array*, *Age*, *Sex*, or *Other*. Select as necessary and should have the column in the Sample_sheet (check the Sample_sheet in the testdata set). If you have other option than *Slide*, *Array*, *Age*, or *Sex*, rename the column as **'Other'** and run batch effect correction. \
+If the button is ["red"]{style="color: red;"} \textcolor{red}{red} (**OFF**), the pipeline will continue without analyzing the batch effect. 
+
+:::{.callout-tip}
+Please check the reference for the batch effect correction using combat method [@johnson2007adjusting].
+:::
+
+5. *Cell Type Heterogeneity*: Houseman et al (2013) [@houseman2012dna] algorithm is applied to calculate the cell-type heterogeneity from PBMC (*Peripheral Bllod Mononuclear Cells*) dataset using the *refbase* function. This is deactivated as default. Press the button to activate and run during the analysis. \
 
 ![ChAMP parameters setup](_images/methylysis_02.png)
 
@@ -80,19 +89,17 @@ The default setup will run with the BMIQ normalization method. Please check refe
 
 3. *Compute cell type heterogeneity*: similar as ChAMP, we used Houseman method to correct the cell type heterogeneity. In minfi pipeline we used default minfi function *estimateCellCounts*. As before, user can choose to avoid this if the samples are not from PBMC cell types.
 
-4. *Please select the compare groups*: In this option, the pipeline will ask the user to type the group names which will be compared for the differential methylation analysis. To compute the ContrastsMatrix, these group names will be used. Please use the same groups as provide in the Sample_sheet.csv.
-
-5. *Choose genome annotation database*: To annotate the DMC list from the analysis, use the human genome reference annotation data file. For 850K array, make sure to use the hg38 array to compare the result with the output of ChAMP pipeline. \
+4. *Choose genome annotation database*: To annotate the DMC list from the analysis, use the human genome reference annotation data file. For 850K array, make sure to use the hg38 array to compare the result with the output of ChAMP pipeline. \
 
 ![Minfi parameters setup](_images/methylysis_03.png)
 
 ## Technical setup:
 Both pipelines require the user to set the following technical parameters:
 
-1. *Number of cores*: Both pipeline can run on 1 core which will take more time to compute the entire process. User can choose to setup the number of cores depending the availability. The default is set to 1 core and maximum is 4 cores.
+1. *Number of cores*: Both pipeline can run on 1 core which will take more time to compute the entire process. User can choose to setup the number of cores depending the availability. The default is set to 1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.
 
 ::: {.callout-note}
-Multithreading for DNA methylation analysis is mainly used in the **Normalization** process. If you have data with more than 50 samples, using 4 cores may reduce the calculation time. If the dataset has less number of samples, increasing the number of cores will not do effectively any better time reduction.
+Multi-threading for DNA methylation analysis is mainly used in the **Normalization** process. If you have data with more than 50 samples, using 4 cores may reduce the calculation time. If the dataset has less number of samples, increasing the number of cores will not do effectively any better time reduction (See @sec-calctime).
 :::
 
 2. *Data upload*

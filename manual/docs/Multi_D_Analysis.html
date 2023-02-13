@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -148,7 +148,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -318,6 +318,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -326,12 +327,13 @@ div.csl-indent {
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>In <em>methylR</em>, multiple dimensional analysis includes two type of analysis -<br>
-1. MDS: Multidimensional Scaling<br>
-2. PCA: Prinicipal Component Analysis</p>
-<p>Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. MDS finds set of vectors in p-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use MDS in biological data, read <span class="citation" data-cites="mugavin2008multidimensional lacher1987interpretation lacher1988comparison">(<a href="references.html#ref-mugavin2008multidimensional" role="doc-biblioref">Mugavin 2008</a>; <a href="references.html#ref-lacher1987interpretation" role="doc-biblioref">D. Lacher 1987</a>; <a href="references.html#ref-lacher1988comparison" role="doc-biblioref">D. A. Lacher and O’Donnell 1988</a>)</span> Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.</p>
+1. <strong>MDS</strong>: Multidimensional Scaling<br>
+2. <strong>PCA</strong>: Prinicipal Component Analysis</p>
+<p>Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. <strong>MDS</strong> finds set of vectors in <em>p</em>-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use <strong>MDS</strong> in biological data, read <span class="citation" data-cites="mugavin2008multidimensional lacher1987interpretation lacher1988comparison">(<a href="references.html#ref-mugavin2008multidimensional" role="doc-biblioref">Mugavin 2008</a>; <a href="references.html#ref-lacher1987interpretation" role="doc-biblioref">D. Lacher 1987</a>; <a href="references.html#ref-lacher1988comparison" role="doc-biblioref">D. A. Lacher and O’Donnell 1988</a>)</span><br>
+Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.</p>
 <section id="how-to-use" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">2.1</span> How to use</h2>
-<p>For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, e.g.&nbsp;the output normalized table from methylysis, i.e.&nbsp;the normalized value table. However the user can use similar tables for the analysis.</p>
+<p>For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, <em>e.g.</em> the output normalized table from methylysis, <em>i.e.</em> the normalized value table. However the user can use similar tables for the analysis.</p>
 <section id="data-upload" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">2.1.1</span> Data Upload</h3>
 <ol type="1">
@@ -340,26 +342,6 @@ div.csl-indent {
 <li>On the right tab, under “MDS plot”, user will find the button to “Run MDS Analysis”</li>
 <li>Next tab is designed for the PCA plot and here user can have an input of text file to highlight the group.</li>
 </ol>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><em>NOTE</em> Please note that, the single column with header <strong>“group”</strong> should be supplied in this file. Match the column names of the variable data file with the group. Example: If in the variable data file, the column names are - sampleA1 sampleA2 sampleA3 sampleB1 sampleB2 sampleB3 the group text file should be like this - group<br>
-A<br>
-A<br>
-A<br>
-B<br>
-B<br>
-B<br>
-For more, please see the <a href="https://sourceforge.net/projects/methylr/">test data</a> files.</p>
-</div>
-</div>
 </section>
 </section>
 <section id="analysis-result" class="level2" data-number="2.2">
@@ -388,6 +370,27 @@ For more, please see the <a href="https://sourceforge.net/projects/methylr/">tes
 <li>To generate the PCA plot one additional TEXT file is needed. This single-column file must have “group” as header and should store the sample group in the same order as you have in the Sample_Group column of the Sample_shee.csv file. Please find <a href="https://github.com/JD2112/methylr/blob/main/data/groupData.txt">here</a> an example of this file that you can use with the test data provided with this distribution.<br>
 </li>
 </ol>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please note that, the single column with header <strong>“group”</strong> should be supplied in this file. Match the column names of the variable data file with the group.<br>
+<strong><em>Example:</em></strong> If in the variable data file, the column names are - sampleA1 sampleA2 sampleA3 sampleB1 sampleB2 sampleB3 the group text file should be like this - group<br>
+A<br>
+A<br>
+A<br>
+B<br>
+B<br>
+B<br>
+For more, please see the <a href="https://sourceforge.net/projects/methylr/">test data</a> files.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="_images/PCA.png" class="img-fluid figure-img"></p>
@@ -466,7 +469,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -502,24 +522,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

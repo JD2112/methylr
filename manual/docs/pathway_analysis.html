@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -129,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -295,6 +314,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -302,24 +322,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In <em>methylR</em>, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, KEGG, Reactome and Wikipathways.</p>
+<p>Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In <em>methylR</em>, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, <a href="https://www.genome.jp/kegg/">KEGG</a> <span class="citation" data-cites="Kanehisa2000">(<a href="references.html#ref-Kanehisa2000" role="doc-biblioref">Kanehisa and Goto 2000</a>)</span>, <a href="https://reactome.org/">Reactome</a> <span class="citation" data-cites="Gillespie2021">(<a href="references.html#ref-Gillespie2021" role="doc-biblioref">Gillespie et al. 2021</a>)</span> and <a href="https://www.wikipathways.org/">Wikipathways</a> <span class="citation" data-cites="pico2008plos martens2020nar">(<a href="references.html#ref-pico2008plos" role="doc-biblioref">Pico 2008</a>; <a href="references.html#ref-martens2020nar" role="doc-biblioref">Martens et al. 2020</a>)</span>.</p>
 <section id="how-to-use" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">8.1</span> How to use</h2>
 <section id="data-upload-parameters-setup" class="level3" data-number="8.1.1">
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="data-upload-parameters-setup"><span class="header-section-number">8.1.1</span> Data upload &amp; Parameters setup</h3>
 <section id="data-upload" class="level4" data-number="8.1.1.1">
 <h4 data-number="8.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">8.1.1.1</span> Data upload</h4>
-<p>User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (<em>methylysis</em> section <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>). The input file should be in a <strong>text (tab-delimited)</strong> format.</p>
+<p>User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>). The input file should be in a <strong>text (tab-delimited)</strong> format.</p>
 </section>
 <section id="parameters-setup" class="level4" data-number="8.1.1.2">
 <h4 data-number="8.1.1.2" class="anchored" data-anchor-id="parameters-setup"><span class="header-section-number">8.1.1.2</span> Parameters setup</h4>
 <ol type="1">
-<li><em>Choose pathway database</em>: Please select pathway database for the analysis from the drop-down list
+<li><em>Choose pathway analysis type</em>: Please select pathway analysis type from the drop-down list
 <ul>
-<li>ReactomeDB;</li>
-<li>KEGGdb;</li>
-<li>Wikipathways<br>
-By default, the tool will use the ReactomeDB analysis.</li>
+<li>Over representation analysis (ORA);</li>
+<li>Gene set enrichment analysis (GSEA); By default, the tool will use the over representation analysis.</li>
+</ul></li>
+<li><em>Choose pathway database</em>: user can choose to use different pathway database, namely
+<ul>
+<li><a href="https://reactome.org/">Reactome</a>,</li>
+<li><a href="https://www.genome.jp/kegg/">KEGG</a> or</li>
+<li><a href="https://www.wikipathways.org/">Wikipathways</a>.</li>
 </ul></li>
 <li><em>Choose number of pathways</em>: Please select number of pathways for graphical display. The default is Top 20 pathways. The Top 20 enriched pathways is selected based on the adjusted P-values.</li>
 </ol>
@@ -339,9 +363,9 @@ Tip
 </ol>
 </div>
 </div>
-<ol start="3" type="1">
-<li><p><em>Choose pathway database</em>: user can choose to use different pathway database, namely ReactomeDB, KEGG or wikipathways.</p></li>
-<li><p><em>Select p-value adjustment method</em>: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:</p>
+<ol start="4" type="1">
+<li><p><em>Select P-value cut-off for correction</em>: The default value for <em>p</em>-value correction is set to 0.05. User can set their own cut-off values.</p></li>
+<li><p><em>Select P-value correction method</em>: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:</p>
 <ul>
 <li>Benjamini-Hochberg (BH)</li>
 <li>Benjamini-Yeketuli (BY)</li>
@@ -352,12 +376,7 @@ Tip
 <li>FDR</li>
 <li>none</li>
 </ul></li>
-<li><p><em>Choose the adjusted P-value</em>: The default value for BH-correction is set to 0.05. User can set their own cut-off values.</p></li>
-<li><p><em>Choose pathway analysis type</em>: The pathway analysis type can be chosen from the drop-down list -</p>
-<ul>
-<li>Over representation analysis (ORA)</li>
-<li>Gene set enrichment analysis (GSEA).</li>
-</ul></li>
+<li><p><em>Upload data file</em>: The input file should be in a <strong>text (tab-delimited)</strong> format. The user can upload the <em>ChAMP</em> result file (DMC file) directly for the analysis.</p></li>
 </ol>
 </section>
 </section>
@@ -365,7 +384,7 @@ Tip
 <section id="analysis-result" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="analysis-result"><span class="header-section-number">8.2</span> Analysis result</h2>
 <ol type="1">
-<li><em>Pathway enrichment plot</em>: after “Run Analysis”, the plot will be generated as soon as computation has been done. Depends on the size of data, it might take some more time. At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file.<br>
+<li><em>Pathway enrichment plot</em>: after “Run Analysis”, the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>). At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file.<br>
 </li>
 </ol>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -380,7 +399,7 @@ Note
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki).</li>
-<li>The interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each gpathway enrichment term can open the respective database for pathway details.</li>
+<li>The interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.</li>
 </ol>
 </div>
 </div>
@@ -421,6 +440,20 @@ Warning
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Gillespie2021" class="csl-entry" role="doc-biblioentry">
+Gillespie, Marc, Bijay Jassal, Ralf Stephan, Marija Milacic, Karen Rothfels, Andrea Senff-Ribeiro, Johannes Griss, et al. 2021. <span>“<span class="nocase">The reactome pathway knowledgebase 2022</span>.”</span> <em>Nucleic Acids Research</em> 50 (D1): D687–92. <a href="https://doi.org/10.1093/nar/gkab1028">https://doi.org/10.1093/nar/gkab1028</a>.
+</div>
+<div id="ref-Kanehisa2000" class="csl-entry" role="doc-biblioentry">
+Kanehisa, Minoru, and Susumu Goto. 2000. <span>“<span class="nocase">KEGG: Kyoto Encyclopedia of Genes and Genomes</span>.”</span> <em>Nucleic Acids Research</em> 28 (1): 27–30. <a href="https://doi.org/10.1093/nar/28.1.27">https://doi.org/10.1093/nar/28.1.27</a>.
+</div>
+<div id="ref-martens2020nar" class="csl-entry" role="doc-biblioentry">
+Martens, Marvin, Ammar Ammar, Anders Riutta, Andra Waagmeester, Denise N Slenter, Kristina Hanspers, Ryan A. Miller, et al. 2020. <span>“<span class="nocase">WikiPathways: connecting communities</span>.”</span> <em>Nucleic Acids Research</em> 49 (D1): D613–21. <a href="https://doi.org/10.1093/nar/gkaa1024">https://doi.org/10.1093/nar/gkaa1024</a>.
+</div>
+<div id="ref-pico2008plos" class="csl-entry" role="doc-biblioentry">
+Pico, Thomas AND van Iersel, Alexander R AND Kelder. 2008. <span>“WikiPathways: Pathway Editing for the People.”</span> <em>PLOS Biology</em> 6 (7): 1–4. <a href="https://doi.org/10.1371/journal.pbio.0060184">https://doi.org/10.1371/journal.pbio.0060184</a>.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -471,7 +504,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -507,24 +557,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

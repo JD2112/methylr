@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -148,7 +148,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -319,6 +319,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -337,7 +338,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>After uploading the zip file <a href="appendix1.html">See Appendix&nbsp;<span>A</span></a>, the pipeline will start automatically by displaying the notification <span style="color: teal;">“Computing methylysis, please wait…”</span> . When the notification turns off, the user can go to different tabs to display the result. Please wait 5-10 seconds (see Chapter <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>: Calculation Time for each process) to display the result on the tab. Depending on the sample size, it may requires more time to display properly.</li>
+<li>After uploading the zip file <a href="appendix1.html">See Appendix&nbsp;<span>A</span></a>, the pipeline will start automatically by displaying the notification <span style="color: teal;">“Computing methylysis, please wait…”</span> . When the notification turns off, the user can go to different tabs to display the result. Please wait 5-10 seconds (see <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>, <em>Calculation Time for each process</em>) to display the result on the tab. Depending on the sample size, it may requires more time to display properly.</li>
 </ol>
 </div>
 </div>
@@ -352,7 +353,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ol start="2" type="1">
-<li>If the <em>methylysis</em> page goes <span style="color: gray;">“dim/disconnected”</span>, the analysis may encounter some errors during the run and the program stops working. Please refresh the page and run the same analysis again with different filters. Example, for ChAMP pipeline, if the user selects the “adjusted P-value” = 0.05 (as default), may be for the sample data, there is no differentially methylated CpGs at that value. Please change the adjusted P-value (recommend to set it at 1, and check the table after the run that what is appropriate cut-off) and run the pipeline again.</li>
+<li>If the <em>methylysis</em> page goes <span style="color: gray;">“dim/disconnected”</span>, the analysis may encounter some errors during the run and the program stops working. Please refresh the page and run the same analysis again with different filters/parameters. Example, for ChAMP pipeline, if the user selects the “adjusted P-value” = 0.05 (as default), may be for the sample data, there is no differentially methylated CpGs at that value. Please change the adjusted P-value (recommend to set it at 1, and check the table after the run that what is appropriate cut-off) and run the pipeline again.</li>
 </ol>
 </div>
 </div>
@@ -412,7 +413,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>PLEASE NOTE</strong>: ChAMP will do all filtration automatically, independent of User’s input. The following filtration will be done -<br>
+<p><strong>PLEASE NOTE</strong>: ChAMP process will do all filtration automatically, independent of User’s input. The following filtration will be done -<br>
 i. <em>filtering probes with detection p-value &gt; 0.01</em>,<br>
 ii. <em>filter out probes with &lt;3 beads in at least 5% of samples per probe</em>,<br>
 iii. <em>filter all non-CpG probes</em><br>
@@ -430,11 +431,40 @@ vi. <em>filter all probes located in X and Y chromosomes</em></p>
 <li>PBC (Peak-Based Correction) <span class="citation" data-cites="dedeurwaerder2011evaluation">(<a href="references.html#ref-dedeurwaerder2011evaluation" role="doc-biblioref">Dedeurwaerder et al. 2011</a>)</span>,</li>
 </ul></li>
 </ol>
-<p>The default setup will run with the BMIQ normalization method. Please check references for different type of normalization method</p>
+<p>The default setup will run with the BMIQ normalization method.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please check references for different type of normalization method.</p>
+</div>
+</div>
 <ol start="4" type="1">
-<li><p><em>Batch Effect Correction</em>: <em>ComBat</em> function is used to correct the batch effect. User can choose whether to compute the batch effect or not by clicking the button. When the button is <span style="color: green;">“green”</span> (ON), it will prompt to select the factors for the batch effect correction, Slide, Array, Age, Sex, or Other. Select as necessary and should have the column in the Sample_sheet. If you have other option than Slide, Array, Age or Sex, rename the column as <strong>‘Other’</strong> and run batch effect correction. If the button is <span style="color: red;">“red”</span> (OFF), the pipeline will continue without analyzing the batch effect. Please check the reference for the batch effect correction using combat method <span class="citation" data-cites="johnson2007adjusting">(<a href="references.html#ref-johnson2007adjusting" role="doc-biblioref">Johnson, Li, and Rabinovic 2007</a>)</span>.</p></li>
-<li><p><em>Cell Type Heterogeneity</em>: Houseman et al (2013) <span class="citation" data-cites="houseman2012dna">(<a href="references.html#ref-houseman2012dna" role="doc-biblioref">Houseman et al. 2012</a>)</span> algorithm is applied to calculate the cell-type heterogeneity from PBMC dataset using the <em>refbase</em> function. This is deactivated as default. Press the button to activate and run during the analysis.<br>
-</p></li>
+<li><em>Batch Effect Correction</em>: <em>ComBat</em> function is used to correct the batch effect. User can choose whether to compute the batch effect or not by clicking the button. When the button is <span style="color: green;">“green”</span> (<strong>ON</strong>), it will prompt to select the factors for the batch effect correction, <em>Slide</em>, <em>Array</em>, <em>Age</em>, <em>Sex</em>, or <em>Other</em>. Select as necessary and should have the column in the Sample_sheet (check the Sample_sheet in the testdata set). If you have other option than <em>Slide</em>, <em>Array</em>, <em>Age</em>, or <em>Sex</em>, rename the column as <strong>‘Other’</strong> and run batch effect correction.<br>
+If the button is <span style="color: red;">“red”</span> (<strong>OFF</strong>), the pipeline will continue without analyzing the batch effect.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please check the reference for the batch effect correction using combat method <span class="citation" data-cites="johnson2007adjusting">(<a href="references.html#ref-johnson2007adjusting" role="doc-biblioref">Johnson, Li, and Rabinovic 2007</a>)</span>.</p>
+</div>
+</div>
+<ol start="5" type="1">
+<li><em>Cell Type Heterogeneity</em>: Houseman et al (2013) <span class="citation" data-cites="houseman2012dna">(<a href="references.html#ref-houseman2012dna" role="doc-biblioref">Houseman et al. 2012</a>)</span> algorithm is applied to calculate the cell-type heterogeneity from PBMC (<em>Peripheral Bllod Mononuclear Cells</em>) dataset using the <em>refbase</em> function. This is deactivated as default. Press the button to activate and run during the analysis.<br>
+</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -456,7 +486,6 @@ vi. <em>filter all probes located in X and Y chromosomes</em></p>
 </ul></li>
 <li><p><em>Select filtration method</em>: In this section, we assigned options for the user to perform the different filters, like removal of XY chromosomes from the analysis, removal of SNPs or removal of non-specific probes from the dataset. By default, the pipeline will use p-value detection 0.01.</p></li>
 <li><p><em>Compute cell type heterogeneity</em>: similar as ChAMP, we used Houseman method to correct the cell type heterogeneity. In minfi pipeline we used default minfi function <em>estimateCellCounts</em>. As before, user can choose to avoid this if the samples are not from PBMC cell types.</p></li>
-<li><p><em>Please select the compare groups</em>: In this option, the pipeline will ask the user to type the group names which will be compared for the differential methylation analysis. To compute the ContrastsMatrix, these group names will be used. Please use the same groups as provide in the Sample_sheet.csv.</p></li>
 <li><p><em>Choose genome annotation database</em>: To annotate the DMC list from the analysis, use the human genome reference annotation data file. For 850K array, make sure to use the hg38 array to compare the result with the output of ChAMP pipeline.<br>
 </p></li>
 </ol>
@@ -473,7 +502,7 @@ vi. <em>filter all probes located in X and Y chromosomes</em></p>
 <h2 data-number="1.3" class="anchored" data-anchor-id="technical-setup"><span class="header-section-number">1.3</span> Technical setup:</h2>
 <p>Both pipelines require the user to set the following technical parameters:</p>
 <ol type="1">
-<li><em>Number of cores</em>: Both pipeline can run on 1 core which will take more time to compute the entire process. User can choose to setup the number of cores depending the availability. The default is set to 1 core and maximum is 4 cores.</li>
+<li><em>Number of cores</em>: Both pipeline can run on 1 core which will take more time to compute the entire process. User can choose to setup the number of cores depending the availability. The default is set to 1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.</li>
 </ol>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -485,7 +514,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Multithreading for DNA methylation analysis is mainly used in the <strong>Normalization</strong> process. If you have data with more than 50 samples, using 4 cores may reduce the calculation time. If the dataset has less number of samples, increasing the number of cores will not do effectively any better time reduction.</p>
+<p>Multi-threading for DNA methylation analysis is mainly used in the <strong>Normalization</strong> process. If you have data with more than 50 samples, using 4 cores may reduce the calculation time. If the dataset has less number of samples, increasing the number of cores will not do effectively any better time reduction (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>).</p>
 </div>
 </div>
 <ol start="2" type="1">
@@ -586,7 +615,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -622,24 +668,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

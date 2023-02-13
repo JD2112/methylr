@@ -5,7 +5,7 @@ A heatmap module (Pairwise Plot) is added in *methylR* to show the $\beta$ value
 
 ## How to use
 ### Upload
-User can upload the input data matrix in CSV, text or semicolon-separated format. If you don't have the matrix, this modules provides the functionality to make it starting from the main results coming from *methylysis* ([see chapter @sec-methylysis]). Either ChAMP and minfi will provide the input data or you can get test data by clicking on "Matrix example data" and "List example data" buttons. For a better view of the result, we added the functionality to change the number of variables on the heatmap.
+User can upload the input data matrix in **Tab** (.txt) or **Comma** (.csv) or **Semicolon** (.csv but with ;) separated format. If you don't have the matrix, this modules provides the functionality to make it starting from the main results coming from *methylysis* (see @sec-methylysis). Either ChAMP and minfi will provide the input data or you can get test data by clicking on "Matrix example data" and "List example data" buttons. For a better view of the result, we added the functionality to change the number of variables on the heatmap.
 
 ### Settings
 1. **Plot type** - User can choose the heatmap or correlation plot function for the analysis.
@@ -15,7 +15,7 @@ User can upload the input data matrix in CSV, text or semicolon-separated format
 ***PLEASE NOTE: IF YOU WANT TO PERFORM THE CORRELATION PLOT, THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.***
 :::
 
-3. **Agglomeration method for hclust** - different agglomeration method for hierarchical cluster analysis provided in the module, 1) war.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7) Median, and 8) Centroid. Default chosen 'Complete'.
+3. **Agglomeration method for hclust** - different agglomeration method for hierarchical cluster analysis provided in the module, 1) ward.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7) Median, and 8) Centroid. Default chosen 'Complete'.
 4. **No. of clusters for hclust** - user can set the number of hierarchical cluster for their data. Default is 3.
 5. **Distance Matrix computation** - different types of distance matrix calculation can be applied to generate the heatmap, 1) Euclidean, 2) Manhattan, 3) Canberra, 4) Minkowski or 5) none. Default is 'Euclidean'.
 6. **Dendrogram** - user can choose to show the dendrogram on the row and/or column list.
@@ -42,7 +42,7 @@ We added a tab for the user to build the heatmap matrix by starting from the res
 ![Static Heatmap](_images/heatmap.png)
 
 ::: {.callout-tip}
-** Correlation plot** - for correlation plot, please adjust the 'Settings', 'Plot type' to ***Corrplot*** and 'Correlation Coefficient' to ***Pearson/Spearman/Kendall***.
+**Correlation plot** - for correlation plot, please adjust the 'Settings', 'Plot type' to ***Corrplot*** and 'Correlation Coefficient' to ***Pearson/Spearman/Kendall***.
 :::
 
 ![Correlation plot](_images/correlationplot-setting.png)

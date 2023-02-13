@@ -186,7 +186,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, frame hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Contents}
 {
@@ -197,9 +197,13 @@
 \listoffigures
 \bookmarksetup{startatroot}
 
-\hypertarget{preface}{%
-\chapter*{Preface}\label{preface}}
-\addcontentsline{toc}{chapter}{Preface}
+\hypertarget{acknowledgements}{%
+\chapter*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\markboth{Acknowledgements}{Acknowledgements}
+
+e-mail: \url{methylr@googlegroups.com}
 
 Bioinformatics,\\
 Core Facility,\\
@@ -208,26 +212,26 @@ Linköping University,\\
 Linköping,\\
 Sweden
 
-e-mail: \url{methylr@googlegroups.com}
-
 \textbf{\emph{We would like to acknowledge the Core Facility, Faculty of
 Medicine and Health Sciences, Linköping University, Linköping, Sweden
 and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for
 their support.}}
 
-\textbf{\emph{DISCLAIMER: All packages used in }methylR* are publicly
-available and open-source license. We have modified the source as
-required for \emph{methylR}. Venn and UpSet plots inspired by the
-\href{https://github.com/asntech/intervene}{intervene} package
-\autocite{khan2017intervene}, we modified as required for
+\textbf{\emph{DISCLAIMER: }} \textbf{\emph{All packages used in
+}methylR* are publicly available and open-source license. We have
+modified the source as required for \emph{methylR}. Venn and UpSet plots
+inspired by the \href{https://github.com/asntech/intervene}{intervene}
+package \autocite{khan2017intervene}, we modified as required for
 \emph{methylR}.}*
 
 \part{Welcome to methylR: DNA Methylation Data Analysis Pipeline}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
 TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP,
 BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND
 TRY AGAIN.
+
 \end{tcolorbox}
 
 DNA Methylation is one of the most studied epigenetic modifications in
@@ -242,11 +246,11 @@ two decades and in combination with modern, array-based techniques and
 nex-generation sequencing now provides the scientific community with an
 easily accessible tool to study epigenetics at a whole-genome level
 \autocite{das2021dna}. To find the methylated site or the CpG site,
-Illumina(R) uses DNA methylation array-based technology. Till date three
-different array platforms are available from Illumina for human genome
-to identify the CpG site or specific DNA methylation location, namely
-27K, 450K or 850K. A more detail history and timeline can be found here
-in this
+Illumina\textsuperscript{(R)} uses DNA methylation array-based
+technology. Till date three different array platforms are available from
+Illumina for human genome to identify the CpG site or specific DNA
+methylation location, namely 27K, 450K or 850K. A more detail history
+and timeline can be found here in this
 \href{https://www.frontiersin.org/articles/10.3389/fgene.2011.00074/full}{article}
 by Harrison and Pari-McDermott (2011) \autocite{harrison2011dna}. After
 performing the array, the major part is the analysis of the raw data
@@ -277,6 +281,8 @@ based system.\\
 \hypertarget{requirements}{%
 \section*{Requirements}\label{requirements}}
 \addcontentsline{toc}{section}{Requirements}
+
+\markright{Requirements}
 
 \begin{itemize}
 \tightlist
@@ -344,12 +350,19 @@ based system.\\
   \end{itemize}
 \end{itemize}
 
-NOTE: the ARM64 chipset architecture is actually not supported by
-methylR.
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+MethylR cannot run on
+\href{https://en.wikipedia.org/wiki/List_of_ARM_processors}{ARM64
+chipset} architecture.
+
+\end{tcolorbox}
 
 \hypertarget{how-to-use}{%
 \section*{How to Use}\label{how-to-use}}
 \addcontentsline{toc}{section}{How to Use}
+
+\markright{How to Use}
 
 \hypertarget{local-use}{%
 \subsection*{Local use}\label{local-use}}
@@ -361,16 +374,20 @@ terminal. Please check the
 \href{https://github.com/JD2112/methylr}{github link} to run the
 container from your local computer.\\
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
 For convenient analysis, after one complete analysis (either with
 \emph{ChAMP} or \emph{minfi}), close the browser (to clear the temporary
 memory) and start again.
+
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
 Note: If you want to run with the test data, Please download the
 testdata from
 \url{https://sourceforge.net/projects/methylr/files/testData.zip}
+
 \end{tcolorbox}
 
 \hypertarget{sec-methylysis}{%
@@ -396,7 +413,7 @@ users wish to compare the results from both the pipelines,
 (Venn Analysis see Chapter~\ref{sec-venn} and UpSet Plot see
 Chapter~\ref{sec-upset} sections).
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -407,15 +424,15 @@ Chapter~\ref{sec-upset} sections).
   {``Computing methylysis, please wait\ldots{}''}
   \textcolor{teal}{"Computing methylysis, please wait..."}. When the
   notification turns off, the user can go to different tabs to display
-  the result. Please wait 5-10 seconds (see Chapter
-  Appendix~\ref{sec-calctime}: Calculation Time for each process) to
-  display the result on the tab. Depending on the sample size, it may
-  requires more time to display properly.
+  the result. Please wait 5-10 seconds (see Appendix~\ref{sec-calctime},
+  \emph{Calculation Time for each process}) to display the result on the
+  tab. Depending on the sample size, it may requires more time to
+  display properly.
 \end{enumerate}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -426,12 +443,12 @@ Chapter~\ref{sec-upset} sections).
   {``dim/disconnected''}\textcolor{gray}{dim/disconnected}, the analysis
   may encounter some errors during the run and the program stops
   working. Please refresh the page and run the same analysis again with
-  different filters. Example, for ChAMP pipeline, if the user selects
-  the ``adjusted P-value'' = 0.05 (as default), may be for the sample
-  data, there is no differentially methylated CpGs at that value. Please
-  change the adjusted P-value (recommend to set it at 1, and check the
-  table after the run that what is appropriate cut-off) and run the
-  pipeline again.
+  different filters/parameters. Example, for ChAMP pipeline, if the user
+  selects the ``adjusted P-value'' = 0.05 (as default), may be for the
+  sample data, there is no differentially methylated CpGs at that value.
+  Please change the adjusted P-value (recommend to set it at 1, and
+  check the table after the run that what is appropriate cut-off) and
+  run the pipeline again.
 \end{enumerate}
 
 \end{tcolorbox}
@@ -459,7 +476,8 @@ The Sample\_sheet.csv must have the following components -\\
 3. Sentrix\_ID\\
 4. Sentrix\_position
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+
 \emph{Note} If the user uses Microsoft Excel to build the
 Sample\_sheet.csv, please check that\\
 1. \textbf{Sentrix\_ID} : are in text format (not in number format,
@@ -468,6 +486,7 @@ displayed).\\
 2. \emph{Optional check}: Copy and paste the Excel table of
 Sample\_sheet in some text editor like notepad or VS code and check the
 format.
+
 \end{tcolorbox}
 
 Every section in \emph{methylR} comes with the proper testing data
@@ -497,9 +516,11 @@ data - ChAMP and minfi.\\
 \subsubsection{\texorpdfstring{\textbf{ChAMP pipeline
 parameters}}{ChAMP pipeline parameters}}\label{champ-pipeline-parameters}}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-\textbf{PLEASE NOTE}: ChAMP will do all filtration automatically,
-independent of User's input. The following filtration will be done -\\
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\textbf{PLEASE NOTE}: ChAMP process will do all filtration
+automatically, independent of User's input. The following filtration
+will be done -\\
 i. \emph{filtering probes with detection p-value \textgreater{} 0.01},\\
 ii. \emph{filter out probes with \textless3 beads in at least 5\% of
 samples per probe},\\
@@ -507,6 +528,7 @@ iii. \emph{filter all non-CpG probes}\\
 iv. \emph{filter all SNP-related probes}\\
 v. \emph{filter all multi-hit probes}\\
 vi. \emph{filter all probes located in X and Y chromosomes}
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -532,31 +554,51 @@ vi. \emph{filter all probes located in X and Y chromosomes}
   \end{itemize}
 \end{enumerate}
 
-The default setup will run with the BMIQ normalization method. Please
-check references for different type of normalization method
+The default setup will run with the BMIQ normalization method.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Please check references for different type of normalization method.
+
+\end{tcolorbox}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
+\tightlist
 \item
   \emph{Batch Effect Correction}: \emph{ComBat} function is used to
   correct the batch effect. User can choose whether to compute the batch
   effect or not by clicking the button. When the button is {``green''}
-  \textcolor{green}{green} (ON), it will prompt to select the factors
-  for the batch effect correction, Slide, Array, Age, Sex, or Other.
-  Select as necessary and should have the column in the Sample\_sheet.
-  If you have other option than Slide, Array, Age or Sex, rename the
-  column as \textbf{`Other'} and run batch effect correction. If the
-  button is {``red''} \textcolor{red}{red} (OFF), the pipeline will
-  continue without analyzing the batch effect. Please check the
-  reference for the batch effect correction using combat method
-  \autocite{johnson2007adjusting}.
+  \textcolor{green}{green} (\textbf{ON}), it will prompt to select the
+  factors for the batch effect correction, \emph{Slide}, \emph{Array},
+  \emph{Age}, \emph{Sex}, or \emph{Other}. Select as necessary and
+  should have the column in the Sample\_sheet (check the Sample\_sheet
+  in the testdata set). If you have other option than \emph{Slide},
+  \emph{Array}, \emph{Age}, or \emph{Sex}, rename the column as
+  \textbf{`Other'} and run batch effect correction.\\
+  If the button is {``red''} \textcolor{red}{red} (\textbf{OFF}), the
+  pipeline will continue without analyzing the batch effect.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Please check the reference for the batch effect correction using combat
+method \autocite{johnson2007adjusting}.
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
 \item
   \emph{Cell Type Heterogeneity}: Houseman et al (2013)
   \autocite{houseman2012dna} algorithm is applied to calculate the
-  cell-type heterogeneity from PBMC dataset using the \emph{refbase}
-  function. This is deactivated as default. Press the button to activate
-  and run during the analysis.\\
+  cell-type heterogeneity from PBMC (\emph{Peripheral Bllod Mononuclear
+  Cells}) dataset using the \emph{refbase} function. This is deactivated
+  as default. Press the button to activate and run during the
+  analysis.\\
 \end{enumerate}
 
 \begin{figure}[H]
@@ -609,12 +651,6 @@ parameters}}{Minfi pipeline parameters}}\label{minfi-pipeline-parameters}}
   before, user can choose to avoid this if the samples are not from PBMC
   cell types.
 \item
-  \emph{Please select the compare groups}: In this option, the pipeline
-  will ask the user to type the group names which will be compared for
-  the differential methylation analysis. To compute the ContrastsMatrix,
-  these group names will be used. Please use the same groups as provide
-  in the Sample\_sheet.csv.
-\item
   \emph{Choose genome annotation database}: To annotate the DMC list
   from the analysis, use the human genome reference annotation data
   file. For 850K array, make sure to use the hg38 array to compare the
@@ -644,15 +680,17 @@ parameters:
   \emph{Number of cores}: Both pipeline can run on 1 core which will
   take more time to compute the entire process. User can choose to setup
   the number of cores depending the availability. The default is set to
-  1 core and maximum is 4 cores.
+  1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-Multithreading for DNA methylation analysis is mainly used in the
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Multi-threading for DNA methylation analysis is mainly used in the
 \textbf{Normalization} process. If you have data with more than 50
 samples, using 4 cores may reduce the calculation time. If the dataset
 has less number of samples, increasing the number of cores will not do
-effectively any better time reduction.
+effectively any better time reduction (See Appendix~\ref{sec-calctime}).
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -683,11 +721,13 @@ upload}\label{requirement-for-data-upload}}
   also be provided in the same directory with idat files.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
 Check the
 \href{https://github.com/JD2112/methylr/tree/main/data}{github}
 repository for sample data file. You may download the Sample\_sheet.csv
 file and use as a template for your sample\_sheet.
+
 \end{tcolorbox}
 
 \part{Feature Analysis}
@@ -701,16 +741,17 @@ file and use as a template for your sample\_sheet.
 
 In \emph{methylR}, multiple dimensional analysis includes two type of
 analysis -\\
-1. MDS: Multidimensional Scaling\\
-2. PCA: Prinicipal Component Analysis
+1. \textbf{MDS}: Multidimensional Scaling\\
+2. \textbf{PCA}: Prinicipal Component Analysis
 
 Multidimensional scaling is a visual representation of distances or
-dissimilarities between set of objects. MDS finds set of vectors in
-p-dimensional space such that the matrix of Euclidean distance among
-them corresponds as closely as possible to some function of the input
-matrix. The input to multidimensional scaling is a distance matrix. To
-get some more details on how to use MDS in biological data, read
-\autocite{mugavin2008multidimensional,lacher1987interpretation,lacher1988comparison}
+dissimilarities between set of objects. \textbf{MDS} finds set of
+vectors in \emph{p}-dimensional space such that the matrix of Euclidean
+distance among them corresponds as closely as possible to some function
+of the input matrix. The input to multidimensional scaling is a distance
+matrix. To get some more details on how to use \textbf{MDS} in
+biological data, read
+\autocite{mugavin2008multidimensional,lacher1987interpretation,lacher1988comparison}\\
 Principal Component Analysis (PCA) is the original vectors in
 n-dimensional space and the data are projected onto the directions in
 the data with the most variance.
@@ -719,9 +760,9 @@ the data with the most variance.
 \section{How to use}\label{how-to-use-2}}
 
 For both analysis, user need to provide a TEXT (tab-delimited) file with
-numeric values, e.g.~the output normalized table from methylysis,
-i.e.~the normalized \beta value table. However the user can use similar
-tables for the analysis.
+numeric values, \emph{e.g.} the output normalized table from methylysis,
+\emph{i.e.} the normalized \beta value table. However the user can use
+similar tables for the analysis.
 
 \hypertarget{data-upload}{%
 \subsection{Data Upload}\label{data-upload}}
@@ -741,23 +782,6 @@ tables for the analysis.
   Next tab is designed for the PCA plot and here user can have an input
   of text file to highlight the group.
 \end{enumerate}
-
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-\emph{NOTE} Please note that, the single column with header
-\textbf{``group''} should be supplied in this file. Match the column
-names of the variable data file with the group. Example: If in the
-variable data file, the column names are - sampleA1 sampleA2 sampleA3
-sampleB1 sampleB2 sampleB3 the group text file should be like this -
-group\\
-A\\
-A\\
-A\\
-B\\
-B\\
-B\\
-For more, please see the
-\href{https://sourceforge.net/projects/methylr/}{test data} files.
-\end{tcolorbox}
 
 \hypertarget{analysis-result}{%
 \section{Analysis result}\label{analysis-result}}
@@ -815,6 +839,25 @@ For more, please see the
   an example of this file that you can use with the test data provided
   with this distribution.\\
 \end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Please note that, the single column with header \textbf{``group''}
+should be supplied in this file. Match the column names of the variable
+data file with the group.\\
+\textbf{\emph{Example:}} If in the variable data file, the column names
+are - sampleA1 sampleA2 sampleA3 sampleB1 sampleB2 sampleB3 the group
+text file should be like this - group\\
+A\\
+A\\
+A\\
+B\\
+B\\
+B\\
+For more, please see the
+\href{https://sourceforge.net/projects/methylr/}{test data} files.
+
+\end{tcolorbox}
 
 \begin{figure}[H]
 
@@ -964,14 +1007,15 @@ pairwise correlation analysis can also be performed in the module.
 \hypertarget{upload}{%
 \subsection{Upload}\label{upload}}
 
-User can upload the input data matrix in CSV, text or
-semicolon-separated format. If you don't have the matrix, this modules
-provides the functionality to make it starting from the main results
-coming from \emph{methylysis} (see chapter~\ref{sec-methylysis}). Either
-ChAMP and minfi will provide the input data or you can get test data by
-clicking on ``Matrix example data'' and ``List example data'' buttons.
-For a better view of the result, we added the functionality to change
-the number of variables on the heatmap.
+User can upload the input data matrix in \textbf{Tab} (.txt) or
+\textbf{Comma} (.csv) or \textbf{Semicolon} (.csv but with ;) separated
+format. If you don't have the matrix, this modules provides the
+functionality to make it starting from the main results coming from
+\emph{methylysis} (see Chapter~\ref{sec-methylysis}). Either ChAMP and
+minfi will provide the input data or you can get test data by clicking
+on ``Matrix example data'' and ``List example data'' buttons. For a
+better view of the result, we added the functionality to change the
+number of variables on the heatmap.
 
 \hypertarget{settings}{%
 \subsection{Settings}\label{settings}}
@@ -989,9 +1033,11 @@ the number of variables on the heatmap.
   (no-correlation).
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
 \textbf{\emph{PLEASE NOTE: IF YOU WANT TO PERFORM THE CORRELATION PLOT,
 THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -1001,8 +1047,8 @@ THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
 \item
   \textbf{Agglomeration method for hclust} - different agglomeration
   method for hierarchical cluster analysis provided in the module, 1)
-  war.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7)
-  Median, and 8) Centroid. Default chosen `Complete'.
+  ward.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty,
+  7) Median, and 8) Centroid. Default chosen `Complete'.
 \item
   \textbf{No.~of clusters for hclust} - user can set the number of
   hierarchical cluster for their data. Default is 3.
@@ -1087,10 +1133,12 @@ minfi) parameter. Default is 0.1.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-** Correlation plot** - for correlation plot, please adjust the
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\textbf{Correlation plot} - for correlation plot, please adjust the
 `Settings', `Plot type' to \textbf{\emph{Corrplot}} and `Correlation
 Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
+
 \end{tcolorbox}
 
 \begin{figure}[H]
@@ -1164,12 +1212,13 @@ Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
 
 Volcano plot is a nice tool to visualize in a two-dimensional way for
 differentially methylated CpG site or differentially expressed genes
-using the statistical p-values as well as the fold change value. Like a
-volcano, the plot can show the significant or insignificant data in a
-scatter plot manner. Here with \emph{methylR}, we used plotly output to
-visualize the volcano plot to see the CpG or gene name (if the data from
-the differential analysis) with their respective p-values (adjusted
-p-values) and the logFC (or mean methylation difference).
+using the statistical \emph{p}-values as well as the fold change value.
+Like a volcano, the plot can show the significant or insignificant data
+in a scatter plot manner. Here with \emph{methylR}, we used plotly
+output to visualize the volcano plot to see the CpG or gene name (if the
+data from the differential analysis) with their respective
+\emph{p}-values (adjusted \emph{p}-values) and the logFC (or mean
+methylation difference).
 
 \hypertarget{how-to-use-5}{%
 \section{How to use}\label{how-to-use-5}}
@@ -1185,19 +1234,19 @@ setup}\label{data-upload-parameters-setup-2}}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  User needs to upload a text (tab-delimited) file with adjusted
-  p-values and logFC values. At present, user can use the DMCs data file
-  directly generated from the main analysis (\emph{methylysis} section
+  User needs to upload a \textbf{Tab} (.txt) file with adjusted
+  \emph{p}-values and logFC values. At present, user can use the DMCs
+  data file directly generated from the main analysis (see
   Chapter~\ref{sec-methylysis}).
 \item
-  To setup the adjusted p-value, user can change the cut-off. Default is
-  setup to 0.01.
+  To setup the adjusted \emph{p}-value, user can change the cut-off.
+  Default is setup to 0.01.
 \item
   LogFC cut-off can also be changed as per user requirement. Default is
   setup to 0.3.
 \item
-  After the file upload and setting up the cut-off for adjusted P-value
-  and logFC, click the ``Run Analysis'' button.
+  After the file upload and setting up the cut-off for adjusted
+  \emph{p}-value and logFC, click the ``Run Analysis'' button.
 \end{enumerate}
 
 \hypertarget{analysis-result-2}{%
@@ -1213,7 +1262,7 @@ setup}\label{data-upload-parameters-setup-2}}
   The figure will generated as soon as the computation finishes.
   However, it might takes some more time depending on the size of the
   file. If user upload a file with 750K rows, it will take 3-5 minutes
-  to generate the figure See Chapter~\ref{sec-calctime}. It is
+  to generate the figure (See Appendix~\ref{sec-calctime}). It is
   noteworthy that this big data in volcano plot, may be unstable in the
   browser.
 \item
@@ -1221,12 +1270,14 @@ setup}\label{data-upload-parameters-setup-2}}
   figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
 Please note displaying of the volcano plot will take some time, even
 after the warning {``generating plot, please wait\ldots{}''}
 \textcolor{orange}{"generating plot, please wait..."} disappears. Please
 wait for 1-2 minutes to get the visualization. The same may happen to
 the volcano plot data table.
+
 \end{tcolorbox}
 
 \begin{figure}[H]
@@ -1239,12 +1290,14 @@ the volcano plot data table.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
 Volcano plot figure colors annotation- {Significant \& Fold
 Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
 \textcolor{cyan}{"Significant"}, {FoldChange}
 \textcolor{green}{FoldChange} or {NotSignificant}
 \textcolor{orange}{"Notsignificant"}
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -1254,7 +1307,7 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
 \item
   On the right tab, user can also see the volcano data table which is
   useful when they are using the full dataset from the main analysis
-  result (\emph{methylysis} Chapter~\ref{sec-methylysis}).
+  result (See Chapter~\ref{sec-methylysis}).
 \end{enumerate}
 
 \hypertarget{volcano-data}{%
@@ -1293,11 +1346,13 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
-  CONTAINER AND TRY AGAIN.} Chromosome plot is a way to visualize
-coordinates at DMC positions over the chromosome structure. In
-\emph{methylR}, Users can change the cut-off for adjusted p-value as
-well as the fold change value. It is possible to visualize one
-chromosome at a time or all the chromosomes on the same figure.
+  CONTAINER AND TRY AGAIN.}
+
+Chromosome plot is a way to visualize coordinates at DMC positions over
+the chromosome structure. In \emph{methylR}, Users can change the
+cut-off for adjusted \emph{p}-value as well as the fold change value. It
+is possible to visualize one chromosome at a time or all the chromosomes
+on the same figure.
 
 \hypertarget{how-to-use-6}{%
 \section{How to use}\label{how-to-use-6}}
@@ -1314,8 +1369,8 @@ setup}\label{data-upload-parameters-setup-3}}
 \tightlist
 \item
   User needs to upload a text (tab-delimited) file with adjusted
-  p-values and logFC values. At present, user can use the DMCs data file
-  directly generated from the main analysis (\emph{methylysis} section
+  \emph{p}-values and logFC values. At present, user can use the DMCs
+  data file directly generated from the main analysis (See
   Chapter~\ref{sec-methylysis}).
 \item
   To setup the adjusted p-value, user can change the cut-off. Default is
@@ -1324,11 +1379,11 @@ setup}\label{data-upload-parameters-setup-3}}
   LogFC cut-off can also be changed as per user requirement. Default is
   0.3.
 \item
-  After the file upload and setting up the cut-off for adjusted P-value
-  and logFC, click the ``Create plot'' button.
+  After the file upload and setting up the cut-off for adjusted
+  \emph{p}-value and logFC, click the ``Create plot'' button.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1374,12 +1429,15 @@ setup}\label{data-upload-parameters-setup-3}}
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-In the Chromosome plot, the \textcolor{blue}{blue} text
-(e.g.~\textcolor{blue}{FAAH}) in the left side is the gene symbol and
-the \textcolor{orange}{text} in the right side is the CpG ID from
-Illumina annotation (e.g.~\textcolor{orange}{cg20099409}). Please note,
-CpGs without the gene symbol only shows the CpG ID on the right side.
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+In the Chromosome plot, the {blue} \textcolor{blue}{blue} text
+(e.g.~{FAAH} \textcolor{blue}{FAAH}) in the left side is the gene symbol
+and the \textcolor{orange}{text} {orange} in the right side is the CpG
+ID from Illumina annotation (e.g.~{cg20099409}
+\textcolor{orange}{cg20099409}). Please note, CpGs without the gene
+symbol only shows the CpG ID on the right side.
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -1389,7 +1447,7 @@ CpGs without the gene symbol only shows the CpG ID on the right side.
 \item
   On the right tab, user can also see the volcano data table which is
   useful when they are using the full dataset from the main analysis
-  (\emph{methylysis} section).
+  (See Chapter~\ref{sec-methylysis} ).
 \end{enumerate}
 
 \hypertarget{r-packages}{%
@@ -1414,8 +1472,8 @@ CpGs without the gene symbol only shows the CpG ID on the right side.
 Gene Ontology is a very well-known method for accessing the functions of
 the gene identified through methylation analysis or expression analysis.
 Here in \emph{methylR}, we used ontology analysis using the
-clusterProfiler package (latest version)
-\autocite{yu2012clusterprofiler,wu2021clusterprofiler}.
+\href{https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html}{clusterProfiler
+package} \autocite{yu2012clusterprofiler,wu2021clusterprofiler}.
 
 \hypertarget{how-to-use-7}{%
 \section{How to use}\label{how-to-use-7}}
@@ -1433,10 +1491,10 @@ setup}\label{data-upload-parameters-setup-4}}
 \item
   \emph{Choose GO analysis type}: user can choose to do the analysis
   whether \textbf{over-representation analysis} or the \textbf{gene-set
-  enrichment analysis} (GSEA) from the dropå-down menu.
+  enrichment analysis} (GSEA) from the drop-down menu.
 \item
   \emph{Select the adjusted p-value}: user can also choose the adjusted
-  p-value for the analysis. Default is set to 0.05.
+  \emph{p}-value for the analysis. Default is set to 0.05.
 \item
   \emph{Select the adjusted q-value}: q-value or the FDR can also be
   adjusted as per user's requirement. Default is 0.05.
@@ -1446,7 +1504,7 @@ setup}\label{data-upload-parameters-setup-4}}
   20.
 \item
   \emph{Select P-value adjustment method} As per clusterProfiler, we set
-  different p-value adjustment methods, Benjamini-Hochberg,
+  different \emph{p}-value adjustment methods, Benjamini-Hochberg,
   Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none.
   Default is Benjamini-Hochberg.
 \item
@@ -1458,9 +1516,9 @@ setup}\label{data-upload-parameters-setup-4}}
 \hypertarget{data-upload-4}{%
 \subsubsection{Data upload}\label{data-upload-4}}
 
-At present, user can upload the DMC data produced by the main analysis (
-see \emph{methylysis} Chapter~\ref{sec-methylysis} ) directly. The input
-file should be in a \textbf{text (tab-delimited)} format.
+At present, user can upload the DMC data produced by the main analysis
+(see Chapter~\ref{sec-methylysis} ) directly. The input file should be
+in a \textbf{text (tab-delimited)} format.
 
 \hypertarget{analysis-result-4}{%
 \section{Analysis result}\label{analysis-result-4}}
@@ -1476,7 +1534,7 @@ file should be in a \textbf{text (tab-delimited)} format.
   dynamic figure can also be downloaded as a html file.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1554,7 +1612,7 @@ file should be in a \textbf{text (tab-delimited)} format.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1593,8 +1651,11 @@ file should be in a \textbf{text (tab-delimited)} format.
 Pathway enrichment analysis helps the user to get the mechanistic
 insights of the important genes from genome-wide data analysis. In
 \emph{methylR}, we introduced the pathway analysis module that can
-compute the enriched pathways from three different databases, KEGG,
-Reactome and Wikipathways.
+compute the enriched pathways from three different databases,
+\href{https://www.genome.jp/kegg/}{KEGG} \autocite{Kanehisa2000},
+\href{https://reactome.org/}{Reactome} \autocite{Gillespie2021} and
+\href{https://www.wikipathways.org/}{Wikipathways}
+\autocite{pico2008plos,martens2020nar}.
 
 \hypertarget{how-to-use-8}{%
 \section{How to use}\label{how-to-use-8}}
@@ -1607,9 +1668,9 @@ setup}\label{data-upload-parameters-setup-5}}
 \subsubsection{Data upload}\label{data-upload-5}}
 
 User can upload the direct output result from the main analysis. At
-present, user can upload the DMC data produced by the main analysis
-(\emph{methylysis} section Chapter~\ref{sec-methylysis}). The input file
-should be in a \textbf{text (tab-delimited)} format.
+present, user can upload the DMC data produced by the main analysis (See
+Chapter~\ref{sec-methylysis}). The input file should be in a
+\textbf{text (tab-delimited)} format.
 
 \hypertarget{parameters-setup-2}{%
 \subsubsection{Parameters setup}\label{parameters-setup-2}}
@@ -1618,18 +1679,29 @@ should be in a \textbf{text (tab-delimited)} format.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \emph{Choose pathway database}: Please select pathway database for the
-  analysis from the drop-down list
+  \emph{Choose pathway analysis type}: Please select pathway analysis
+  type from the drop-down list
 
   \begin{itemize}
   \tightlist
   \item
-    ReactomeDB;
+    Over representation analysis (ORA);
   \item
-    KEGGdb;
+    Gene set enrichment analysis (GSEA); By default, the tool will use
+    the over representation analysis.
+  \end{itemize}
+\item
+  \emph{Choose pathway database}: user can choose to use different
+  pathway database, namely
+
+  \begin{itemize}
+  \tightlist
   \item
-    Wikipathways\\
-    By default, the tool will use the ReactomeDB analysis.
+    \href{https://reactome.org/}{Reactome},
+  \item
+    \href{https://www.genome.jp/kegg/}{KEGG} or
+  \item
+    \href{https://www.wikipathways.org/}{Wikipathways}.
   \end{itemize}
 \item
   \emph{Choose number of pathways}: Please select number of pathways for
@@ -1637,7 +1709,7 @@ should be in a \textbf{text (tab-delimited)} format.
   pathways is selected based on the adjusted P-values.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1659,12 +1731,13 @@ should be in a \textbf{text (tab-delimited)} format.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
+\setcounter{enumi}{3}
 \item
-  \emph{Choose pathway database}: user can choose to use different
-  pathway database, namely ReactomeDB, KEGG or wikipathways.
+  \emph{Select P-value cut-off for correction}: The default value for
+  \emph{p}-value correction is set to 0.05. User can set their own
+  cut-off values.
 \item
-  \emph{Select p-value adjustment method}: The default method for
+  \emph{Select P-value correction method}: The default method for
   adjustment of P-value is the Benjamini-Hochberg (BH) correction
   method. User can choose different method using the drop-down list:
 
@@ -1688,19 +1761,9 @@ should be in a \textbf{text (tab-delimited)} format.
     none
   \end{itemize}
 \item
-  \emph{Choose the adjusted P-value}: The default value for
-  BH-correction is set to 0.05. User can set their own cut-off values.
-\item
-  \emph{Choose pathway analysis type}: The pathway analysis type can be
-  chosen from the drop-down list -
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Over representation analysis (ORA)
-  \item
-    Gene set enrichment analysis (GSEA).
-  \end{itemize}
+  \emph{Upload data file}: The input file should be in a \textbf{text
+  (tab-delimited)} format. The user can upload the \emph{ChAMP} result
+  file (DMC file) directly for the analysis.
 \end{enumerate}
 
 \hypertarget{analysis-result-5}{%
@@ -1712,17 +1775,17 @@ should be in a \textbf{text (tab-delimited)} format.
 \item
   \emph{Pathway enrichment plot}: after ``Run Analysis'', the plot will
   be generated as soon as computation has been done. Depends on the size
-  of data, it might take some more time. At present the plot will be
-  generated as a dot plot which is also a product of plotly, hence
-  dynamic and have similar functionalities with mouse pointing. At
-  present, with the mouse hover over, each dot will show the pathway
-  name, count of genes from the input list for that particular pathway,
-  the corrected p-value and gene ratio. The color scale bar shows in the
-  legend. User can download the figure as PNG as described above and the
-  dynamic figure as a html file.\\
+  of data, it might take few minutes (See Appendix~\ref{sec-calctime}).
+  At present the plot will be generated as a dot plot which is also a
+  product of plotly, hence dynamic and have similar functionalities with
+  mouse pointing. At present, with the mouse hover over, each dot will
+  show the pathway name, count of genes from the input list for that
+  particular pathway, the corrected p-value and gene ratio. The color
+  scale bar shows in the legend. User can download the figure as PNG as
+  described above and the dynamic figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1733,7 +1796,7 @@ should be in a \textbf{text (tab-delimited)} format.
   (Reactome/KEGG/Wiki).
 \item
   The interactive figure can be downloaded as HTML file and PNG file.
-  The HTML file is clickable and each gpathway enrichment term can open
+  The HTML file is clickable and each pathway enrichment term can open
   the respective database for pathway details.
 \end{enumerate}
 
@@ -1769,11 +1832,13 @@ should be in a \textbf{text (tab-delimited)} format.
 
 \end{figure}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+
 In the pathway enrichment table, the pathway ID is clickable and will
 open the respective pathway from the database. However, this feature is
 only avaible on the browser, if the user download the table, there is no
 such link to check the pathway source.
+
 \end{tcolorbox}
 
 \hypertarget{r-packages-used-5}{%
@@ -1797,7 +1862,10 @@ such link to check the pathway source.
 
 Venn analysis can be performed to show the logical relation between
 sets. In this module, user will need two or more analyses (max 6
-datasets) to perform the Venn analysis.
+datasets) to perform the Venn analysis. We adopt the part from
+\href{https://github.com/asntech/intervene}{intervene}
+\autocite{khan2017intervene} application and modified as required for
+\emph{methylR} use.
 
 \hypertarget{how-to-use-9}{%
 \section{How to use}\label{how-to-use-9}}
@@ -1859,7 +1927,7 @@ setup}\label{data-upload-parameters-setup-6}}
     \emph{Border line type}: border line type can be selected from the
     drop-down menu.
   \item
-    \emph{zoom in/out Venn diagram}: select the zoom option on the slide
+    \emph{Zoom in/out Venn diagram}: select the zoom option on the slide
     bar.
   \end{enumerate}
 \item
@@ -1881,7 +1949,7 @@ setup}\label{data-upload-parameters-setup-6}}
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
-User can download the figure in different format.
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
 \begin{figure}[H]
 
@@ -1914,16 +1982,10 @@ User can download the figure in different format.
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
   CONTAINER AND TRY AGAIN.}
 
-UpSet plot will show the relation between different sets.
-
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
-PLEASE NOTE: \textbf{\emph{``OR enter set combinations/expression''}}
-has the priority over \textbf{``Upload file''}. If you use the ``set
-combinations'', and then want to ``upload file'', please remove the
-``set combination'' from the input box. To see how the ``OR enter set
-combinations/expression'' works, please use the example below the box
-(not the list/binary example file).
-\end{tcolorbox}
+UpSet plot will show the relation between different sets. We adopt the
+part from \href{https://github.com/asntech/intervene}{intervene}
+\autocite{khan2017intervene} application and modified as required for
+\emph{methylR} use.
 
 \hypertarget{how-to-use-10}{%
 \section{How to use}\label{how-to-use-10}}
@@ -1959,6 +2021,17 @@ combinations/expression'' works, please use the example below the box
     data is the possible combinations of set intersections.
   \end{enumerate}
 \end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+PLEASE NOTE: \textbf{\emph{``OR enter set combinations/expression''}}
+has the priority over \textbf{``Upload file''}. If you use the ``set
+combinations'', and then want to ``upload file'', please remove the
+``set combination'' from the input box. To see how the ``OR enter set
+combinations/expression'' works, please use the example below the box
+(not the list/binary example file).
+
+\end{tcolorbox}
 
 \hypertarget{parameters-setup-4}{%
 \subsection{Parameters setup}\label{parameters-setup-4}}
@@ -2054,19 +2127,31 @@ combinations/expression'' works, please use the example below the box
   \begin{enumerate}
   \def\labelenumii{\roman{enumii}.}
   \item
-    \emph{Select color theme}: Colour theme can be chosen from the
-    drop-down menu.
+    \emph{Select main bar colour}: Change colour of the bars of
+    intersection size.
   \item
-    \emph{Label font size}: Change the font size of the Label.
+    \emph{Select set bar colour}: Change the set bar colour on the side
+    (set).
   \item
-    \emph{Number font size}: Change the font size of the number.
+    \emph{Font size of intersection size label}: Change the font size of
+    the intersection size.
+  \item
+    \emph{Set size label font}: Change the font size of the set label.
+  \item
+    \emph{Set size ticks font}: Change the tick size (numerical value)
+    on the set size bar.
+  \item
+    \emph{Intersection size numbers font size}: Change the tick size
+    (numerical value) on the intersection set bar.
+  \item
+    \emph{Set names font size}: Change the font size for the set names.
   \end{enumerate}
 \end{enumerate}
 
 \hypertarget{result}{%
 \section{Result}\label{result}}
 
-User can download the figure in different format.
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
 \begin{figure}[H]
 
@@ -2273,8 +2358,10 @@ zip folder/
 \hypertarget{on-windows}{%
 \section{On Windows}\label{on-windows}}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+
 PLEASE NOTE: Only AMD64 OS
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -2332,7 +2419,8 @@ PLEASE NOTE: Only AMD64 OS
   minutes to view the app).
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
 \textbf{NOTE}: You can copy \emph{http://localhost:3838} after running
 the container and open it on other web-browser to run the app.\\
 
@@ -2351,9 +2439,11 @@ the container and open it on other web-browser to run the app.\\
 \hypertarget{on-macos}{%
 \section{On MacOS}\label{on-macos}}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}, opacitybacktitle=0.6, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+
 PLEASE NOTE: (Intel, Only AMD64 OS - not supported on Apple M1/M2
 processors)
+
 \end{tcolorbox}
 
 \begin{enumerate}
@@ -2394,10 +2484,12 @@ processors)
   load the app within 1-3 minutes.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
 PLEASE NOTE: It may possible that you run the docker container on MacOS
 Apple M1, but the application may not work as expected. We strongly
 recommend to use AMD64 OS architecture to run \emph{methylR}
+
 \end{tcolorbox}
 
 \hypertarget{on-linux-ubuntu-20.04lts}{%
@@ -2426,7 +2518,7 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
   Windows.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, left=2mm, colback=white, breakable, leftrule=.75mm, coltitle=black, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2580,8 +2672,14 @@ pathway analysis & & 00:18 s \\
   same format as described in the manual.
 \end{enumerate}
 
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
 
-\printbibliography[title=References]
+\markboth{References}{References}
+
+
+\printbibliography
 
 
 \end{document}

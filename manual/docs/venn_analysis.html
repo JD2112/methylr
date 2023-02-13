@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -129,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -295,6 +314,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -302,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Venn analysis can be performed to show the logical relation between sets. In this module, user will need two or more analyses (max 6 datasets) to perform the Venn analysis.</p>
+<p>Venn analysis can be performed to show the logical relation between sets. In this module, user will need two or more analyses (max 6 datasets) to perform the Venn analysis. We adopt the part from <a href="https://github.com/asntech/intervene">intervene</a> <span class="citation" data-cites="khan2017intervene">(<a href="references.html#ref-khan2017intervene" role="doc-biblioref">Khan and Mathelier 2017</a>)</span> application and modified as required for <em>methylR</em> use.</p>
 <section id="how-to-use" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">9.1</span> How to use</h2>
 <p>Below given the details for the use of Venn analysis module.</p>
@@ -328,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="3" type="i">
 <li><p><em>Border line width</em>: border line can be drawn with the slider option.</p></li>
 <li><p><em>Border line type</em>: border line type can be selected from the drop-down menu.</p></li>
-<li><p><em>zoom in/out Venn diagram</em>: select the zoom option on the slide bar.</p></li>
+<li><p><em>Zoom in/out Venn diagram</em>: select the zoom option on the slide bar.</p></li>
 </ol></li>
 <li><p><em>Font &amp; Color</em>: multiple ooptions are included for font and colours -</p>
 <ol type="i">
@@ -342,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="results" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="results"><span class="header-section-number">9.2</span> Results</h2>
-<p>User can download the figure in different format.</p>
+<p>User can download the figure in different format, PDF, PNG, SVG or TIFF.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="_images/Venndiag.png" class="img-fluid figure-img"></p>
@@ -359,6 +379,11 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-khan2017intervene" class="csl-entry" role="doc-biblioentry">
+Khan, Aziz, and Anthony Mathelier. 2017. <span>“Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.”</span> <em>BMC Bioinformatics</em> 18 (1): 1–8.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -409,7 +434,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -445,24 +487,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

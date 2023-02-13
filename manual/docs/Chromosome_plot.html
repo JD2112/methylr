@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -298,13 +298,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Chromosome plot is a way to visualize coordinates at DMC positions over the chromosome structure. In <em>methylR</em>, Users can change the cut-off for adjusted p-value as well as the fold change value. It is possible to visualize one chromosome at a time or all the chromosomes on the same figure.</p>
+<p><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Chromosome plot is a way to visualize coordinates at DMC positions over the chromosome structure. In <em>methylR</em>, Users can change the cut-off for adjusted <em>p</em>-value as well as the fold change value. It is possible to visualize one chromosome at a time or all the chromosomes on the same figure.</p>
 <section id="how-to-use" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">6.1</span> How to use</h2>
 <section id="data-upload-parameters-setup" class="level3" data-number="6.1.1">
@@ -312,10 +314,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-upload" class="level4" data-number="6.1.1.1">
 <h4 data-number="6.1.1.1" class="anchored" data-anchor-id="data-upload"><span class="header-section-number">6.1.1.1</span> Data upload</h4>
 <ol type="1">
-<li>User needs to upload a text (tab-delimited) file with adjusted p-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (<em>methylysis</em> section <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
+<li>User needs to upload a text (tab-delimited) file with adjusted <em>p</em>-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (See <a href="methylysis.html"><span>Chapter&nbsp;1</span></a>).</li>
 <li>To setup the adjusted p-value, user can change the cut-off. Default is setup to 0.05.</li>
 <li>LogFC cut-off can also be changed as per user requirement. Default is 0.3.</li>
-<li>After the file upload and setting up the cut-off for adjusted P-value and logFC, click the “Create plot” button.</li>
+<li>After the file upload and setting up the cut-off for adjusted <em>p</em>-value and logFC, click the “Create plot” button.</li>
 </ol>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -361,11 +363,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the Chromosome plot, the text (e.g.&nbsp;) in the left side is the gene symbol and the in the right side is the CpG ID from Illumina annotation (e.g.&nbsp;). Please note, CpGs without the gene symbol only shows the CpG ID on the right side.</p>
+<p>In the Chromosome plot, the <span style="color: blue;">blue</span> text (e.g.&nbsp;<span style="color: blue;">FAAH</span> ) in the left side is the gene symbol and the <span style="color: orange;">orange</span> in the right side is the CpG ID from Illumina annotation (e.g.&nbsp;<span style="color: orange;">cg20099409</span> ). Please note, CpGs without the gene symbol only shows the CpG ID on the right side.</p>
 </div>
 </div>
 <ol start="3" type="1">
-<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis (<em>methylysis</em> section).</li>
+<li>On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis (See <a href="methylysis.html"><span>Chapter&nbsp;1</span></a> ).</li>
 </ol>
 </section>
 </section>
@@ -426,7 +428,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -462,24 +481,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
