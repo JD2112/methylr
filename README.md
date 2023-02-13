@@ -1,7 +1,7 @@
 ![image](artworks/logo-final.png)
 [![Docker Image CI](https://github.com/JD2112/methylr-devel/actions/workflows/docker-image.yml/badge.svg)](https://github.com/JD2112/methylr-devel/actions/workflows/docker-image.yml)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JD2112/methylr/main?labpath=docs)
-
+[![methylr manual](https://github.com/JD2112/methylr/actions/workflows/publish.yml/badge.svg)](https://github.com/JD2112/methylr/actions/workflows/publish.yml)
 # **methylr: a single shiny solution from sequencer data to pathway analysis**
 
 - [Description](#description)
