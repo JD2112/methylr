@@ -137,9 +137,9 @@ We would like to acknowledge the **Core Facility, Faculty of Medicine and Health
 
 ## Citation
 
-Massimiliano Volpe, Ph.D, Jyotirmoy Das, Ph.D, methylR: a graphical interface for comprehensive DNA methylation array data analysis, Bioinformatics, 2023;, btad184, https://doi.org/10.1093/bioinformatics/btad184
+Massimiliano Volpe, Jyotirmoy Das, methylR: a graphical interface for comprehensive DNA methylation array data analysis, Bioinformatics, Volume 39, Issue 4, April 2023, btad184, https://doi.org/10.1093/bioinformatics/btad184
 
-[View the article](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btad184/7114023)
+[View the article](https://academic.oup.com/bioinformatics/article/39/4/btad184/7114023)
 
 ## Credits
 Massimiliano Volpe, Jyotirmoy Das
