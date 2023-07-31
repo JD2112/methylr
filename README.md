@@ -79,9 +79,6 @@ We provide Docker container for local use. Please note, the docker container was
 ```
 # with docker container
 docker run --rm -p 3838:3838 jd21/methylr:latest
-
-# with singularity container
-singularity run docker://jd21/methylr:latest
 ```
 
 ##### Step:2 - web-browser
@@ -89,6 +86,57 @@ Open the web-browser (check above for your OS), and type:
 ```
 http://localhost:3838
 ```
+
+**For Singularity container**
+Thanks to WiilieYu (https://github.com/JD2112/methylr/issues/3), we found a problem on running Singularity/Apptainer container on methylR and using a script from [sigularity-shiny](https://github.com/vsoch/singularity-shiny), we solved the issue. Please run the commands below for Singularity container (tested with Singularity v3.8.6) -
+
+1. To run the [Singularity](https://docs.sylabs.io/guides/latest/user-guide/) or [Apptainer](https://apptainer.org/docs/user/main/index.html), please use the following commandlines -
+
+```
+# Copy prepare_template.sh to <YOUR_LOCAL_PATH> and run
+/bin/bash prepare_template.sh start
+```
+The above command run will generate an script on the terminal and command to run on the server,
+
+```
+$ /bin/bash prepare_template.sh start
+Generating shiny configuration...
+port: 15910 # PLEASE NOTE THIS WILL BE CHANGED IN YOUR COMPUTER
+logs: /tmp/shiny-server.ie3djR
+base: /srv/shiny-server
+run_as: jyotirmoy #<YOUR_USER_NAME>
+Server logging will be in /tmp/shiny-server.ie3djR
+
+To run your server:
+    
+    singularity run --bind /tmp/shiny-server.ie3djR/logs:/var/log/shiny \
+    --bind /tmp/shiny-server.ie3djR/lib:/var/lib/shiny-server \
+    --bind shiny-server.conf:/etc/shiny-server/shiny-server.conf <CONTAINER>
+
+    ---------------------------------------------------------------------------
+    For custom applications, also add --bind /srv/shiny-server:/srv/shiny-server
+    To see your applications, open your browser to http://127.0.0.1:15910 or
+    open a ssh connection from your computer to your cluster.
+```
+
+2. Run the following command on your server
+
+```
+singularity run --bind /tmp/shiny-server.ie3djR/logs:/var/log/shiny \
+    --bind /tmp/shiny-server.ie3djR/lib:/var/lib/shiny-server \
+    --bind shiny-server.conf:/etc/shiny-server/shiny-server.conf docker://jd21/methylr:latest
+```
+
+3. The terminal will prompt likes
+```
+INFO:    Using cached SIF image
+INFO:    Converting SIF file to temporary sandbox...
+[2023-07-31T06:44:52.258] [INFO] shiny-server - Shiny Server v1.5.18.979 (Node.js v12.22.6)
+[2023-07-31T06:44:52.259] [INFO] shiny-server - Using config file "/etc/shiny-server/shiny-server.conf"
+[2023-07-31T06:44:52.285] [INFO] shiny-server - Starting listener on http://[::]:15910
+```
+
+<Control>+click or run `localhost:15910` on the browser.
 
 
 #### MacOS (Intel) and Windows AMD64 OS architecture
