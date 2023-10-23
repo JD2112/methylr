@@ -4,6 +4,9 @@
 [![methylr manual](https://github.com/JD2112/methylr/actions/workflows/publish.yml/badge.svg)](https://github.com/JD2112/methylr/actions/workflows/publish.yml)
 [![Download methylr](https://img.shields.io/sourceforge/dm/methylr.svg)](https://sourceforge.net/projects/methylr/files/latest/download)
 [![Download methylr](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/methylr/files/latest/download)
+
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script><div class="altmetric-embed" data-badge-type="donut" data-altmetric-id="145528822"></div>
+
 # **methylr: a single shiny solution from sequencer data to pathway analysis**
 
 - [Description](#description)
