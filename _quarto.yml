@@ -3,15 +3,15 @@ project:
   output-dir: docs
 
 book:
-  title: "MethylR manual"
+  title: "MethylR 2.0 manual"
   cover-image: cover.png
   repo-url: https://github.com/JD2112/methylr
   repo-actions: issue
   downloads: [pdf, epub]
   sharing: [twitter, facebook]
-  subtitle: "methylR: from sequencer to publication"
+  subtitle: "methylR 2.0: enhanced version of methylR"
   margin-header: |
-    ![](_images/logo-final.png)
+    ![](/_images/logo-final.png)
   body-footer:  <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>Massimiliano Volpe and Jyotirmoy Das All Rights Reserved</p>
   author:
     - name: Massimiliano Volpe

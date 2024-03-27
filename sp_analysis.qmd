@@ -4,10 +4,10 @@
  Copy-number variation analysis from Illumina array data using `conumee` package.
 
 - [Age prediction](./age_prediction.qmd)
- Epigentic age prediction from Illumina array data
+ Epigentic age prediction from Illumina array data using different age prediction algorithm.
 
 - [Exploratory Data Analysis (EDA)](./eda.qmd)
- Exploratory data analysis of the sample meta information.
+ Exploratory data analysis of the sample meta information using `dlookr` package
 
 - [Bioimarker analysis](./biomarker_analysis.qmd)
  Biomarker analysis using `RandomForest` package, identifying signature CpGs and estimating *Area Under the Curve*

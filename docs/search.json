@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MethylR manual",
+    "title": "MethylR 2.0 manual",
     "section": "",
     "text": "e-mail: methylr@googlegroups.com\n\nAcknowledgements\nBioinformatics,\nCore Facility,\nFaculty of Medicine and Health Sciences,\nLinköping University,\nLinköping,\nSweden\nWe would like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.\nDISCLAIMER:  All packages used in methylR* are publicly available and open-source license. We have modified the source as required for methylR. Venn and UpSet plots inspired by the intervene package (Khan and Mathelier 2017), we modified as required for methylR.*\n\n\n\n\nKhan, Aziz, and Anthony Mathelier. 2017. “Intervene: A Tool for Intersection and Visualization of Multiple Gene or Genomic Region Sets.” BMC Bioinformatics 18 (1): 1–8.\n\n\n\n\n\nCopyright ©\n\nMassimiliano Volpe and Jyotirmoy Das All Rights Reserved",
     "crumbs": [
@@ -646,7 +646,7 @@
     "href": "sp_analysis.html",
     "title": "Special Analysis",
     "section": "",
-    "text": "CNV analysis Copy-number variation analysis from Illumina array data using conumee package.\nAge prediction Epigentic age prediction from Illumina array data\nExploratory Data Analysis (EDA) Exploratory data analysis of the sample meta information.\nBioimarker analysis Biomarker analysis using RandomForest package, identifying signature CpGs and estimating Area Under the Curve\n\n\n\n\n\nCopyright ©\n\nMassimiliano Volpe and Jyotirmoy Das All Rights Reserved",
+    "text": "CNV analysis Copy-number variation analysis from Illumina array data using conumee package.\nAge prediction Epigentic age prediction from Illumina array data using different age prediction algorithm.\nExploratory Data Analysis (EDA) Exploratory data analysis of the sample meta information using dlookr package\nBioimarker analysis Biomarker analysis using RandomForest package, identifying signature CpGs and estimating Area Under the Curve\n\n\n\n\n\nCopyright ©\n\nMassimiliano Volpe and Jyotirmoy Das All Rights Reserved",
     "crumbs": [
       "Special Analysis"
     ]
