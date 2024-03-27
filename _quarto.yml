@@ -12,7 +12,7 @@ book:
   subtitle: "methylR: from sequencer to publication"
   margin-header: |
     ![](_images/logo-final.png)
-  body-footer: "Copyright &copy; 2022-2023. Massimiliano Volpe and Jyotirmoy Das."
+  body-footer:  <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>Massimiliano Volpe and Jyotirmoy Das All Rights Reserved</p>
   author:
     - name: Massimiliano Volpe
     - name: Jyotirmoy Das
@@ -28,6 +28,8 @@ book:
         - pairwise_analysis.qmd
         - Volcano_plot.qmd
         - Chromosome_plot.qmd
+        - Manhattan_plot.qmd
+        - Genome_browser.qmd
     - part: assco.qmd
       chapters:
         - go_analysis.qmd
@@ -36,6 +38,12 @@ book:
       chapters: 
         - venn_analysis.qmd
         - upset_plot.qmd
+    - part: sp_analysis.qmd
+      chapters: 
+        - cnv_analysis.qmd
+        - age_prediction.qmd
+        - eda.qmd
+        - biomarker_analysis.qmd
   appendices:  
     - appendix1.qmd
     - appendix2.qmd
@@ -79,8 +87,8 @@ format:
     title-bg-location: "UL"
     title-bg-size: 0.5
     keep-tex: true
-    template-partials:
-        - title.tex
+    # template-partials:
+    #     - title.tex
     include-in-header:
           text: |
             \usepackage[noblocks]{authblk}

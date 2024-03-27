@@ -5,11 +5,12 @@
 %
 \documentclass[
   a4paper,
+  DIV=11,
+  numbers=noendperiod,
   oneside,
   open=any]{scrreport}
 
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -19,6 +20,10 @@
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -80,6 +85,7 @@
 \renewcommand*{\Authand}{, }
 \renewcommand*{\Authands}{, }
 \renewcommand\Affilfont{\small}
+\KOMAoption{captions}{tableheading}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{iftex}
@@ -88,7 +94,7 @@
 \fancyhead[RO, RE]{\url{https://github.com/JD2112/methylr}}
 \fancyfoot[RO, RE]{\color{violet} \textcopyright Volpe, M \& Das, J}
 \makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
 \definecolor{quarto-callout-color}{HTML}{909090}
 \definecolor{quarto-callout-note-color}{HTML}{0758E5}
@@ -102,8 +108,6 @@
 \definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
 \definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
 \definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
-\makeatother
-\makeatletter
 \makeatother
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
@@ -144,23 +148,18 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[citestyle = authoryear]{biblatex}
 \addbibresource{references.bib}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -186,7 +185,6 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Contents}
 {
@@ -197,8 +195,7 @@
 \listoffigures
 \bookmarksetup{startatroot}
 
-\hypertarget{acknowledgements}{%
-\chapter*{Acknowledgements}\label{acknowledgements}}
+\chapter*{Acknowledgements}\label{acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 \markboth{Acknowledgements}{Acknowledgements}
@@ -226,7 +223,7 @@ package \autocite{khan2017intervene}, we modified as required for
 
 \part{Welcome to methylR: DNA Methylation Data Analysis Pipeline}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, left=2mm]
 
 TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP,
 BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND
@@ -270,16 +267,15 @@ based system.\\
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/Figure1.png}
+{\centering \includegraphics{_images/Figure1.png}
 
 }
 
 \caption{Pipeline description and Figures}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{requirements}{%
-\section*{Requirements}\label{requirements}}
+\section*{Requirements}\label{requirements}
 \addcontentsline{toc}{section}{Requirements}
 
 \markright{Requirements}
@@ -350,7 +346,7 @@ based system.\\
   \end{itemize}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 MethylR cannot run on
 \href{https://en.wikipedia.org/wiki/List_of_ARM_processors}{ARM64
@@ -358,14 +354,12 @@ chipset} architecture.
 
 \end{tcolorbox}
 
-\hypertarget{how-to-use}{%
-\section*{How to Use}\label{how-to-use}}
+\section*{How to Use}\label{how-to-use}
 \addcontentsline{toc}{section}{How to Use}
 
 \markright{How to Use}
 
-\hypertarget{local-use}{%
-\subsection*{Local use}\label{local-use}}
+\subsection*{Local use}\label{local-use}
 \addcontentsline{toc}{subsection}{Local use}
 
 \emph{methylR} is packed into docker container that is available online.
@@ -374,7 +368,7 @@ terminal. Please check the
 \href{https://github.com/JD2112/methylr}{github link} to run the
 container from your local computer.\\
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, left=2mm]
 
 For convenient analysis, after one complete analysis (either with
 \emph{ChAMP} or \emph{minfi}), close the browser (to clear the temporary
@@ -382,7 +376,7 @@ memory) and start again.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 Note: If you want to run with the test data, Please download the
 testdata from
@@ -390,8 +384,7 @@ testdata from
 
 \end{tcolorbox}
 
-\hypertarget{sec-methylysis}{%
-\chapter{Methylysis}\label{sec-methylysis}}
+\chapter{Methylysis}\label{sec-methylysis}
 
 \emph{Methylysis} is the most important section in \emph{methylR} since
 it contains the tools to analyze the DNA methylation data for two
@@ -413,7 +406,7 @@ users wish to compare the results from both the pipelines,
 (Venn Analysis see Chapter~\ref{sec-venn} and UpSet Plot see
 Chapter~\ref{sec-upset} sections).
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -432,7 +425,7 @@ Chapter~\ref{sec-upset} sections).
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -453,22 +446,19 @@ Chapter~\ref{sec-upset} sections).
 
 \end{tcolorbox}
 
-\hypertarget{how-to-use-1}{%
-\section{How to use}\label{how-to-use-1}}
+\section{How to use}\label{how-to-use-1}
 
 Details are provided below -
 
-\hypertarget{data-upload-parameters-setup}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup}}
+setup}\label{data-upload-parameters-setup}
 
 The current version can handle the upload of the data directory. Please
 put all RAW IDAT (intensity data) files (as generated by the Illumina
 sequencer) and the ``Sample\_sheet.csv'' together in a directory.
 
-\hypertarget{structure-of-sample_sheet.csv}{%
 \subsection{Structure of
-sample\_sheet.csv}\label{structure-of-sample_sheet.csv}}
+sample\_sheet.csv}\label{structure-of-sample_sheet.csv}
 
 The Sample\_sheet.csv must have the following components -\\
 1. Sample\_Name\\
@@ -476,7 +466,7 @@ The Sample\_sheet.csv must have the following components -\\
 3. Sentrix\_ID\\
 4. Sentrix\_position
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm]
 
 \emph{Note} If the user uses Microsoft Excel to build the
 Sample\_sheet.csv, please check that\\
@@ -493,30 +483,27 @@ Every section in \emph{methylR} comes with the proper testing data
 linked at the bottom of the page, just search for the
 \textbf{\emph{``example data''}} button.
 
-\hypertarget{parameters-setup}{%
-\section{Parameters setup}\label{parameters-setup}}
+\section{Parameters setup}\label{parameters-setup}
 
-\hypertarget{choose-analysis-algorithm}{%
-\subsection{Choose analysis algorithm}\label{choose-analysis-algorithm}}
+\subsection{Choose analysis algorithm}\label{choose-analysis-algorithm}
 
 Currently, we have included two most usable algorithms to analyze the
 data - ChAMP and minfi.\\
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/methylysis_01.png}
+{\centering \includegraphics{_images/methylysis_01.png}
 
 }
 
 \caption{Algorithm choice}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{champ-pipeline-parameters}{%
 \subsubsection{\texorpdfstring{\textbf{ChAMP pipeline
-parameters}}{ChAMP pipeline parameters}}\label{champ-pipeline-parameters}}
+parameters}}{ChAMP pipeline parameters}}\label{champ-pipeline-parameters}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 \textbf{PLEASE NOTE}: ChAMP process will do all filtration
 automatically, independent of User's input. The following filtration
@@ -556,7 +543,7 @@ vi. \emph{filter all probes located in X and Y chromosomes}
 
 The default setup will run with the BMIQ normalization method.
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 Please check references for different type of normalization method.
 
@@ -581,7 +568,7 @@ Please check references for different type of normalization method.
   pipeline will continue without analyzing the batch effect.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 Please check the reference for the batch effect correction using combat
 method \autocite{johnson2007adjusting}.
@@ -603,17 +590,16 @@ method \autocite{johnson2007adjusting}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/methylysis_02.png}
+{\centering \includegraphics{_images/methylysis_02.png}
 
 }
 
 \caption{ChAMP parameters setup}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{minfi-pipeline-parameters}{%
 \subsubsection{\texorpdfstring{\textbf{Minfi pipeline
-parameters}}{Minfi pipeline parameters}}\label{minfi-pipeline-parameters}}
+parameters}}{Minfi pipeline parameters}}\label{minfi-pipeline-parameters}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -659,16 +645,15 @@ parameters}}{Minfi pipeline parameters}}\label{minfi-pipeline-parameters}}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/methylysis_03.png}
+{\centering \includegraphics{_images/methylysis_03.png}
 
 }
 
 \caption{Minfi parameters setup}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{technical-setup}{%
-\section{Technical setup:}\label{technical-setup}}
+\section{Technical setup:}\label{technical-setup}
 
 Both pipelines require the user to set the following technical
 parameters:
@@ -683,7 +668,7 @@ parameters:
   1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 Multi-threading for DNA methylation analysis is mainly used in the
 \textbf{Normalization} process. If you have data with more than 50
@@ -705,9 +690,7 @@ effectively any better time reduction (See Appendix~\ref{sec-calctime}).
   upload of the data directory, it will start running the analysis.
 \end{enumerate}
 
-\hypertarget{requirement-for-data-upload}{%
-\section{Requirement for data
-upload}\label{requirement-for-data-upload}}
+\section{Requirement for data upload}\label{requirement-for-data-upload}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -721,7 +704,7 @@ upload}\label{requirement-for-data-upload}}
   also be provided in the same directory with idat files.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 Check the
 \href{https://github.com/JD2112/methylr/tree/main/data}{github}
@@ -732,8 +715,7 @@ file and use as a template for your sample\_sheet.
 
 \part{Feature Analysis}
 
-\hypertarget{sec-multid}{%
-\chapter{Multi-D Analysis}\label{sec-multid}}
+\chapter{Multi-D Analysis}\label{sec-multid}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -756,16 +738,14 @@ Principal Component Analysis (PCA) is the original vectors in
 n-dimensional space and the data are projected onto the directions in
 the data with the most variance.
 
-\hypertarget{how-to-use-2}{%
-\section{How to use}\label{how-to-use-2}}
+\section{How to use}\label{how-to-use-2}
 
 For both analysis, user need to provide a TEXT (tab-delimited) file with
 numeric values, \emph{e.g.} the output normalized table from methylysis,
 \emph{i.e.} the normalized \beta value table. However the user can use
 similar tables for the analysis.
 
-\hypertarget{data-upload}{%
-\subsection{Data Upload}\label{data-upload}}
+\subsection{Data Upload}\label{data-upload}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -783,11 +763,9 @@ similar tables for the analysis.
   of text file to highlight the group.
 \end{enumerate}
 
-\hypertarget{analysis-result}{%
-\section{Analysis result}\label{analysis-result}}
+\section{Analysis result}\label{analysis-result}
 
-\hypertarget{mds-plot}{%
-\subsection{MDS plot}\label{mds-plot}}
+\subsection{MDS plot}\label{mds-plot}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -804,16 +782,15 @@ similar tables for the analysis.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/mdsPlot.png}
+{\centering \includegraphics{_images/mdsPlot.png}
 
 }
 
 \caption{MDS plot}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{pca-plot}{%
-\subsection{PCA plot}\label{pca-plot}}
+\subsection{PCA plot}\label{pca-plot}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -840,7 +817,7 @@ similar tables for the analysis.
   with this distribution.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 Please note that, the single column with header \textbf{``group''}
 should be supplied in this file. Match the column names of the variable
@@ -861,16 +838,15 @@ For more, please see the
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/PCA.png}
+{\centering \includegraphics{_images/PCA.png}
 
 }
 
 \caption{Principal Component Analysis plot}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used}{%
-\section{R packages used}\label{r-packages-used}}
+\section{R packages used}\label{r-packages-used}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -883,8 +859,7 @@ For more, please see the
   \href{https://cran.r-project.org/web/packages/explor/explor.pdf}{explor}
 \end{enumerate}
 
-\hypertarget{sec-genfeatures}{%
-\chapter{Gene Features analysis}\label{sec-genfeatures}}
+\chapter{Gene Features analysis}\label{sec-genfeatures}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -900,15 +875,12 @@ the different regions of the gene. However, we separated this from the
 methylysis because user can use the same tool for different datasets,
 such as differentially expressed genes data.
 
-\hypertarget{how-to-use-3}{%
-\section{How to use}\label{how-to-use-3}}
+\section{How to use}\label{how-to-use-3}
 
-\hypertarget{data-upload-parameters-setup-1}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-1}}
+setup}\label{data-upload-parameters-setup-1}
 
-\hypertarget{data-upload-1}{%
-\subsubsection{Data upload}\label{data-upload-1}}
+\subsubsection{Data upload}\label{data-upload-1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -945,43 +917,39 @@ setup}\label{data-upload-parameters-setup-1}}
   click on `Run Analysis' will generate the pie chart.
 \end{enumerate}
 
-\hypertarget{gene-features-analysis-result}{%
 \section{Gene Features Analysis
-Result}\label{gene-features-analysis-result}}
+Result}\label{gene-features-analysis-result}
 
-\hypertarget{gene-feature-plot}{%
-\subsection{Gene Feature Plot}\label{gene-feature-plot}}
+\subsection{Gene Feature Plot}\label{gene-feature-plot}
 
 An interactive pie chart will be generated with different regions and
 number of DMCs.\\
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GeneFea1.png}
+{\centering \includegraphics{_images/GeneFea1.png}
 
 }
 
 \caption{Genomic Feature plot}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{gene-feature-table}{%
-\subsection{Gene Feature Table}\label{gene-feature-table}}
+\subsection{Gene Feature Table}\label{gene-feature-table}
 
 The result will also be displayed as table, available for download.\\
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GeneFea2.png}
+{\centering \includegraphics{_images/GeneFea2.png}
 
 }
 
 \caption{Genomic Feature Table}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used-1}{%
-\section{R packages used}\label{r-packages-used-1}}
+\section{R packages used}\label{r-packages-used-1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -990,8 +958,7 @@ The result will also be displayed as table, available for download.\\
   \href{https://cran.r-project.org/web/packages/plotly/plotly.pdf}{plotly}
 \end{enumerate}
 
-\hypertarget{sec-pairwise}{%
-\chapter{Pairwise analysis (Heatmap)}\label{sec-pairwise}}
+\chapter{Pairwise analysis (Heatmap)}\label{sec-pairwise}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1001,11 +968,9 @@ A heatmap module (Pairwise Plot) is added in \emph{methylR} to show the
 \(\beta\) value distribution of the differentially methylated CpGs. A
 pairwise correlation analysis can also be performed in the module.
 
-\hypertarget{how-to-use-4}{%
-\section{How to use}\label{how-to-use-4}}
+\section{How to use}\label{how-to-use-4}
 
-\hypertarget{upload}{%
-\subsection{Upload}\label{upload}}
+\subsection{Upload}\label{upload}
 
 User can upload the input data matrix in \textbf{Tab} (.txt) or
 \textbf{Comma} (.csv) or \textbf{Semicolon} (.csv but with ;) separated
@@ -1017,8 +982,7 @@ on ``Matrix example data'' and ``List example data'' buttons. For a
 better view of the result, we added the functionality to change the
 number of variables on the heatmap.
 
-\hypertarget{settings}{%
-\subsection{Settings}\label{settings}}
+\subsection{Settings}\label{settings}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1033,7 +997,7 @@ number of variables on the heatmap.
   (no-correlation).
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, left=2mm]
 
 \textbf{\emph{PLEASE NOTE: IF YOU WANT TO PERFORM THE CORRELATION PLOT,
 THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
@@ -1075,8 +1039,7 @@ THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
   the zoom in/out option.
 \end{enumerate}
 
-\hypertarget{font-color}{%
-\subsection{Font \& Color}\label{font-color}}
+\subsection{Font \& Color}\label{font-color}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1092,8 +1055,7 @@ THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
   user-defined.
 \end{enumerate}
 
-\hypertarget{matrix-preparation}{%
-\subsection{Matrix preparation}\label{matrix-preparation}}
+\subsection{Matrix preparation}\label{matrix-preparation}
 
 We added a tab for the user to build the heatmap matrix by starting from
 the results of the main analysis, regardless the user choice to perform
@@ -1112,8 +1074,7 @@ analysis section, both ChAMP or minfi) parameter. Default is 0.05.\\
 set a logFC (as defined in the main analysis section, both ChAMP or
 minfi) parameter. Default is 0.1.
 
-\hypertarget{analysis-result-1}{%
-\section{Analysis result}\label{analysis-result-1}}
+\section{Analysis result}\label{analysis-result-1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1125,15 +1086,15 @@ minfi) parameter. Default is 0.1.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/heatmap.png}
+{\centering \includegraphics{_images/heatmap.png}
 
 }
 
 \caption{Static Heatmap}
 
-\end{figure}
+\end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 \textbf{Correlation plot} - for correlation plot, please adjust the
 `Settings', `Plot type' to \textbf{\emph{Corrplot}} and `Correlation
@@ -1143,13 +1104,13 @@ Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/correlationplot-setting.png}
+{\centering \includegraphics{_images/correlationplot-setting.png}
 
 }
 
 \caption{Correlation plot}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1162,13 +1123,13 @@ Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/heatmap2.png}
+{\centering \includegraphics{_images/heatmap2.png}
 
 }
 
 \caption{Interactive Heatmap}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1181,16 +1142,15 @@ Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/heatmap-datatable.png}
+{\centering \includegraphics{_images/heatmap-datatable.png}
 
 }
 
 \caption{Heatmap/Correlation data table}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used-2}{%
-\section{R packages used}\label{r-packages-used-2}}
+\section{R packages used}\label{r-packages-used-2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1203,8 +1163,7 @@ Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
   \href{https://github.com/asntech/intervene}{intervene}
 \end{enumerate}
 
-\hypertarget{sec-volcano}{%
-\chapter{Volcano plot}\label{sec-volcano}}
+\chapter{Volcano plot}\label{sec-volcano}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1220,15 +1179,12 @@ data from the differential analysis) with their respective
 \emph{p}-values (adjusted \emph{p}-values) and the logFC (or mean
 methylation difference).
 
-\hypertarget{how-to-use-5}{%
-\section{How to use}\label{how-to-use-5}}
+\section{How to use}\label{how-to-use-5}
 
-\hypertarget{data-upload-parameters-setup-2}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-2}}
+setup}\label{data-upload-parameters-setup-2}
 
-\hypertarget{data-upload-2}{%
-\subsubsection{Data upload}\label{data-upload-2}}
+\subsubsection{Data upload}\label{data-upload-2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1249,11 +1205,9 @@ setup}\label{data-upload-parameters-setup-2}}
   \emph{p}-value and logFC, click the ``Run Analysis'' button.
 \end{enumerate}
 
-\hypertarget{analysis-result-2}{%
-\section{Analysis result}\label{analysis-result-2}}
+\section{Analysis result}\label{analysis-result-2}
 
-\hypertarget{volcano-plot}{%
-\subsection{Volcano plot}\label{volcano-plot}}
+\subsection{Volcano plot}\label{volcano-plot}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1270,7 +1224,7 @@ setup}\label{data-upload-parameters-setup-2}}
   figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 Please note displaying of the volcano plot will take some time, even
 after the warning {``generating plot, please wait\ldots{}''}
@@ -1282,15 +1236,15 @@ the volcano plot data table.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/Volcano1.png}
+{\centering \includegraphics{_images/Volcano1.png}
 
 }
 
 \caption{Volcano plot}
 
-\end{figure}
+\end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 Volcano plot figure colors annotation- {Significant \& Fold
 Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
@@ -1310,8 +1264,7 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
   result (See Chapter~\ref{sec-methylysis}).
 \end{enumerate}
 
-\hypertarget{volcano-data}{%
-\subsection{Volcano data}\label{volcano-data}}
+\subsection{Volcano data}\label{volcano-data}
 
 One data table will be generated using the input data and will have a
 column marked with {Significant \& Fold
@@ -1323,16 +1276,15 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/Volcano2.png}
+{\centering \includegraphics{_images/Volcano2.png}
 
 }
 
 \caption{Volcano data table}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used-3}{%
-\section{R packages used}\label{r-packages-used-3}}
+\section{R packages used}\label{r-packages-used-3}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1341,8 +1293,7 @@ Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
   \href{https://cran.r-project.org/web/packages/plotly/plotly.pdf}{plotly}
 \end{enumerate}
 
-\hypertarget{sec-chromosome}{%
-\chapter{Chromosome plot}\label{sec-chromosome}}
+\chapter{Chromosome plot}\label{sec-chromosome}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1354,15 +1305,12 @@ cut-off for adjusted \emph{p}-value as well as the fold change value. It
 is possible to visualize one chromosome at a time or all the chromosomes
 on the same figure.
 
-\hypertarget{how-to-use-6}{%
-\section{How to use}\label{how-to-use-6}}
+\section{How to use}\label{how-to-use-6}
 
-\hypertarget{data-upload-parameters-setup-3}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-3}}
+setup}\label{data-upload-parameters-setup-3}
 
-\hypertarget{data-upload-3}{%
-\subsubsection{Data upload}\label{data-upload-3}}
+\subsubsection{Data upload}\label{data-upload-3}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1383,7 +1331,7 @@ setup}\label{data-upload-parameters-setup-3}}
   \emph{p}-value and logFC, click the ``Create plot'' button.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1403,11 +1351,9 @@ setup}\label{data-upload-parameters-setup-3}}
 
 \end{tcolorbox}
 
-\hypertarget{analysis-result-3}{%
-\section{Analysis result}\label{analysis-result-3}}
+\section{Analysis result}\label{analysis-result-3}
 
-\hypertarget{chromosome-plot}{%
-\subsection{Chromosome plot}\label{chromosome-plot}}
+\subsection{Chromosome plot}\label{chromosome-plot}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1421,15 +1367,15 @@ setup}\label{data-upload-parameters-setup-3}}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/chromosome1.png}
+{\centering \includegraphics{_images/chromosome1.png}
 
 }
 
 \caption{Chromosome plot}
 
-\end{figure}
+\end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 In the Chromosome plot, the {blue} \textcolor{blue}{blue} text
 (e.g.~{FAAH} \textcolor{blue}{FAAH}) in the left side is the gene symbol
@@ -1450,8 +1396,7 @@ symbol only shows the CpG ID on the right side.
   (See Chapter~\ref{sec-methylysis} ).
 \end{enumerate}
 
-\hypertarget{r-packages}{%
-\section{R packages}\label{r-packages}}
+\section{R packages}\label{r-packages}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1460,10 +1405,13 @@ symbol only shows the CpG ID on the right side.
   \href{https://www.bioconductor.org/packages/release/bioc/vignettes/chromPlot/inst/doc/chromPlot.pdf}{Chromplot}
 \end{enumerate}
 
+\chapter{Manhattan Plot}\label{manhattan-plot}
+
+\chapter{Genome Browser}\label{genome-browser}
+
 \part{Association Study}
 
-\hypertarget{sec-go}{%
-\chapter{Gene Ontology (GO) enrichment analysis}\label{sec-go}}
+\chapter{Gene Ontology (GO) enrichment analysis}\label{sec-go}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1475,15 +1423,12 @@ Here in \emph{methylR}, we used ontology analysis using the
 \href{https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html}{clusterProfiler
 package} \autocite{yu2012clusterprofiler,wu2021clusterprofiler}.
 
-\hypertarget{how-to-use-7}{%
-\section{How to use}\label{how-to-use-7}}
+\section{How to use}\label{how-to-use-7}
 
-\hypertarget{data-upload-parameters-setup-4}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-4}}
+setup}\label{data-upload-parameters-setup-4}
 
-\hypertarget{parameters-setup-1}{%
-\subsubsection{Parameters setup}\label{parameters-setup-1}}
+\subsubsection{Parameters setup}\label{parameters-setup-1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1513,15 +1458,13 @@ setup}\label{data-upload-parameters-setup-4}}
   plot.
 \end{enumerate}
 
-\hypertarget{data-upload-4}{%
-\subsubsection{Data upload}\label{data-upload-4}}
+\subsubsection{Data upload}\label{data-upload-4}
 
 At present, user can upload the DMC data produced by the main analysis
 (see Chapter~\ref{sec-methylysis} ) directly. The input file should be
 in a \textbf{text (tab-delimited)} format.
 
-\hypertarget{analysis-result-4}{%
-\section{Analysis result}\label{analysis-result-4}}
+\section{Analysis result}\label{analysis-result-4}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1534,7 +1477,7 @@ in a \textbf{text (tab-delimited)} format.
   dynamic figure can also be downloaded as a html file.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1552,44 +1495,41 @@ in a \textbf{text (tab-delimited)} format.
 
 \end{tcolorbox}
 
-\hypertarget{biological-processes}{%
-\subsection{Biological processes}\label{biological-processes}}
+\subsection{Biological processes}\label{biological-processes}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GO-BP.png}
+{\centering \includegraphics{_images/GO-BP.png}
 
 }
 
 \caption{Gene Ontology - Biological Processes}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{cellular-component}{%
-\subsection{Cellular component}\label{cellular-component}}
+\subsection{Cellular component}\label{cellular-component}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GO-CC.png}
+{\centering \includegraphics{_images/GO-CC.png}
 
 }
 
 \caption{Gene Ontology - Cellular Component}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{molecular-function}{%
-\subsection{Molecular function}\label{molecular-function}}
+\subsection{Molecular function}\label{molecular-function}
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GO-MF.png}
+{\centering \includegraphics{_images/GO-MF.png}
 
 }
 
 \caption{Gene Ontology - Molecular Function}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1604,15 +1544,15 @@ in a \textbf{text (tab-delimited)} format.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/GO-table.png}
+{\centering \includegraphics{_images/GO-table.png}
 
 }
 
 \caption{Gene Ontology data table}
 
-\end{figure}
+\end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1631,8 +1571,7 @@ in a \textbf{text (tab-delimited)} format.
 
 \end{tcolorbox}
 
-\hypertarget{r-packages-used-4}{%
-\section{R packages used}\label{r-packages-used-4}}
+\section{R packages used}\label{r-packages-used-4}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1641,8 +1580,7 @@ in a \textbf{text (tab-delimited)} format.
   \href{https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html}{clusterProfiler}
 \end{enumerate}
 
-\hypertarget{sec-pathway}{%
-\chapter{Pathway enrichment analysis}\label{sec-pathway}}
+\chapter{Pathway enrichment analysis}\label{sec-pathway}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1657,23 +1595,19 @@ compute the enriched pathways from three different databases,
 \href{https://www.wikipathways.org/}{Wikipathways}
 \autocite{pico2008plos,martens2020nar}.
 
-\hypertarget{how-to-use-8}{%
-\section{How to use}\label{how-to-use-8}}
+\section{How to use}\label{how-to-use-8}
 
-\hypertarget{data-upload-parameters-setup-5}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-5}}
+setup}\label{data-upload-parameters-setup-5}
 
-\hypertarget{data-upload-5}{%
-\subsubsection{Data upload}\label{data-upload-5}}
+\subsubsection{Data upload}\label{data-upload-5}
 
 User can upload the direct output result from the main analysis. At
 present, user can upload the DMC data produced by the main analysis (See
 Chapter~\ref{sec-methylysis}). The input file should be in a
 \textbf{text (tab-delimited)} format.
 
-\hypertarget{parameters-setup-2}{%
-\subsubsection{Parameters setup}\label{parameters-setup-2}}
+\subsubsection{Parameters setup}\label{parameters-setup-2}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1709,7 +1643,7 @@ Chapter~\ref{sec-methylysis}). The input file should be in a
   pathways is selected based on the adjusted P-values.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1766,8 +1700,7 @@ Chapter~\ref{sec-methylysis}). The input file should be in a
   file (DMC file) directly for the analysis.
 \end{enumerate}
 
-\hypertarget{analysis-result-5}{%
-\section{Analysis result}\label{analysis-result-5}}
+\section{Analysis result}\label{analysis-result-5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1785,7 +1718,7 @@ Chapter~\ref{sec-methylysis}). The input file should be in a
   described above and the dynamic figure as a html file.\\
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1804,13 +1737,13 @@ Chapter~\ref{sec-methylysis}). The input file should be in a
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/Pathway-Enrichment.png}
+{\centering \includegraphics{_images/Pathway-Enrichment.png}
 
 }
 
 \caption{Pathway Enrichment Plot}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1824,15 +1757,15 @@ Chapter~\ref{sec-methylysis}). The input file should be in a
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/PathEnrichTable1.png}
+{\centering \includegraphics{_images/PathEnrichTable1.png}
 
 }
 
 \caption{Pathway Enrichment Table}
 
-\end{figure}
+\end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-warning-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm]
 
 In the pathway enrichment table, the pathway ID is clickable and will
 open the respective pathway from the database. However, this feature is
@@ -1841,8 +1774,7 @@ such link to check the pathway source.
 
 \end{tcolorbox}
 
-\hypertarget{r-packages-used-5}{%
-\section{R packages used}\label{r-packages-used-5}}
+\section{R packages used}\label{r-packages-used-5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1853,8 +1785,7 @@ such link to check the pathway source.
 
 \part{Set Analysis}
 
-\hypertarget{sec-venn}{%
-\chapter{Venn analysis}\label{sec-venn}}
+\chapter{Venn analysis}\label{sec-venn}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1867,17 +1798,14 @@ datasets) to perform the Venn analysis. We adopt the part from
 \autocite{khan2017intervene} application and modified as required for
 \emph{methylR} use.
 
-\hypertarget{how-to-use-9}{%
-\section{How to use}\label{how-to-use-9}}
+\section{How to use}\label{how-to-use-9}
 
 Below given the details for the use of Venn analysis module.
 
-\hypertarget{data-upload-parameters-setup-6}{%
 \subsection{Data upload \& Parameters
-setup}\label{data-upload-parameters-setup-6}}
+setup}\label{data-upload-parameters-setup-6}
 
-\hypertarget{parameters-setup-3}{%
-\subsubsection{Parameters setup}\label{parameters-setup-3}}
+\subsubsection{Parameters setup}\label{parameters-setup-3}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1946,23 +1874,21 @@ setup}\label{data-upload-parameters-setup-6}}
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\section{Results}\label{results}
 
 User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/Venndiag.png}
+{\centering \includegraphics{_images/Venndiag.png}
 
 }
 
 \caption{Venn Result}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used-6}{%
-\section{R packages used}\label{r-packages-used-6}}
+\section{R packages used}\label{r-packages-used-6}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1975,8 +1901,7 @@ User can download the figure in different format, PDF, PNG, SVG or TIFF.
   \href{https://github.com/asntech/intervene}{intervene}
 \end{enumerate}
 
-\hypertarget{sec-upset}{%
-\chapter{UpSet Plots}\label{sec-upset}}
+\chapter{UpSet Plots}\label{sec-upset}
 
 \footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
   APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
@@ -1987,11 +1912,9 @@ part from \href{https://github.com/asntech/intervene}{intervene}
 \autocite{khan2017intervene} application and modified as required for
 \emph{methylR} use.
 
-\hypertarget{how-to-use-10}{%
-\section{How to use}\label{how-to-use-10}}
+\section{How to use}\label{how-to-use-10}
 
-\hypertarget{data-upload-6}{%
-\subsection{Data upload}\label{data-upload-6}}
+\subsection{Data upload}\label{data-upload-6}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2022,7 +1945,7 @@ part from \href{https://github.com/asntech/intervene}{intervene}
   \end{enumerate}
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 PLEASE NOTE: \textbf{\emph{``OR enter set combinations/expression''}}
 has the priority over \textbf{``Upload file''}. If you use the ``set
@@ -2033,8 +1956,7 @@ combinations/expression'' works, please use the example below the box
 
 \end{tcolorbox}
 
-\hypertarget{parameters-setup-4}{%
-\subsection{Parameters setup}\label{parameters-setup-4}}
+\subsection{Parameters setup}\label{parameters-setup-4}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2148,23 +2070,21 @@ combinations/expression'' works, please use the example below the box
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{result}{%
-\section{Result}\label{result}}
+\section{Result}\label{result}
 
 User can download the figure in different format, PDF, PNG, SVG or TIFF.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/upset.png}
+{\centering \includegraphics{_images/upset.png}
 
 }
 
 \caption{UpSet plot}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{r-packages-used-7}{%
-\section{R packages used}\label{r-packages-used-7}}
+\section{R packages used}\label{r-packages-used-7}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2175,18 +2095,45 @@ User can download the figure in different format, PDF, PNG, SVG or TIFF.
   \href{https://github.com/asntech/intervene}{intervene}
 \end{enumerate}
 
-\appendix
-\addcontentsline{toc}{part}{Appendices}
+\part{Special Analysis}
 
-\hypertarget{sec-inputzip}{%
+\begin{itemize}
+\item
+  \href{./cnv_analysis.qmd}{CNV analysis} Copy-number variation analysis
+  from Illumina array data using \texttt{conumee} package.
+\item
+  \href{./age_prediction.qmd}{Age prediction} Epigentic age prediction
+  from Illumina array data
+\item
+  \href{./eda.qmd}{Exploratory Data Analysis (EDA)} Exploratory data
+  analysis of the sample meta information.
+\item
+  \href{./biomarker_analysis.qmd}{Bioimarker analysis} Biomarker
+  analysis using \texttt{RandomForest} package, identifying signature
+  CpGs and estimating \emph{Area Under the Curve}
+\end{itemize}
+
+\chapter{CNV Analysis}\label{cnv-analysis}
+
+\chapter{Age Prediction}\label{age-prediction}
+
+\chapter{Exploratory Data Analysis
+(EDA)}\label{exploratory-data-analysis-eda}
+
+\chapter{Biomarker Analysis}\label{biomarker-analysis}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{Appendices}
+\appendix
+
 \chapter{\texorpdfstring{Create the input zip file for
-\emph{methylR}}{Create the input zip file for methylR}}\label{sec-inputzip}}
+\emph{methylR}}{Create the input zip file for methylR}}\label{sec-inputzip}
 
 This section describes how to create a zip archive containing the input
 files to start the methylysis analysis.
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+\section{Methods}\label{methods}
 
 We will describe three methods to create a zip file:
 
@@ -2204,8 +2151,7 @@ We will describe three methods to create a zip file:
   Command line (Ubuntu Linux)
 \end{enumerate}
 
-\hypertarget{description}{%
-\subsection{Description}\label{description}}
+\subsection{Description}\label{description}
 
 Users need to collect the Sample\_sheet.csv file and all the idat files
 belonging to the analysis as they come from the sequencer. All the
@@ -2218,17 +2164,16 @@ folder. In the end you will get this kind of organisation:
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/zip1.png}
+{\centering \includegraphics{_images/zip1.png}
 
 }
 
 \caption{How to create zip: Figure 1}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{windows-zip-utility-windows-7-8-10-11}{%
 \section{1. Windows zip utility (Windows 7, 8, 10,
-11)}\label{windows-zip-utility-windows-7-8-10-11}}
+11)}\label{windows-zip-utility-windows-7-8-10-11}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2242,17 +2187,16 @@ folder. In the end you will get this kind of organisation:
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/zip2.png}
+{\centering \includegraphics{_images/zip2.png}
 
 }
 
 \caption{How to create zip: Figure 2}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{zip-utility-windows-7-8-10-11}{%
 \section{2. 7-zip utility (Windows 7, 8, 10,
-11)}\label{zip-utility-windows-7-8-10-11}}
+11)}\label{zip-utility-windows-7-8-10-11}
 
 7-Zip is a free open-source file archiver with a high compression ratio.
 You can use 7-Zip on any computer, including a computer in a commercial
@@ -2273,26 +2217,24 @@ have installed 7-zip and want to create the input file for
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/zip3.png}
+{\centering \includegraphics{_images/zip3.png}
 
 }
 
 \caption{How to create zip: Figure 3}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{bash-script-macoslinux}{%
-\section{3. Bash script (MacOS/Linux)}\label{bash-script-macoslinux}}
+\section{3. Bash script (MacOS/Linux)}\label{bash-script-macoslinux}
 
 We provide an automathized bash script that is able to create the file
 structure discussed above for you.
 
-\hypertarget{linux}{%
-\subsection{Linux:}\label{linux}}
+\subsection{Linux:}\label{linux}
 
 Depending on which interface you use (e.g., GNOME, KDE, Xfce), the
 terminal will be accessed differently. We recommend you check
-\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show\&redirect=BasicCommands}{Ubuntu's
+\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show&redirect=BasicCommands}{Ubuntu's
 Using the Terminal} page for the several ways to access the terminal.
 
 \begin{enumerate}
@@ -2310,8 +2252,7 @@ cd /path/to/data/
 sh script.sh
 \end{verbatim}
 
-\hypertarget{macos}{%
-\subsection{MacOS:}\label{macos}}
+\subsection{MacOS:}\label{macos}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2328,12 +2269,11 @@ cd /path/to/data/
 sh script.sh
 \end{verbatim}
 
-\hypertarget{command-line-linux}{%
-\section{4. Command line (Linux)}\label{command-line-linux}}
+\section{4. Command line (Linux)}\label{command-line-linux}
 
 Depending on which interface you use (e.g.~GNOME, KDE, Xfce), the
 terminal will be accessed differently. We recommend you check
-\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show\&redirect=BasicCommands}{Ubuntu's
+\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show&redirect=BasicCommands}{Ubuntu's
 Using the Terminal} page for the several ways to access the terminal.
 
 \begin{enumerate}
@@ -2352,13 +2292,11 @@ cd /path/to/data/
 zip folder/
 \end{verbatim}
 
-\hypertarget{sec-docker}{%
-\chapter{Use of Docker Container}\label{sec-docker}}
+\chapter{Use of Docker Container}\label{sec-docker}
 
-\hypertarget{on-windows}{%
-\section{On Windows}\label{on-windows}}
+\section{On Windows}\label{on-windows}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Caution}, left=2mm]
 
 PLEASE NOTE: Only AMD64 OS
 
@@ -2380,13 +2318,13 @@ PLEASE NOTE: Only AMD64 OS
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/docker_container_windows1.png}
+{\centering \includegraphics{_images/docker_container_windows1.png}
 
 }
 
 \caption{Docker container: Figure 1}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2400,13 +2338,13 @@ PLEASE NOTE: Only AMD64 OS
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/docker_container_windows2.png}
+{\centering \includegraphics{_images/docker_container_windows2.png}
 
 }
 
 \caption{Docker image run}
 
-\end{figure}
+\end{figure}%
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2419,7 +2357,7 @@ PLEASE NOTE: Only AMD64 OS
   minutes to view the app).
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 \textbf{NOTE}: You can copy \emph{http://localhost:3838} after running
 the container and open it on other web-browser to run the app.\\
@@ -2428,18 +2366,17 @@ the container and open it on other web-browser to run the app.\\
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/docker_container_windows3.png}
+{\centering \includegraphics{_images/docker_container_windows3.png}
 
 }
 
 \caption{Docker container run}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{on-macos}{%
-\section{On MacOS}\label{on-macos}}
+\section{On MacOS}\label{on-macos}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-caution-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Caution}, left=2mm]
 
 PLEASE NOTE: (Intel, Only AMD64 OS - not supported on Apple M1/M2
 processors)
@@ -2484,7 +2421,7 @@ processors)
   load the app within 1-3 minutes.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 PLEASE NOTE: It may possible that you run the docker container on MacOS
 Apple M1, but the application may not work as expected. We strongly
@@ -2492,8 +2429,7 @@ recommend to use AMD64 OS architecture to run \emph{methylR}
 
 \end{tcolorbox}
 
-\hypertarget{on-linux-ubuntu-20.04lts}{%
-\section{On Linux (Ubuntu 20.04LTS)}\label{on-linux-ubuntu-20.04lts}}
+\section{On Linux (Ubuntu 20.04LTS)}\label{on-linux-ubuntu-20.04lts}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2518,7 +2454,7 @@ docker run --rm -p 3838:3838 jd21/methylr:latest
   Windows.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+\begin{tcolorbox}[enhanced jigsaw, opacityback=0, toprule=.15mm, bottomtitle=1mm, colback=white, rightrule=.15mm, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm, arc=.35mm, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, opacitybacktitle=0.6, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2544,22 +2480,19 @@ $ sudo chown $USER /var/run/docker.sock
 
 \end{tcolorbox}
 
-\hypertarget{sec-bed}{%
-\chapter{Convert DMCs table to BED}\label{sec-bed}}
+\chapter{Convert DMCs table to BED}\label{sec-bed}
 
 This section describes how to convert the DMCs table to standard BED
 format using the ChAMP2bed.py script.
 
-\hypertarget{method}{%
-\section{Method}\label{method}}
+\section{Method}\label{method}
 
 Python3 must be installed on your system, no additional libraries are
 required. If your system lacks any python installation, please refer to
 this page: \href{https://realpython.com/installing-python/}{Python 3
 Installation \& Setup Guide}.
 
-\hypertarget{description-1}{%
-\subsection{Description}\label{description-1}}
+\subsection{Description}\label{description-1}
 
 To use ChAMP2bed.py open a terminal and move to the directory storing
 your main \emph{methylR} results. ChAMP2bed.py must be in the same
@@ -2567,13 +2500,13 @@ directory storing your DMCs table:
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/bed2.png}
+{\centering \includegraphics{_images/bed2.png}
 
 }
 
 \caption{BED format: figure 1}
 
-\end{figure}
+\end{figure}%
 
 Run the command:
 
@@ -2587,13 +2520,13 @@ extension:
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/bed3.png}
+{\centering \includegraphics{_images/bed3.png}
 
 }
 
 \caption{BED format: figure 2}
 
-\end{figure}
+\end{figure}%
 
 You can use this file as input for Gviz or import it either in IGV or as
 a custom track in any other genome browser. Be sure to match the proper
@@ -2603,25 +2536,26 @@ additional features, such as genes ({``green''}):
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./_images/bed4.png}
+{\centering \includegraphics{_images/bed4.png}
 
 }
 
 \caption{BED format: figure 3}
 
-\end{figure}
+\end{figure}%
 
-\hypertarget{sec-calctime}{%
-\chapter{Time calculation}\label{sec-calctime}}
+\chapter{Time calculation}\label{sec-calctime}
 
 Here we showed the calculation time of each process in \emph{methylR}
 for both full and lite versions.
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule()
+\toprule\noalign{}
 module & processes & calculation time (mm:ss) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 methylysis & local run - ChAMP & \\
 & (params: BMIQ, batch correction, cores = 4) & 03:11 s \\
 & server run - ChAMP & \\
@@ -2637,14 +2571,11 @@ volcano & & 00:18 s \\
 chromosome & & 00:04 s \\
 gene ontology & & 01:30 s \\
 pathway analysis & & 00:18 s \\
-\bottomrule()
 \end{longtable}
 
-\hypertarget{sec-faq}{%
-\chapter{FAQs/Troubleshooting}\label{sec-faq}}
+\chapter{FAQs/Troubleshooting}\label{sec-faq}
 
-\hypertarget{troubleshooting}{%
-\section{Troubleshooting}\label{troubleshooting}}
+\section{Troubleshooting}\label{troubleshooting}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2672,14 +2603,14 @@ pathway analysis & & 00:18 s \\
   same format as described in the manual.
 \end{enumerate}
 
-\hypertarget{references}{%
-\chapter*{References}\label{references}}
+\chapter*{References}\label{references}
 \addcontentsline{toc}{chapter}{References}
 
 \markboth{References}{References}
 
+\printbibliography[heading=none]
 
-\printbibliography
+
 
 
 \end{document}
