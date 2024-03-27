@@ -1,0 +1,2685 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  oneside,
+  open=any]{scrreport}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage[noblocks]{authblk}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{, }
+\renewcommand*{\Authands}{, }
+\renewcommand\Affilfont{\small}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{iftex}
+\usepackage[english]{babel}
+\pagestyle{fancy}
+\fancyhead[RO, RE]{\url{https://github.com/JD2112/methylr}}
+\fancyfoot[RO, RE]{\color{violet} \textcopyright Volpe, M \& Das, J}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[citestyle = authoryear]{biblatex}
+\addbibresource{references.bib}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={MethylR manual},
+  pdfauthor={Massimiliano Volpe; Jyotirmoy Das},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{MethylR manual}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{methylR: from sequencer to publication}
+\author{Massimiliano Volpe \and Jyotirmoy Das}
+\date{}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Contents}
+{
+\hypersetup{linkcolor=blue}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\listoffigures
+\bookmarksetup{startatroot}
+
+\hypertarget{acknowledgements}{%
+\chapter*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\markboth{Acknowledgements}{Acknowledgements}
+
+e-mail: \url{methylr@googlegroups.com}
+
+Bioinformatics,\\
+Core Facility,\\
+Faculty of Medicine and Health Sciences,\\
+Linköping University,\\
+Linköping,\\
+Sweden
+
+\textbf{\emph{We would like to acknowledge the Core Facility, Faculty of
+Medicine and Health Sciences, Linköping University, Linköping, Sweden
+and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for
+their support.}}
+
+\textbf{\emph{DISCLAIMER: }} \textbf{\emph{All packages used in
+}methylR* are publicly available and open-source license. We have
+modified the source as required for \emph{methylR}. Venn and UpSet plots
+inspired by the \href{https://github.com/asntech/intervene}{intervene}
+package \autocite{khan2017intervene}, we modified as required for
+\emph{methylR}.}*
+
+\part{Welcome to methylR: DNA Methylation Data Analysis Pipeline}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
+TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP,
+BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND
+TRY AGAIN.
+
+\end{tcolorbox}
+
+DNA Methylation is one of the most studied epigenetic modifications in
+humans, playing a critical role in cellular response, development and
+differentiation \autocite{Das2019}. The transfer of a methyl group onto
+the C5 position of the cytosine to form 5-methyl-cytosine is considered
+as the DNA methylation or epigenetic mechanism in human or mammalian
+genome \autocite{moore2013dna}. Epigenetic research has its roots in
+plant science, which emerged in the early 20th century. In human
+medicine, cancer biology has driven the field forwards during the last
+two decades and in combination with modern, array-based techniques and
+nex-generation sequencing now provides the scientific community with an
+easily accessible tool to study epigenetics at a whole-genome level
+\autocite{das2021dna}. To find the methylated site or the CpG site,
+Illumina\textsuperscript{(R)} uses DNA methylation array-based
+technology. Till date three different array platforms are available from
+Illumina for human genome to identify the CpG site or specific DNA
+methylation location, namely 27K, 450K or 850K. A more detail history
+and timeline can be found here in this
+\href{https://www.frontiersin.org/articles/10.3389/fgene.2011.00074/full}{article}
+by Harrison and Pari-McDermott (2011) \autocite{harrison2011dna}. After
+performing the array, the major part is the analysis of the raw data
+generated from the machine. Numerous tools are available to analyze the
+data using different operating system, various computational languages.
+And all of these tools require extensive handling of computational
+resources. For the Biologist or those who have limited computational
+knowledge, it is extremely difficult to handle all these tools.
+
+Here, in \emph{methylR}, we presented a shiny-based web server approach
+to minimize the above-mentioned difficulties. MethylR has graphical user
+interface to support and understand the various options used in the DNA
+methylation analysis with an extensive manual/tutorial how to use it.
+The background computational power depends on the user's computer which
+can also be optimized. We successfully tested the pipeline on Linux
+based system.\\
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/Figure1.png}
+
+}
+
+\caption{Pipeline description and Figures}
+
+\end{figure}
+
+\hypertarget{requirements}{%
+\section*{Requirements}\label{requirements}}
+\addcontentsline{toc}{section}{Requirements}
+
+\markright{Requirements}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{LinuxOS} - (AMD64)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Ubuntu 20.04LTS}
+  \item
+    \emph{Docker} (version 20.10.18)
+  \item
+    \emph{web-browser}: \emph{Firefox} (version 105)
+  \end{itemize}
+\item
+  \textbf{MacOS} - (AMD64)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Monterey (version 12.5.1)}
+  \item
+    \emph{Docker} (version 20.10.17)
+  \item
+    \emph{Docker Desktop} (version 4.12.0)
+  \item
+    \emph{web-browsers}:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{Google Chrome} (version 106),
+    \item
+      \emph{Firefox} (version 106),
+    \item
+      \emph{Apple Safari} (version 15.6.1)
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{WindowsOS} - (AMD64)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Windows 10} (version 21H2)
+  \item
+    \emph{Docker} (version 20.10.20)
+  \item
+    \emph{Docker Desktop} (version 4.13.0)
+  \item
+    \emph{WSL2} - (\textbf{Ubuntu 20.04LTS})
+  \item
+    web-browsers:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Firefox (version 106),
+    \item
+      Google Chrome (version 107),
+    \item
+      Microsoft Edge (version 106).
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+MethylR cannot run on
+\href{https://en.wikipedia.org/wiki/List_of_ARM_processors}{ARM64
+chipset} architecture.
+
+\end{tcolorbox}
+
+\hypertarget{how-to-use}{%
+\section*{How to Use}\label{how-to-use}}
+\addcontentsline{toc}{section}{How to Use}
+
+\markright{How to Use}
+
+\hypertarget{local-use}{%
+\subsection*{Local use}\label{local-use}}
+\addcontentsline{toc}{subsection}{Local use}
+
+\emph{methylR} is packed into docker container that is available online.
+Singularity can also be used to run the docker container directly from
+terminal. Please check the
+\href{https://github.com/JD2112/methylr}{github link} to run the
+container from your local computer.\\
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
+For convenient analysis, after one complete analysis (either with
+\emph{ChAMP} or \emph{minfi}), close the browser (to clear the temporary
+memory) and start again.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Note: If you want to run with the test data, Please download the
+testdata from
+\url{https://sourceforge.net/projects/methylr/files/testData.zip}
+
+\end{tcolorbox}
+
+\hypertarget{sec-methylysis}{%
+\chapter{Methylysis}\label{sec-methylysis}}
+
+\emph{Methylysis} is the most important section in \emph{methylR} since
+it contains the tools to analyze the DNA methylation data for two
+different Illumina arrays, 450K and 850K array. Two of the most used
+well-defined pipelines are currently available in \emph{methylR}: The
+Chip Analysis Methylation Pipeline
+\href{https://bioconductor.org/packages/release/bioc/vignettes/ChAMP/inst/doc/ChAMP.html}{ChAMP}
+and
+\href{https://bioconductor.org/packages/release/bioc/vignettes/minfi/inst/doc/minfi.html}{minfi}.
+Those are alternative pipelines and, although the user has the freedom
+to decide to test both, only the results from one of them is required to
+run to visualize and explore the data in the downstream sections. For
+new users, we suggest to run \textbf{ChAMP} as it is the latest, well
+packed and well maintained pipeline for \emph{Illumina HumanMethylation
+Array} data analysis. Both pipelines offer different input options and
+parameters that can be modified based on the user's actual data. If
+users wish to compare the results from both the pipelines,
+\emph{methylR} offers this possibility through the downstream processing
+(Venn Analysis see Chapter~\ref{sec-venn} and UpSet Plot see
+Chapter~\ref{sec-upset} sections).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  After uploading the zip file See Appendix~\ref{sec-inputzip}, the
+  pipeline will start automatically by displaying the notification
+  {``Computing methylysis, please wait\ldots{}''}
+  \textcolor{teal}{"Computing methylysis, please wait..."}. When the
+  notification turns off, the user can go to different tabs to display
+  the result. Please wait 5-10 seconds (see Appendix~\ref{sec-calctime},
+  \emph{Calculation Time for each process}) to display the result on the
+  tab. Depending on the sample size, it may requires more time to
+  display properly.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  If the \emph{methylysis} page goes
+  {``dim/disconnected''}\textcolor{gray}{dim/disconnected}, the analysis
+  may encounter some errors during the run and the program stops
+  working. Please refresh the page and run the same analysis again with
+  different filters/parameters. Example, for ChAMP pipeline, if the user
+  selects the ``adjusted P-value'' = 0.05 (as default), may be for the
+  sample data, there is no differentially methylated CpGs at that value.
+  Please change the adjusted P-value (recommend to set it at 1, and
+  check the table after the run that what is appropriate cut-off) and
+  run the pipeline again.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\hypertarget{how-to-use-1}{%
+\section{How to use}\label{how-to-use-1}}
+
+Details are provided below -
+
+\hypertarget{data-upload-parameters-setup}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup}}
+
+The current version can handle the upload of the data directory. Please
+put all RAW IDAT (intensity data) files (as generated by the Illumina
+sequencer) and the ``Sample\_sheet.csv'' together in a directory.
+
+\hypertarget{structure-of-sample_sheet.csv}{%
+\subsection{Structure of
+sample\_sheet.csv}\label{structure-of-sample_sheet.csv}}
+
+The Sample\_sheet.csv must have the following components -\\
+1. Sample\_Name\\
+2. Sample\_Group\\
+3. Sentrix\_ID\\
+4. Sentrix\_position
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+
+\emph{Note} If the user uses Microsoft Excel to build the
+Sample\_sheet.csv, please check that\\
+1. \textbf{Sentrix\_ID} : are in text format (not in number format,
+which Excel will change to scientific numbers and will not properly
+displayed).\\
+2. \emph{Optional check}: Copy and paste the Excel table of
+Sample\_sheet in some text editor like notepad or VS code and check the
+format.
+
+\end{tcolorbox}
+
+Every section in \emph{methylR} comes with the proper testing data
+linked at the bottom of the page, just search for the
+\textbf{\emph{``example data''}} button.
+
+\hypertarget{parameters-setup}{%
+\section{Parameters setup}\label{parameters-setup}}
+
+\hypertarget{choose-analysis-algorithm}{%
+\subsection{Choose analysis algorithm}\label{choose-analysis-algorithm}}
+
+Currently, we have included two most usable algorithms to analyze the
+data - ChAMP and minfi.\\
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/methylysis_01.png}
+
+}
+
+\caption{Algorithm choice}
+
+\end{figure}
+
+\hypertarget{champ-pipeline-parameters}{%
+\subsubsection{\texorpdfstring{\textbf{ChAMP pipeline
+parameters}}{ChAMP pipeline parameters}}\label{champ-pipeline-parameters}}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\textbf{PLEASE NOTE}: ChAMP process will do all filtration
+automatically, independent of User's input. The following filtration
+will be done -\\
+i. \emph{filtering probes with detection p-value \textgreater{} 0.01},\\
+ii. \emph{filter out probes with \textless3 beads in at least 5\% of
+samples per probe},\\
+iii. \emph{filter all non-CpG probes}\\
+iv. \emph{filter all SNP-related probes}\\
+v. \emph{filter all multi-hit probes}\\
+vi. \emph{filter all probes located in X and Y chromosomes}
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Choose type of Illumina array}: Two options are provided to
+  choose, namely EPIC/850K array and 450K array from Illumina array
+  analysis.
+\item
+  \emph{Adjusted P-value}: User can define there own adjusted P-value to
+  run the analysis. The default is 0.05.
+\item
+  \emph{Normalization}: User can choose different normalization methods
+  from the drop-down list,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    BMIQ (Beta-Mixture Quantile Normalization)
+    \autocite{teschendorff2013beta},
+  \item
+    PBC (Peak-Based Correction) \autocite{dedeurwaerder2011evaluation},
+  \end{itemize}
+\end{enumerate}
+
+The default setup will run with the BMIQ normalization method.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Please check references for different type of normalization method.
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \emph{Batch Effect Correction}: \emph{ComBat} function is used to
+  correct the batch effect. User can choose whether to compute the batch
+  effect or not by clicking the button. When the button is {``green''}
+  \textcolor{green}{green} (\textbf{ON}), it will prompt to select the
+  factors for the batch effect correction, \emph{Slide}, \emph{Array},
+  \emph{Age}, \emph{Sex}, or \emph{Other}. Select as necessary and
+  should have the column in the Sample\_sheet (check the Sample\_sheet
+  in the testdata set). If you have other option than \emph{Slide},
+  \emph{Array}, \emph{Age}, or \emph{Sex}, rename the column as
+  \textbf{`Other'} and run batch effect correction.\\
+  If the button is {``red''} \textcolor{red}{red} (\textbf{OFF}), the
+  pipeline will continue without analyzing the batch effect.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Please check the reference for the batch effect correction using combat
+method \autocite{johnson2007adjusting}.
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  \emph{Cell Type Heterogeneity}: Houseman et al (2013)
+  \autocite{houseman2012dna} algorithm is applied to calculate the
+  cell-type heterogeneity from PBMC (\emph{Peripheral Bllod Mononuclear
+  Cells}) dataset using the \emph{refbase} function. This is deactivated
+  as default. Press the button to activate and run during the
+  analysis.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/methylysis_02.png}
+
+}
+
+\caption{ChAMP parameters setup}
+
+\end{figure}
+
+\hypertarget{minfi-pipeline-parameters}{%
+\subsubsection{\texorpdfstring{\textbf{Minfi pipeline
+parameters}}{Minfi pipeline parameters}}\label{minfi-pipeline-parameters}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Choose preprocess method} : There are several methods available
+  for preprocessing or normalizing the raw data using the RGset. Here we
+  listed them as the user's input options to select the
+  preprocess/normalization method as per their choice:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Raw: No processing of the raw data,
+  \item
+    SWAN: Subset Quantile Within array Normalization
+    \autocite{maksimovic2012swan,touleimat2012complete},
+  \item
+    Noob: Noob preprocessing \autocite{triche2013low},
+  \item
+    Illumina: Illumina preprocessing, as performed by Genome Studio
+    (reverse engineered by minfi authors) \autocite{aryee2014minfi}
+  \item
+    Funnorm: Functional normalization \autocite{fortin2014functional}
+  \end{itemize}
+\item
+  \emph{Select filtration method}: In this section, we assigned options
+  for the user to perform the different filters, like removal of XY
+  chromosomes from the analysis, removal of SNPs or removal of
+  non-specific probes from the dataset. By default, the pipeline will
+  use p-value detection 0.01.
+\item
+  \emph{Compute cell type heterogeneity}: similar as ChAMP, we used
+  Houseman method to correct the cell type heterogeneity. In minfi
+  pipeline we used default minfi function \emph{estimateCellCounts}. As
+  before, user can choose to avoid this if the samples are not from PBMC
+  cell types.
+\item
+  \emph{Choose genome annotation database}: To annotate the DMC list
+  from the analysis, use the human genome reference annotation data
+  file. For 850K array, make sure to use the hg38 array to compare the
+  result with the output of ChAMP pipeline.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/methylysis_03.png}
+
+}
+
+\caption{Minfi parameters setup}
+
+\end{figure}
+
+\hypertarget{technical-setup}{%
+\section{Technical setup:}\label{technical-setup}}
+
+Both pipelines require the user to set the following technical
+parameters:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Number of cores}: Both pipeline can run on 1 core which will
+  take more time to compute the entire process. User can choose to setup
+  the number of cores depending the availability. The default is set to
+  1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Multi-threading for DNA methylation analysis is mainly used in the
+\textbf{Normalization} process. If you have data with more than 50
+samples, using 4 cores may reduce the calculation time. If the dataset
+has less number of samples, increasing the number of cores will not do
+effectively any better time reduction (See Appendix~\ref{sec-calctime}).
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Data upload} The user should set the parameters first and choose
+  all parameters as described above and then upload the data directory.
+  To do that, just click on the button ``Browse\ldots{}'' and locate the
+  zip archive containing raw files. As soon as the pipeline finishes the
+  upload of the data directory, it will start running the analysis.
+\end{enumerate}
+
+\hypertarget{requirement-for-data-upload}{%
+\section{Requirement for data
+upload}\label{requirement-for-data-upload}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\emph{idat files}}: all idat files, green and red as received
+  from Illumina sequencing array should be provided for the analysis.
+  All files should be in one directory/folder.
+\item
+  \textbf{\emph{Sample\_sheet.csv}}: the ``Sample\_sheet.csv'' should
+  also be provided in the same directory with idat files.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Check the
+\href{https://github.com/JD2112/methylr/tree/main/data}{github}
+repository for sample data file. You may download the Sample\_sheet.csv
+file and use as a template for your sample\_sheet.
+
+\end{tcolorbox}
+
+\part{Feature Analysis}
+
+\hypertarget{sec-multid}{%
+\chapter{Multi-D Analysis}\label{sec-multid}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+In \emph{methylR}, multiple dimensional analysis includes two type of
+analysis -\\
+1. \textbf{MDS}: Multidimensional Scaling\\
+2. \textbf{PCA}: Prinicipal Component Analysis
+
+Multidimensional scaling is a visual representation of distances or
+dissimilarities between set of objects. \textbf{MDS} finds set of
+vectors in \emph{p}-dimensional space such that the matrix of Euclidean
+distance among them corresponds as closely as possible to some function
+of the input matrix. The input to multidimensional scaling is a distance
+matrix. To get some more details on how to use \textbf{MDS} in
+biological data, read
+\autocite{mugavin2008multidimensional,lacher1987interpretation,lacher1988comparison}\\
+Principal Component Analysis (PCA) is the original vectors in
+n-dimensional space and the data are projected onto the directions in
+the data with the most variance.
+
+\hypertarget{how-to-use-2}{%
+\section{How to use}\label{how-to-use-2}}
+
+For both analysis, user need to provide a TEXT (tab-delimited) file with
+numeric values, \emph{e.g.} the output normalized table from methylysis,
+\emph{i.e.} the normalized \beta value table. However the user can use
+similar tables for the analysis.
+
+\hypertarget{data-upload}{%
+\subsection{Data Upload}\label{data-upload}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Select the text file (tab-delimited file) and upload it.
+\item
+  User can choose the option to use number of variables from the
+  uploaded data file.
+\item
+  On the right tab, under ``MDS plot'', user will find the button to
+  ``Run MDS Analysis''
+\item
+  Next tab is designed for the PCA plot and here user can have an input
+  of text file to highlight the group.
+\end{enumerate}
+
+\hypertarget{analysis-result}{%
+\section{Analysis result}\label{analysis-result}}
+
+\hypertarget{mds-plot}{%
+\subsection{MDS plot}\label{mds-plot}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  After the click on ``Run MDS Analysis'', the program will take some
+  time to generate the plot and will appear as soon the run finishes.
+  The zoom bar can be used to zoom in/out the plot.
+\item
+  The generated figure can be downloaded in different format, vector
+  graphics support - PDF and SVG or PNG and TIFF. User can download all
+  different options for the same figure.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/mdsPlot.png}
+
+}
+
+\caption{MDS plot}
+
+\end{figure}
+
+\hypertarget{pca-plot}{%
+\subsection{PCA plot}\label{pca-plot}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The plot will be generated after computing the PCA, ``Run PCA'' with
+  the group colors and legend.
+\item
+  The generated plot is dynamic and positional details with the group
+  name can be seen with mouse hovering.
+\item
+  The plot is generated using the plotly application, it can zoom
+  in/out, save figure as PNG format, and do all other available
+  functionality for plotly figures.
+\item
+  User can also download the dynamic figure as html file.
+\item
+  To generate the PCA plot one additional TEXT file is needed. This
+  single-column file must have ``group'' as header and should store the
+  sample group in the same order as you have in the Sample\_Group column
+  of the Sample\_shee.csv file. Please find
+  \href{https://github.com/JD2112/methylr/blob/main/data/groupData.txt}{here}
+  an example of this file that you can use with the test data provided
+  with this distribution.\\
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Please note that, the single column with header \textbf{``group''}
+should be supplied in this file. Match the column names of the variable
+data file with the group.\\
+\textbf{\emph{Example:}} If in the variable data file, the column names
+are - sampleA1 sampleA2 sampleA3 sampleB1 sampleB2 sampleB3 the group
+text file should be like this - group\\
+A\\
+A\\
+A\\
+B\\
+B\\
+B\\
+For more, please see the
+\href{https://sourceforge.net/projects/methylr/}{test data} files.
+
+\end{tcolorbox}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/PCA.png}
+
+}
+
+\caption{Principal Component Analysis plot}
+
+\end{figure}
+
+\hypertarget{r-packages-used}{%
+\section{R packages used}\label{r-packages-used}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://cran.r-project.org/web/packages/FactoMineR/FactoMineR.pdf}{FactoMineR}
+\item
+  \href{https://cran.r-project.org/web/packages/factoextra/factoextra.pdf}{factoExtra}
+\item
+  \href{https://cran.r-project.org/web/packages/explor/explor.pdf}{explor}
+\end{enumerate}
+
+\hypertarget{sec-genfeatures}{%
+\chapter{Gene Features analysis}\label{sec-genfeatures}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Gene Features, here in \emph{methylR}, we presented only the structural
+part of the gene that can be classified as promoter, exon, intron,
+untranslated regions \autocite{skolnick2000structural}. These features
+are essential for DNA methylation study as example, methylation on the
+promoter can alter the gene expression. Here we used a simple tool to
+find out how many differentially methylated CpGs are distributed over
+the different regions of the gene. However, we separated this from the
+methylysis because user can use the same tool for different datasets,
+such as differentially expressed genes data.
+
+\hypertarget{how-to-use-3}{%
+\section{How to use}\label{how-to-use-3}}
+
+\hypertarget{data-upload-parameters-setup-1}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-1}}
+
+\hypertarget{data-upload-1}{%
+\subsubsection{Data upload}\label{data-upload-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User can upload the differentially methylated CpG (DMC) file that are
+  generated from methylysis run or
+\item
+  they can use separate file which has similar annotation. The basic
+  requirement to run the tool is to have the following gene feature in
+  the supplied text file -
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1st Exon
+  \item
+    3´UTR
+  \item
+    5´UTR
+  \item
+    Body
+  \item
+    ExonBnd
+  \item
+    TSS1500
+  \item
+    TSS200
+  \end{itemize}
+\item
+  Remember to upload the file as TEXT (tab-delimited) format file.
+\item
+  After uploading the file, when the `blue' bar finished uploading,
+  click on `Run Analysis' will generate the pie chart.
+\end{enumerate}
+
+\hypertarget{gene-features-analysis-result}{%
+\section{Gene Features Analysis
+Result}\label{gene-features-analysis-result}}
+
+\hypertarget{gene-feature-plot}{%
+\subsection{Gene Feature Plot}\label{gene-feature-plot}}
+
+An interactive pie chart will be generated with different regions and
+number of DMCs.\\
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GeneFea1.png}
+
+}
+
+\caption{Genomic Feature plot}
+
+\end{figure}
+
+\hypertarget{gene-feature-table}{%
+\subsection{Gene Feature Table}\label{gene-feature-table}}
+
+The result will also be displayed as table, available for download.\\
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GeneFea2.png}
+
+}
+
+\caption{Genomic Feature Table}
+
+\end{figure}
+
+\hypertarget{r-packages-used-1}{%
+\section{R packages used}\label{r-packages-used-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://cran.r-project.org/web/packages/plotly/plotly.pdf}{plotly}
+\end{enumerate}
+
+\hypertarget{sec-pairwise}{%
+\chapter{Pairwise analysis (Heatmap)}\label{sec-pairwise}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+A heatmap module (Pairwise Plot) is added in \emph{methylR} to show the
+\(\beta\) value distribution of the differentially methylated CpGs. A
+pairwise correlation analysis can also be performed in the module.
+
+\hypertarget{how-to-use-4}{%
+\section{How to use}\label{how-to-use-4}}
+
+\hypertarget{upload}{%
+\subsection{Upload}\label{upload}}
+
+User can upload the input data matrix in \textbf{Tab} (.txt) or
+\textbf{Comma} (.csv) or \textbf{Semicolon} (.csv but with ;) separated
+format. If you don't have the matrix, this modules provides the
+functionality to make it starting from the main results coming from
+\emph{methylysis} (see Chapter~\ref{sec-methylysis}). Either ChAMP and
+minfi will provide the input data or you can get test data by clicking
+on ``Matrix example data'' and ``List example data'' buttons. For a
+better view of the result, we added the functionality to change the
+number of variables on the heatmap.
+
+\hypertarget{settings}{%
+\subsection{Settings}\label{settings}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Plot type} - User can choose the heatmap or correlation plot
+  function for the analysis.
+\item
+  \textbf{Correlation Coefficient} - four different types of correlation
+  coefficient added in the module, 1) Pearson, 2) Spearman, 3) Kendall
+  and 4) no-correlation (better for heatmap). Default chosen `non'
+  (no-correlation).
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}]
+
+\textbf{\emph{PLEASE NOTE: IF YOU WANT TO PERFORM THE CORRELATION PLOT,
+THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.}}
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Agglomeration method for hclust} - different agglomeration
+  method for hierarchical cluster analysis provided in the module, 1)
+  ward.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty,
+  7) Median, and 8) Centroid. Default chosen `Complete'.
+\item
+  \textbf{No.~of clusters for hclust} - user can set the number of
+  hierarchical cluster for their data. Default is 3.
+\item
+  \textbf{Distance Matrix computation} - different types of distance
+  matrix calculation can be applied to generate the heatmap, 1)
+  Euclidean, 2) Manhattan, 3) Canberra, 4) Minkowski or 5) none. Default
+  is `Euclidean'.
+\item
+  \textbf{Dendrogram} - user can choose to show the dendrogram on the
+  row and/or column list.
+\item
+  \textbf{Color key} - selecting color key will give option to change
+  the size of the color key. However, user can choose not to show the
+  color-key. Also color key title is user-defined.
+\item
+  \textbf{axis label} - both x and y-axis label is user-defined. User
+  can change the label of the x and y axis.
+\item
+  \textbf{Title} - It will change the title of the heatmap/ correlation
+  plot.
+\item
+  \textbf{Zoom in \& out Heatmap} - for the static plot, user can set
+  the zoom in/out option.
+\end{enumerate}
+
+\hypertarget{font-color}{%
+\subsection{Font \& Color}\label{font-color}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Select theme} - with the pre-defined theme colors,
+  custom-defined color for the heatmap is also enabled.
+\item
+  \textbf{label} - user can separately define the size, rotation and
+  color of the label text.
+\item
+  \textbf{Color} - rectangle border, grid color and label color is also
+  user-defined.
+\end{enumerate}
+
+\hypertarget{matrix-preparation}{%
+\subsection{Matrix preparation}\label{matrix-preparation}}
+
+We added a tab for the user to build the heatmap matrix by starting from
+the results of the main analysis, regardless the user choice to perform
+it with ChAMP or minfi. The matrix can be uploaded directly on the
+\emph{Upload} tab to run the heatmap analysis.\\
+1. \textbf{Upload normalized data table} - user can upload the
+normalized table from the main analysis directly without any
+modification.\\
+2. \textbf{Upload DMC data table} - user can upload the differentially
+methylated CpG data table from the main analysis directly without any
+modification.\\
+3. \textbf{Select adjusted P-value} - for more filtration on the
+dataset, we set a adjusted p-value (BH-corrected as defined in the main
+analysis section, both ChAMP or minfi) parameter. Default is 0.05.\\
+4. \textbf{Select logFC value} - for more filtration on the dataset, we
+set a logFC (as defined in the main analysis section, both ChAMP or
+minfi) parameter. Default is 0.1.
+
+\hypertarget{analysis-result-1}{%
+\section{Analysis result}\label{analysis-result-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Heatmap} - the figure will be shown in the adjacent panel. It
+  can be downloaded in the following formats, PDF, PNG, SVG and TIFF.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/heatmap.png}
+
+}
+
+\caption{Static Heatmap}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\textbf{Correlation plot} - for correlation plot, please adjust the
+`Settings', `Plot type' to \textbf{\emph{Corrplot}} and `Correlation
+Coefficient' to \textbf{\emph{Pearson/Spearman/Kendall}}.
+
+\end{tcolorbox}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/correlationplot-setting.png}
+
+}
+
+\caption{Correlation plot}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Interactive heatmap} - an interactive heatmap will also be
+  generated and can be downloaded as HTML file.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/heatmap2.png}
+
+}
+
+\caption{Interactive Heatmap}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Data table} - a data table will be generated from the heatmap
+  figure data.
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/heatmap-datatable.png}
+
+}
+
+\caption{Heatmap/Correlation data table}
+
+\end{figure}
+
+\hypertarget{r-packages-used-2}{%
+\section{R packages used}\label{r-packages-used-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://biocorecrg.github.io/CRG_RIntroduction/heatmap-2-function-from-gplots-package.html}{heatmap2}
+\item
+  \href{https://github.com/talgalili/d3heatmap}{D3heatmap}
+\item
+  \href{https://github.com/asntech/intervene}{intervene}
+\end{enumerate}
+
+\hypertarget{sec-volcano}{%
+\chapter{Volcano plot}\label{sec-volcano}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Volcano plot is a nice tool to visualize in a two-dimensional way for
+differentially methylated CpG site or differentially expressed genes
+using the statistical \emph{p}-values as well as the fold change value.
+Like a volcano, the plot can show the significant or insignificant data
+in a scatter plot manner. Here with \emph{methylR}, we used plotly
+output to visualize the volcano plot to see the CpG or gene name (if the
+data from the differential analysis) with their respective
+\emph{p}-values (adjusted \emph{p}-values) and the logFC (or mean
+methylation difference).
+
+\hypertarget{how-to-use-5}{%
+\section{How to use}\label{how-to-use-5}}
+
+\hypertarget{data-upload-parameters-setup-2}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-2}}
+
+\hypertarget{data-upload-2}{%
+\subsubsection{Data upload}\label{data-upload-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User needs to upload a \textbf{Tab} (.txt) file with adjusted
+  \emph{p}-values and logFC values. At present, user can use the DMCs
+  data file directly generated from the main analysis (see
+  Chapter~\ref{sec-methylysis}).
+\item
+  To setup the adjusted \emph{p}-value, user can change the cut-off.
+  Default is setup to 0.01.
+\item
+  LogFC cut-off can also be changed as per user requirement. Default is
+  setup to 0.3.
+\item
+  After the file upload and setting up the cut-off for adjusted
+  \emph{p}-value and logFC, click the ``Run Analysis'' button.
+\end{enumerate}
+
+\hypertarget{analysis-result-2}{%
+\section{Analysis result}\label{analysis-result-2}}
+
+\hypertarget{volcano-plot}{%
+\subsection{Volcano plot}\label{volcano-plot}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The figure will generated as soon as the computation finishes.
+  However, it might takes some more time depending on the size of the
+  file. If user upload a file with 750K rows, it will take 3-5 minutes
+  to generate the figure (See Appendix~\ref{sec-calctime}). It is
+  noteworthy that this big data in volcano plot, may be unstable in the
+  browser.
+\item
+  User can download the plot as figure (same as before) and the dynamic
+  figure as a html file.\\
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+Please note displaying of the volcano plot will take some time, even
+after the warning {``generating plot, please wait\ldots{}''}
+\textcolor{orange}{"generating plot, please wait..."} disappears. Please
+wait for 1-2 minutes to get the visualization. The same may happen to
+the volcano plot data table.
+
+\end{tcolorbox}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/Volcano1.png}
+
+}
+
+\caption{Volcano plot}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+Volcano plot figure colors annotation- {Significant \& Fold
+Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
+\textcolor{cyan}{"Significant"}, {FoldChange}
+\textcolor{green}{FoldChange} or {NotSignificant}
+\textcolor{orange}{"Notsignificant"}
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  On the right tab, user can also see the volcano data table which is
+  useful when they are using the full dataset from the main analysis
+  result (See Chapter~\ref{sec-methylysis}).
+\end{enumerate}
+
+\hypertarget{volcano-data}{%
+\subsection{Volcano data}\label{volcano-data}}
+
+One data table will be generated using the input data and will have a
+column marked with {Significant \& Fold
+Change}\textcolor{pink}{"Significant \& Fold Change"}, {Significant}
+\textcolor{cyan}{"Significant"}, {FoldChange}
+\textcolor{green}{FoldChange} or {NotSignificant}
+\textcolor{orange}{"Notsignificant"} depends on the adjusted
+\emph{p}-value and logFC cut-off.\\
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/Volcano2.png}
+
+}
+
+\caption{Volcano data table}
+
+\end{figure}
+
+\hypertarget{r-packages-used-3}{%
+\section{R packages used}\label{r-packages-used-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://cran.r-project.org/web/packages/plotly/plotly.pdf}{plotly}
+\end{enumerate}
+
+\hypertarget{sec-chromosome}{%
+\chapter{Chromosome plot}\label{sec-chromosome}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Chromosome plot is a way to visualize coordinates at DMC positions over
+the chromosome structure. In \emph{methylR}, Users can change the
+cut-off for adjusted \emph{p}-value as well as the fold change value. It
+is possible to visualize one chromosome at a time or all the chromosomes
+on the same figure.
+
+\hypertarget{how-to-use-6}{%
+\section{How to use}\label{how-to-use-6}}
+
+\hypertarget{data-upload-parameters-setup-3}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-3}}
+
+\hypertarget{data-upload-3}{%
+\subsubsection{Data upload}\label{data-upload-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User needs to upload a text (tab-delimited) file with adjusted
+  \emph{p}-values and logFC values. At present, user can use the DMCs
+  data file directly generated from the main analysis (See
+  Chapter~\ref{sec-methylysis}).
+\item
+  To setup the adjusted p-value, user can change the cut-off. Default is
+  setup to 0.05.
+\item
+  LogFC cut-off can also be changed as per user requirement. Default is
+  0.3.
+\item
+  After the file upload and setting up the cut-off for adjusted
+  \emph{p}-value and logFC, click the ``Create plot'' button.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  After creating the plot, if the user needs to add more chromosomes to
+  the plot, please add the chromosome number from the ``Select
+  Chromosome'' drop-down list and the plot will be updated automatically
+  (\textbf{\emph{do not need to click ``Create plot'' again.}}) and the
+  same will hapeen if the user wants to remove one chromosome from the
+  figure, just *\textbf{DELETE} it from the ``Select Chromosome''
+  drop-down menu.
+\item
+  ``Change font size'' will also updated automatically after the figure
+  generation. Just change the font size as desired (max. 2).
+\end{enumerate}
+
+\end{tcolorbox}
+
+\hypertarget{analysis-result-3}{%
+\section{Analysis result}\label{analysis-result-3}}
+
+\hypertarget{chromosome-plot}{%
+\subsection{Chromosome plot}\label{chromosome-plot}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The figure will be generated as soon as the computation finishes and
+  it will allow you to vary the font size on the flow.
+\item
+  User can download the plot as a static figure (PDF, PNG, SVG, TIFF).\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/chromosome1.png}
+
+}
+
+\caption{Chromosome plot}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+In the Chromosome plot, the {blue} \textcolor{blue}{blue} text
+(e.g.~{FAAH} \textcolor{blue}{FAAH}) in the left side is the gene symbol
+and the \textcolor{orange}{text} {orange} in the right side is the CpG
+ID from Illumina annotation (e.g.~{cg20099409}
+\textcolor{orange}{cg20099409}). Please note, CpGs without the gene
+symbol only shows the CpG ID on the right side.
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  On the right tab, user can also see the volcano data table which is
+  useful when they are using the full dataset from the main analysis
+  (See Chapter~\ref{sec-methylysis} ).
+\end{enumerate}
+
+\hypertarget{r-packages}{%
+\section{R packages}\label{r-packages}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://www.bioconductor.org/packages/release/bioc/vignettes/chromPlot/inst/doc/chromPlot.pdf}{Chromplot}
+\end{enumerate}
+
+\part{Association Study}
+
+\hypertarget{sec-go}{%
+\chapter{Gene Ontology (GO) enrichment analysis}\label{sec-go}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Gene Ontology is a very well-known method for accessing the functions of
+the gene identified through methylation analysis or expression analysis.
+Here in \emph{methylR}, we used ontology analysis using the
+\href{https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html}{clusterProfiler
+package} \autocite{yu2012clusterprofiler,wu2021clusterprofiler}.
+
+\hypertarget{how-to-use-7}{%
+\section{How to use}\label{how-to-use-7}}
+
+\hypertarget{data-upload-parameters-setup-4}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-4}}
+
+\hypertarget{parameters-setup-1}{%
+\subsubsection{Parameters setup}\label{parameters-setup-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Choose GO analysis type}: user can choose to do the analysis
+  whether \textbf{over-representation analysis} or the \textbf{gene-set
+  enrichment analysis} (GSEA) from the drop-down menu.
+\item
+  \emph{Select the adjusted p-value}: user can also choose the adjusted
+  \emph{p}-value for the analysis. Default is set to 0.05.
+\item
+  \emph{Select the adjusted q-value}: q-value or the FDR can also be
+  adjusted as per user's requirement. Default is 0.05.
+\item
+  \emph{Select number of ontology classes}: to see the number of
+  ontologies on the graph, user can setup different number. Default is
+  20.
+\item
+  \emph{Select P-value adjustment method} As per clusterProfiler, we set
+  different \emph{p}-value adjustment methods, Benjamini-Hochberg,
+  Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none.
+  Default is Benjamini-Hochberg.
+\item
+  \emph{Select ontology class}: As defined in GO classification, we
+  included all three ontology classes which user can select to show the
+  plot.
+\end{enumerate}
+
+\hypertarget{data-upload-4}{%
+\subsubsection{Data upload}\label{data-upload-4}}
+
+At present, user can upload the DMC data produced by the main analysis
+(see Chapter~\ref{sec-methylysis} ) directly. The input file should be
+in a \textbf{text (tab-delimited)} format.
+
+\hypertarget{analysis-result-4}{%
+\section{Analysis result}\label{analysis-result-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  On the right tab, the analysis result the plot will be generated as
+  soon as computation finished. The plot is generated with plotly and it
+  will be dynamic in nature as before. User can download the plot as PNG
+  format, zoom in/out or do other stuffs as per plotly figures. The
+  dynamic figure can also be downloaded as a html file.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  All horizontal bars (Gene Ontology terms) are clickable and will open
+  a new tab with the respective gene onlogy detail from the
+  \href{http://amigo.geneontology.org/amigo}{AmiGO} database.
+\item
+  Each interactive figure can be downloaded as HTML file and PNG file.
+  The HTML file is clickable and each gene ontology term can open the
+  respective detail from
+  \href{http://amigo.geneontology.org/amigo}{AmiGO} database.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\hypertarget{biological-processes}{%
+\subsection{Biological processes}\label{biological-processes}}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GO-BP.png}
+
+}
+
+\caption{Gene Ontology - Biological Processes}
+
+\end{figure}
+
+\hypertarget{cellular-component}{%
+\subsection{Cellular component}\label{cellular-component}}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GO-CC.png}
+
+}
+
+\caption{Gene Ontology - Cellular Component}
+
+\end{figure}
+
+\hypertarget{molecular-function}{%
+\subsection{Molecular function}\label{molecular-function}}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GO-MF.png}
+
+}
+
+\caption{Gene Ontology - Molecular Function}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  On the second right tab, user will get the result as a table format.
+  It might takes some time to compute result and generates the table.
+  User can download the result as an Excel file from the current page or
+  the entire result.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/GO-table.png}
+
+}
+
+\caption{Gene Ontology data table}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In the gene onlogy enrichment table, the GO ID is clickable and will
+  open the respective GO class from the AmiGO database. However, this
+  feature is only avaible on the browser, if the user download the
+  table, there is no such link to check the GO source.
+\item
+  The GO enrichment table will download the full result (i.e., all GO
+  classes, Cellular Component, Molecular Function and Biological
+  Processes), user donot need to run the table again for different GO
+  classes.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\hypertarget{r-packages-used-4}{%
+\section{R packages used}\label{r-packages-used-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html}{clusterProfiler}
+\end{enumerate}
+
+\hypertarget{sec-pathway}{%
+\chapter{Pathway enrichment analysis}\label{sec-pathway}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Pathway enrichment analysis helps the user to get the mechanistic
+insights of the important genes from genome-wide data analysis. In
+\emph{methylR}, we introduced the pathway analysis module that can
+compute the enriched pathways from three different databases,
+\href{https://www.genome.jp/kegg/}{KEGG} \autocite{Kanehisa2000},
+\href{https://reactome.org/}{Reactome} \autocite{Gillespie2021} and
+\href{https://www.wikipathways.org/}{Wikipathways}
+\autocite{pico2008plos,martens2020nar}.
+
+\hypertarget{how-to-use-8}{%
+\section{How to use}\label{how-to-use-8}}
+
+\hypertarget{data-upload-parameters-setup-5}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-5}}
+
+\hypertarget{data-upload-5}{%
+\subsubsection{Data upload}\label{data-upload-5}}
+
+User can upload the direct output result from the main analysis. At
+present, user can upload the DMC data produced by the main analysis (See
+Chapter~\ref{sec-methylysis}). The input file should be in a
+\textbf{text (tab-delimited)} format.
+
+\hypertarget{parameters-setup-2}{%
+\subsubsection{Parameters setup}\label{parameters-setup-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Choose pathway analysis type}: Please select pathway analysis
+  type from the drop-down list
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Over representation analysis (ORA);
+  \item
+    Gene set enrichment analysis (GSEA); By default, the tool will use
+    the over representation analysis.
+  \end{itemize}
+\item
+  \emph{Choose pathway database}: user can choose to use different
+  pathway database, namely
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://reactome.org/}{Reactome},
+  \item
+    \href{https://www.genome.jp/kegg/}{KEGG} or
+  \item
+    \href{https://www.wikipathways.org/}{Wikipathways}.
+  \end{itemize}
+\item
+  \emph{Choose number of pathways}: Please select number of pathways for
+  graphical display. The default is Top 20 pathways. The Top 20 enriched
+  pathways is selected based on the adjusted P-values.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, titlerule=0mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If the analysis result does not get 20 pathways (as default setup) or
+  the number selected by the user, then the plot will only shows the
+  result with less number of pathways. User can change the parameters to
+  see if they can get more number of enriched pathways.
+\item
+  If there is no enriched pathways with selected parameters, the figure
+  tab may show warning like {``check the logs or contact the author''}
+  \textcolor{red}{check the logs or contact the author}, please change
+  the parameters and run again the analysis. If you are experiencing
+  trouble, donot hesitate to contact us.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \emph{Select P-value cut-off for correction}: The default value for
+  \emph{p}-value correction is set to 0.05. User can set their own
+  cut-off values.
+\item
+  \emph{Select P-value correction method}: The default method for
+  adjustment of P-value is the Benjamini-Hochberg (BH) correction
+  method. User can choose different method using the drop-down list:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Benjamini-Hochberg (BH)
+  \item
+    Benjamini-Yeketuli (BY)
+  \item
+    Bonferroni
+  \item
+    Holm
+  \item
+    Hommel
+  \item
+    Hochberg
+  \item
+    FDR
+  \item
+    none
+  \end{itemize}
+\item
+  \emph{Upload data file}: The input file should be in a \textbf{text
+  (tab-delimited)} format. The user can upload the \emph{ChAMP} result
+  file (DMC file) directly for the analysis.
+\end{enumerate}
+
+\hypertarget{analysis-result-5}{%
+\section{Analysis result}\label{analysis-result-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Pathway enrichment plot}: after ``Run Analysis'', the plot will
+  be generated as soon as computation has been done. Depends on the size
+  of data, it might take few minutes (See Appendix~\ref{sec-calctime}).
+  At present the plot will be generated as a dot plot which is also a
+  product of plotly, hence dynamic and have similar functionalities with
+  mouse pointing. At present, with the mouse hover over, each dot will
+  show the pathway name, count of genes from the input list for that
+  particular pathway, the corrected p-value and gene ratio. The color
+  scale bar shows in the legend. User can download the figure as PNG as
+  described above and the dynamic figure as a html file.\\
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  All dots (pathway enrichment terms) are clickable and will open a new
+  tab with the respective pathway detail from the selected database
+  (Reactome/KEGG/Wiki).
+\item
+  The interactive figure can be downloaded as HTML file and PNG file.
+  The HTML file is clickable and each pathway enrichment term can open
+  the respective database for pathway details.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/Pathway-Enrichment.png}
+
+}
+
+\caption{Pathway Enrichment Plot}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Pathway enrichment table}: with the same input file and
+  parameter setup, user can also get the result as an excel file
+  (current page as well as full table).\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/PathEnrichTable1.png}
+
+}
+
+\caption{Pathway Enrichment Table}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}]
+
+In the pathway enrichment table, the pathway ID is clickable and will
+open the respective pathway from the database. However, this feature is
+only avaible on the browser, if the user download the table, there is no
+such link to check the pathway source.
+
+\end{tcolorbox}
+
+\hypertarget{r-packages-used-5}{%
+\section{R packages used}\label{r-packages-used-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html}{clusterProfiler}
+\end{enumerate}
+
+\part{Set Analysis}
+
+\hypertarget{sec-venn}{%
+\chapter{Venn analysis}\label{sec-venn}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+Venn analysis can be performed to show the logical relation between
+sets. In this module, user will need two or more analyses (max 6
+datasets) to perform the Venn analysis. We adopt the part from
+\href{https://github.com/asntech/intervene}{intervene}
+\autocite{khan2017intervene} application and modified as required for
+\emph{methylR} use.
+
+\hypertarget{how-to-use-9}{%
+\section{How to use}\label{how-to-use-9}}
+
+Below given the details for the use of Venn analysis module.
+
+\hypertarget{data-upload-parameters-setup-6}{%
+\subsection{Data upload \& Parameters
+setup}\label{data-upload-parameters-setup-6}}
+
+\hypertarget{parameters-setup-3}{%
+\subsubsection{Parameters setup}\label{parameters-setup-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Upload}: Data can be uploaded as \textbf{Tab} (.txt) or
+  \textbf{Comma} (.csv) or \textbf{Semicolon} (.csv but with ;)
+  separated format. A demo test dataset is running by default and it is
+  available for download by clicking on the ``example data'' button.
+\item
+  \emph{Settings}: Under settings, there are multiple options to display
+  the plot -
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    \emph{Select sets}: will select sets from the uploaded data. User
+    can remove the set as they need.
+  \item
+    \emph{Venn type}: different type of venn diagram can be selected
+    from the drop-down menu
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Chow-Ruskey
+  \item
+    Classical
+  \item
+    Edwards
+  \item
+    Square
+  \item
+    Battle
+  \end{itemize}
+
+  The diagram can be \emph{weighted} or \emph{Eular}.
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{2}
+  \item
+    \emph{Border line width}: border line can be drawn with the slider
+    option.
+  \item
+    \emph{Border line type}: border line type can be selected from the
+    drop-down menu.
+  \item
+    \emph{Zoom in/out Venn diagram}: select the zoom option on the slide
+    bar.
+  \end{enumerate}
+\item
+  \emph{Font \& Color}: multiple ooptions are included for font and
+  colours -
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Select color theme}: Colour theme can be chosen from the
+    drop-down menu.
+  \item
+    \emph{Label font size}: Change the font size of the Label.
+  \item
+    \emph{Number font size}: Change the font size of the number.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/Venndiag.png}
+
+}
+
+\caption{Venn Result}
+
+\end{figure}
+
+\hypertarget{r-packages-used-6}{%
+\section{R packages used}\label{r-packages-used-6}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/js229/Vennerable}{Vennerable}
+\item
+  \href{https://cran.r-project.org/web/packages/readr/readr.pdf}{readr}
+\item
+  \href{https://github.com/asntech/intervene}{intervene}
+\end{enumerate}
+
+\hypertarget{sec-upset}{%
+\chapter{UpSet Plots}\label{sec-upset}}
+
+\footnote{TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE
+  APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER
+  CONTAINER AND TRY AGAIN.}
+
+UpSet plot will show the relation between different sets. We adopt the
+part from \href{https://github.com/asntech/intervene}{intervene}
+\autocite{khan2017intervene} application and modified as required for
+\emph{methylR} use.
+
+\hypertarget{how-to-use-10}{%
+\section{How to use}\label{how-to-use-10}}
+
+\hypertarget{data-upload-6}{%
+\subsection{Data upload}\label{data-upload-6}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Upload}: Data can be uploaded as \textbf{Tab} (.txt) or
+  \textbf{Comma} (.csv) or \textbf{Semicolon} (.csv but with ;)
+  separated format. Please look into the example data file. A demo test
+  dataset is running by default and it is available for download by
+  clicking on the ``List example data'' button. UpSet module takes three
+  types of inputs.
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    \emph{List type data}: List data is a correctly formatted csv/text
+    file, with lists of names. Each column represents a set, and each
+    row represents an element (names/gene/SNPs). Header names (first
+    row) will be used as set names.
+  \item
+    \emph{Binary type data}: In the binary input file each column
+    represents a set, and each row represents an element. If a names is
+    in the set then it is represented as a 1, else it is represented as
+    a 0.
+  \item
+    \emph{Combination/expression type data:} Combination/expression type
+    data is the possible combinations of set intersections.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+PLEASE NOTE: \textbf{\emph{``OR enter set combinations/expression''}}
+has the priority over \textbf{``Upload file''}. If you use the ``set
+combinations'', and then want to ``upload file'', please remove the
+``set combination'' from the input box. To see how the ``OR enter set
+combinations/expression'' works, please use the example below the box
+(not the list/binary example file).
+
+\end{tcolorbox}
+
+\hypertarget{parameters-setup-4}{%
+\subsection{Parameters setup}\label{parameters-setup-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \emph{Settings}: there are multiple options to display the plot -
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{select sets}: select the dataset from the input data.
+  \item
+    \emph{Number of intersections to show}: Please add the number to
+    calculate the intersection.
+  \item
+    \emph{Order intersections by}: From the drop-down menu, please
+    select the intersection order -
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Frequency
+  \item
+    degree
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{3}
+  \item
+    \emph{Increasing/Decreasing}: Please select the order of the
+    frequency/degree.
+  \item
+    \emph{Scale intersections}: Please select the scale intersection
+    from the drop-down menu -
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Original,
+  \item
+    log10,
+  \item
+    log2
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{5}
+  \tightlist
+  \item
+    \emph{scale sets}: Please select the scale intersection from the
+    drop-down menu -
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Original,
+  \item
+    log10,
+  \item
+    log2
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \setcounter{enumii}{6}
+  \item
+    \emph{Plot width}: select the plot width from the slider.
+  \item
+    \emph{Plot height}: select the plot height from the slider.
+  \item
+    \emph{Bar matrix ratio}: select the bar matrix ratio from the
+    slider.
+  \item
+    \emph{Angle of number on the bar}: slider to change the angle of the
+    numbers on the bar.
+  \item
+    \emph{Connecting point size}: change the connecting point size .
+  \item
+    \emph{Connecting line size}: change the connecting line size.
+  \end{enumerate}
+\item
+  \emph{Font \& Color}: multiple options are included for font and
+  colours -
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \item
+    \emph{Select main bar colour}: Change colour of the bars of
+    intersection size.
+  \item
+    \emph{Select set bar colour}: Change the set bar colour on the side
+    (set).
+  \item
+    \emph{Font size of intersection size label}: Change the font size of
+    the intersection size.
+  \item
+    \emph{Set size label font}: Change the font size of the set label.
+  \item
+    \emph{Set size ticks font}: Change the tick size (numerical value)
+    on the set size bar.
+  \item
+    \emph{Intersection size numbers font size}: Change the tick size
+    (numerical value) on the intersection set bar.
+  \item
+    \emph{Set names font size}: Change the font size for the set names.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{result}{%
+\section{Result}\label{result}}
+
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/upset.png}
+
+}
+
+\caption{UpSet plot}
+
+\end{figure}
+
+\hypertarget{r-packages-used-7}{%
+\section{R packages used}\label{r-packages-used-7}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{http://gehlenborglab.org/research/projects/upsetr/}{UpSetR}
+\item
+  \href{https://github.com/asntech/intervene}{intervene}
+\end{enumerate}
+
+\appendix
+\addcontentsline{toc}{part}{Appendices}
+
+\hypertarget{sec-inputzip}{%
+\chapter{\texorpdfstring{Create the input zip file for
+\emph{methylR}}{Create the input zip file for methylR}}\label{sec-inputzip}}
+
+This section describes how to create a zip archive containing the input
+files to start the methylysis analysis.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+We will describe three methods to create a zip file:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Windows zip utility
+\item
+  7-zip (\url{https://www.7-zip.org/})
+\item
+  Bash script
+  (\href{https://github.com/JD2112/methylr/blob/main/script.sh}{https://www.github.com/})
+\item
+  Command line (Ubuntu Linux)
+\end{enumerate}
+
+\hypertarget{description}{%
+\subsection{Description}\label{description}}
+
+Users need to collect the Sample\_sheet.csv file and all the idat files
+belonging to the analysis as they come from the sequencer. All the
+methods require to create a New folder (you can give any name, for
+example \textbf{testData}) and move the \emph{Sample\_sheet.csv} file
+inside. Enter the testData directory and then create a folder named
+\textbf{idat}, then move all the directories generated with the analysis
+and containing the \emph{idat files} (green and red) into this idat
+folder. In the end you will get this kind of organisation:
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/zip1.png}
+
+}
+
+\caption{How to create zip: Figure 1}
+
+\end{figure}
+
+\hypertarget{windows-zip-utility-windows-7-8-10-11}{%
+\section{1. Windows zip utility (Windows 7, 8, 10,
+11)}\label{windows-zip-utility-windows-7-8-10-11}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Right-click on the New folder you created with the file structure
+  discussed above.
+\item
+  Then click Send to \textgreater{} Compressed (zipped) folder
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/zip2.png}
+
+}
+
+\caption{How to create zip: Figure 2}
+
+\end{figure}
+
+\hypertarget{zip-utility-windows-7-8-10-11}{%
+\section{2. 7-zip utility (Windows 7, 8, 10,
+11)}\label{zip-utility-windows-7-8-10-11}}
+
+7-Zip is a free open-source file archiver with a high compression ratio.
+You can use 7-Zip on any computer, including a computer in a commercial
+organization. You don't need to register or pay for 7-Zip. You can
+download 7-zip for Windows at (\url{https://www.7-zip.org/}). If you
+have installed 7-zip and want to create the input file for
+\emph{methylR} you just:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Right-click on the New folder you created with the file structure
+  discussed above.
+\item
+  Then click 7-Zip \textgreater{} Add to archive\ldots{}
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/zip3.png}
+
+}
+
+\caption{How to create zip: Figure 3}
+
+\end{figure}
+
+\hypertarget{bash-script-macoslinux}{%
+\section{3. Bash script (MacOS/Linux)}\label{bash-script-macoslinux}}
+
+We provide an automathized bash script that is able to create the file
+structure discussed above for you.
+
+\hypertarget{linux}{%
+\subsection{Linux:}\label{linux}}
+
+Depending on which interface you use (e.g., GNOME, KDE, Xfce), the
+terminal will be accessed differently. We recommend you check
+\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show\&redirect=BasicCommands}{Ubuntu's
+Using the Terminal} page for the several ways to access the terminal.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click Start and search for ``Terminal''. Alternatively, press
+  \emph{Alt + Ctrl + t} and type ``cmd'' then click OK.
+\item
+  Then type the following command:
+\end{enumerate}
+
+\begin{verbatim}
+cd /path/to/data/
+sh script.sh
+\end{verbatim}
+
+\hypertarget{macos}{%
+\subsection{MacOS:}\label{macos}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You can access the terminal by pressing ⌘ + space on your keyboard and
+  searching for ``terminal''.
+\item
+  Then type the following command and press Enter:
+\end{enumerate}
+
+\begin{verbatim}
+cd /path/to/data/
+sh script.sh
+\end{verbatim}
+
+\hypertarget{command-line-linux}{%
+\section{4. Command line (Linux)}\label{command-line-linux}}
+
+Depending on which interface you use (e.g.~GNOME, KDE, Xfce), the
+terminal will be accessed differently. We recommend you check
+\href{https://help.ubuntu.com/community/UsingTheTerminal?action=show\&redirect=BasicCommands}{Ubuntu's
+Using the Terminal} page for the several ways to access the terminal.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click Start and search for ``Terminal''. Alternatively, press
+  \emph{Alt + Ctrl + t} and type ``cmd'' then click OK.
+\item
+  Then move to the New folder and create the zip archive by typing the
+  following command and press Enter:
+\end{enumerate}
+
+\begin{verbatim}
+cd /path/to/data/
+zip folder/
+\end{verbatim}
+
+\hypertarget{sec-docker}{%
+\chapter{Use of Docker Container}\label{sec-docker}}
+
+\hypertarget{on-windows}{%
+\section{On Windows}\label{on-windows}}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+
+PLEASE NOTE: Only AMD64 OS
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Please make sure you have installed latest version of Docker Desktop
+  on your Windows machine.
+\item
+  Using `command-prompt' or `Powershell', run the command
+  \texttt{docker\ pull\ jd21/methylr:latest}.
+\item
+  Open Docker Desktop, under the tab `images', on the LOCAL images, the
+  docker image will be available as shown in the following figure
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/docker_container_windows1.png}
+
+}
+
+\caption{Docker container: Figure 1}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now, click on the RUN, it will open the `Optional settings'. Under the
+  `Optional settings', select the `Port (Host port)' and write
+  \textbf{3838} and click `RUN'.\\
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/docker_container_windows2.png}
+
+}
+
+\caption{Docker image run}
+
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Click on the \textbf{Containers} on the side tab and then click
+  \textbf{PORT(S)} `3838:3838'. The default web-browser will open and in
+  a few minutes will start the app (It will take approximately 1-3
+  minutes to view the app).
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\textbf{NOTE}: You can copy \emph{http://localhost:3838} after running
+the container and open it on other web-browser to run the app.\\
+
+\end{tcolorbox}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/docker_container_windows3.png}
+
+}
+
+\caption{Docker container run}
+
+\end{figure}
+
+\hypertarget{on-macos}{%
+\section{On MacOS}\label{on-macos}}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, titlerule=0mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Danger}]
+
+PLEASE NOTE: (Intel, Only AMD64 OS - not supported on Apple M1/M2
+processors)
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Please make sure you have installed latest version of Docker Desktop
+  on your MacOS.
+\item
+  Run the command, \texttt{docker\ pull\ jd21/methylr:latest} on Mac
+  \emph{terminal}.
+\item
+  If you are using the \textbf{Docker Desktop} to use \emph{methylR},
+  please follow the instructions from 3 to 5 as mentioned above for
+  Windows.
+\item
+  Alternatively, if you want to use the MacOS \emph{terminal} to run the
+  app (\textbf{Only supported on Intel AMD64 OS architecture}), please
+  use this command
+  \texttt{docker\ run\ -\/-rm\ -p\ 3838:3838\ jd21/methylr:latest}
+  directly and after pulling all the images by docker, \emph{terminal}
+  will display
+\end{enumerate}
+
+\begin{verbatim}
+[2022-10-30T07:57:41.311] [INFO] shiny-server - Shiny Server v1.5.18.979 (Node.js v12.22.6)
+[2022-10-30T07:57:41.312] [INFO] shiny-server - Using config file "/etc/shiny-server/shiny-server.conf"
+[2022-10-30T07:57:41.342] [WARN] shiny-server - Running as root unnecessarily is a security risk! You could be running more securely as non-root.
+[2022-10-30T07:57:41.345] [INFO] shiny-server - Starting listener on http://[::]:3838
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Now, open the web-browser and run \texttt{http://localhost:3838} will
+  load the app within 1-3 minutes.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+PLEASE NOTE: It may possible that you run the docker container on MacOS
+Apple M1, but the application may not work as expected. We strongly
+recommend to use AMD64 OS architecture to run \emph{methylR}
+
+\end{tcolorbox}
+
+\hypertarget{on-linux-ubuntu-20.04lts}{%
+\section{On Linux (Ubuntu 20.04LTS)}\label{on-linux-ubuntu-20.04lts}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If you want to use the linux \emph{terminal} to run \emph{methylR},
+  use the following command on the \emph{terminal}
+\end{enumerate}
+
+\begin{verbatim}
+docker run --rm -p 3838:3838 jd21/methylr:latest
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  If you want to use the Docker Desktop for Linux, first pull the docker
+  container using \texttt{docker\ pull\ jd21/methylr:latest} from
+  \emph{terminal} and then follow Step 3-5 as mentioned above for
+  Windows.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, left=2mm, coltitle=black, breakable, colback=white, arc=.35mm, rightrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, leftrule=.75mm, toprule=.15mm, bottomtitle=1mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Please contact the IT support if Docker is running properly. You can
+  also contact the developers using the
+  \href{https://github.com/JD2112/methylr/issues}{\emph{GitHub}} or the
+  \href{https://groups.google.com/g/methylr}{\emph{Google groups}} or
+  directly \href{mailto:methylr@googlegroups.com}{email the developer}.
+\item
+  If after uploading the data for methylation analysis (see
+  Chapter~\ref{sec-methylysis}), the browser get disconnected, please
+  check you have installed the docker or docker-desktop with
+  administrative privilages. From terminal, user can run,
+\end{enumerate}
+
+\begin{verbatim}
+$ sudo usermod -aG docker $USER
+or
+$ sudo chown $USER /var/run/docker.sock
+\end{verbatim}
+
+\end{tcolorbox}
+
+\hypertarget{sec-bed}{%
+\chapter{Convert DMCs table to BED}\label{sec-bed}}
+
+This section describes how to convert the DMCs table to standard BED
+format using the ChAMP2bed.py script.
+
+\hypertarget{method}{%
+\section{Method}\label{method}}
+
+Python3 must be installed on your system, no additional libraries are
+required. If your system lacks any python installation, please refer to
+this page: \href{https://realpython.com/installing-python/}{Python 3
+Installation \& Setup Guide}.
+
+\hypertarget{description-1}{%
+\subsection{Description}\label{description-1}}
+
+To use ChAMP2bed.py open a terminal and move to the directory storing
+your main \emph{methylR} results. ChAMP2bed.py must be in the same
+directory storing your DMCs table:
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/bed2.png}
+
+}
+
+\caption{BED format: figure 1}
+
+\end{figure}
+
+Run the command:
+
+\begin{verbatim}
+python3 ChAMP2bed.py myDMC_EPIC_BatchCorrected.txt
+\end{verbatim}
+
+Or adjust with the actual filename for your table. It will produce a new
+file with the same filename from your table but with the \emph{.bed}
+extension:
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/bed3.png}
+
+}
+
+\caption{BED format: figure 2}
+
+\end{figure}
+
+You can use this file as input for Gviz or import it either in IGV or as
+a custom track in any other genome browser. Be sure to match the proper
+genome version used to perform the analysis and to download the correct
+GTF/GFF3 file if you want to display the CpG ({``blue''}) together with
+additional features, such as genes ({``green''}):
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./_images/bed4.png}
+
+}
+
+\caption{BED format: figure 3}
+
+\end{figure}
+
+\hypertarget{sec-calctime}{%
+\chapter{Time calculation}\label{sec-calctime}}
+
+Here we showed the calculation time of each process in \emph{methylR}
+for both full and lite versions.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+module & processes & calculation time (mm:ss) \\
+\midrule()
+\endhead
+methylysis & local run - ChAMP & \\
+& (params: BMIQ, batch correction, cores = 4) & 03:11 s \\
+& server run - ChAMP & \\
+& (params: BMIQ, batch correction, cores = 2) & 03:10 s* \\
+& local run - minfi & \\
+& (params: raw, filters, cores = 4) & 04:01 s \\
+& server run - minfi & \\
+& (params: raw, filters, cores = 2) & 03:40 s \\
+multi-D & & 00:2 s \\
+gene features & & 00:02 s \\
+heatmap & & 00:01 s \\
+volcano & & 00:18 s \\
+chromosome & & 00:04 s \\
+gene ontology & & 01:30 s \\
+pathway analysis & & 00:18 s \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{sec-faq}{%
+\chapter{FAQs/Troubleshooting}\label{sec-faq}}
+
+\hypertarget{troubleshooting}{%
+\section{Troubleshooting}\label{troubleshooting}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\emph{Issue with the server}}: The University/IT needs to
+  restart the server for maintenance, security updates and it may be
+  down for few hours. Please use the docker container from your local
+  computer or wait few hours before the server gets online again.
+\item
+  \textbf{\emph{`reload, connection closed'}}: Please reload/refresh the
+  page or if the problem persists, close the browser, clear the browser
+  cache and re-open the site.
+\item
+  \textbf{\emph{calculation time}}: We estimated the calculation time
+  based on the provided test data. It varies with the amount of data and
+  parameters chosen, please wait till the process finished.
+\item
+  \textbf{\emph{error message on local run}}: Check your docker
+  permission and docker version.
+\item
+  \textbf{\emph{check your log file or contact the app author}} Please
+  restart the Docker container and launch the app again. Run it again.
+  If the problem persists, contact us. Make sure your input file has the
+  same format as described in the manual.
+\end{enumerate}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+
+\printbibliography
+
+
+\end{document}

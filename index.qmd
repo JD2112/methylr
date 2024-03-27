@@ -1,0 +1,22 @@
+---
+format: 
+    html: 
+        include-after-body: footer.html
+---
+
+e-mail: [methylr@googlegroups.com](methylr@googlegroups.com) 
+
+# Acknowledgements {.unnumbered}
+
+Bioinformatics, \
+Core Facility, \
+Faculty of Medicine and Health Sciences, \
+Linköping University, \
+Linköping, \
+Sweden
+
+
+***We would like to acknowledge the Core Facility, Faculty of Medicine and Health Sciences, Linköping University, Linköping, Sweden and Clinical Genomics Linköping, Science for Life Laboratory, Sweden for their support.***
+
+***DISCLAIMER: ***
+***All packages used in *methylR* are publicly available and open-source license. We have modified the source as required for *methylR*.  Venn and UpSet plots inspired by the [intervene](https://github.com/asntech/intervene) package [@khan2017intervene], we modified as required for *methylR*.***

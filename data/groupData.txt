@@ -1,7 +1,0 @@
-group
-short_survival
-short_survival
-short_survival
-long_survival
-long_survival
-long_survival

@@ -1,0 +1,13 @@
+# FAQs/Troubleshooting {#sec-faq}
+
+## Troubleshooting
+1. ***Issue with the server***: 
+The University/IT needs to restart the server for maintenance, security updates and it may be down for few hours. Please use the docker container from your local computer or wait few hours before the server gets online again.
+2. ***'reload, connection closed'***: 
+Please reload/refresh the page or if the problem persists, close the browser, clear the browser cache and re-open the site.
+3. ***calculation time***: 
+We estimated the calculation time based on the provided test data. It varies with the amount of data and parameters chosen, please wait till the process finished.
+4. ***error message on local run***: 
+Check your docker permission and docker version. 
+5. ***check your log file or contact the app author***
+Please restart the Docker container and launch the app again. Run it again. If the problem persists, contact us. Make sure your input file has the same format as described in the manual.

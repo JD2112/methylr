@@ -1,0 +1,41 @@
+
+# Volcano plot {#sec-volcano}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+Volcano plot is a nice tool to visualize in a two-dimensional way for differentially methylated CpG site or differentially expressed genes using the statistical *p*-values as well as the fold change value. Like a volcano, the plot can show the significant or insignificant data in a scatter plot manner.
+Here with *methylR*, we used plotly output to visualize the volcano plot to see the CpG or gene name (if the data from the differential analysis) with their respective *p*-values (adjusted *p*-values) and the logFC (or mean methylation difference).
+
+## How to use
+### Data upload & Parameters setup
+#### Data upload
+1. User needs to upload a **Tab** (.txt) file with adjusted *p*-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (see @sec-methylysis).
+2. To setup the adjusted *p*-value, user can change the cut-off. Default is setup to 0.01.
+3. LogFC cut-off can also be changed as per user requirement. Default is setup to 0.3.
+4. After the file upload and setting up the cut-off for adjusted *p*-value and logFC, click the "Run Analysis" button.
+
+
+## Analysis result
+
+### Volcano plot
+1. The figure will generated as soon as the computation finishes. However, it might takes some more time depending on the size of the file. If user upload a file with 750K rows, it will take 3-5 minutes to generate the figure (See @sec-calctime). It is noteworthy that this big data in volcano plot, may be unstable in the browser.
+2. User can download the plot as figure (same as before) and the dynamic figure as a html file. \
+
+::: {.callout-note}
+Please note displaying of the volcano plot will take some time, even after the warning ["generating plot, please wait..."]{style="color: orange;"} \textcolor{orange}{"generating plot, please wait..."} disappears. Please wait for 1-2 minutes to get the visualization. The same may happen to the volcano plot data table.
+:::
+
+![Volcano plot](_images/Volcano1.png)
+
+::: {.callout-tip}
+Volcano plot figure colors annotation- [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"}
+:::
+
+3. On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis result (See @sec-methylysis).
+
+### Volcano data
+One data table will be generated using the input data and will have a column marked with [Significant \& Fold Change]{style="color: pink;"}\textcolor{pink}{"Significant \& Fold Change"}, [Significant]{style="color: cyan;"} \textcolor{cyan}{"Significant"}, [FoldChange]{style="color: green;"} \textcolor{green}{FoldChange} or [NotSignificant]{style="color: orange;"} \textcolor{orange}{"Notsignificant"} depends on the adjusted *p*-value and logFC cut-off. \
+
+![Volcano data table](_images/Volcano2.png)
+
+## R packages used
+1. [plotly](https://cran.r-project.org/web/packages/plotly/plotly.pdf)

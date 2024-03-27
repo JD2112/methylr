@@ -1,0 +1,47 @@
+# Venn analysis {#sec-venn}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+Venn analysis can be performed to show the logical relation between sets. In this module, user will need two or more analyses (max 6 datasets) to perform the Venn analysis. We adopt the part from [intervene](https://github.com/asntech/intervene) [@khan2017intervene] application and modified as required for *methylR* use.
+
+## How to use
+Below given the details for the use of Venn analysis module.
+
+### Data upload & Parameters setup
+#### Parameters setup
+
+1. *Upload*: Data can be uploaded as **Tab** (.txt) or **Comma** (.csv) or **Semicolon** (.csv but with ;) separated format. A demo test dataset is running by default and it is available for download by clicking on the "example data" button.
+
+2. *Settings*: Under settings, there are multiple options to display the plot -
+    i. *Select sets*: will select sets from the uploaded data. User can remove the set as they need.
+    ii. *Venn type*: different type of venn diagram can be selected from the drop-down menu
+    - Chow-Ruskey
+    - Classical
+    - Edwards
+    - Square
+    - Battle
+
+    The diagram can be *weighted* or *Eular*.
+
+    iii. *Border line width*: border line can be drawn with the slider option.
+
+    iv. *Border line type*: border line type can be selected from the drop-down menu.
+
+    v. *Zoom in/out Venn diagram*: select the zoom option on the slide bar.
+
+3. *Font & Color*: multiple ooptions are included for font and colours -
+
+    i. *Select color theme*: Colour theme can be chosen from the drop-down menu.
+
+    ii. *Label font size*: Change the font size of the Label.
+
+    iii. *Number font size*: Change the font size of the number.
+
+## Results
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
+
+![Venn Result](_images/Venndiag.png)
+
+## R packages used
+1. [Vennerable](https://github.com/js229/Vennerable)
+2. [readr](https://cran.r-project.org/web/packages/readr/readr.pdf)
+3. [intervene](https://github.com/asntech/intervene)

@@ -1,0 +1,58 @@
+# Multi-D Analysis {#sec-multid}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+In *methylR*, multiple dimensional analysis includes two type of analysis - \
+1. **MDS**: Multidimensional Scaling \
+2. **PCA**: Prinicipal Component Analysis
+
+Multidimensional scaling is a visual representation of distances or dissimilarities between set of objects. **MDS** finds set of vectors in *p*-dimensional space such that the matrix of Euclidean distance among them corresponds as closely as possible to some function of the input matrix. The input to multidimensional scaling is a distance matrix. To get some more details on how to use **MDS** in biological data, read [@mugavin2008multidimensional; @lacher1987interpretation; @lacher1988comparison] \
+Principal Component Analysis (PCA) is the original vectors in n-dimensional space and the data are projected onto the directions in the data with the most variance.
+
+## How to use
+For both analysis, user need to provide a TEXT (tab-delimited) file with numeric values, *e.g.* the output normalized table from methylysis, *i.e.* the normalized \beta value table. However the user can use similar tables for the analysis.
+
+### Data Upload
+1. Select the text file (tab-delimited file) and upload it.
+2. User can choose the option to use number of variables from the uploaded data file.
+3. On the right tab, under "MDS plot", user will find the button to "Run MDS Analysis"
+4. Next tab is designed for the PCA plot and here user can have an input of text file to highlight the group.
+
+## Analysis result
+
+### MDS plot
+1. After the click on "Run MDS Analysis", the program will take some time to generate the plot and will appear as soon the run finishes. The zoom bar can be used to zoom in/out the plot.
+2. The generated figure can be downloaded in different format, vector graphics support - PDF and SVG or PNG and TIFF. User can download all different options for the same figure. \
+
+![MDS plot](_images/mdsPlot.png)
+
+### PCA plot
+1. The plot will be generated after computing the PCA, "Run PCA" with the group colors and legend.
+2. The generated plot is dynamic and positional details with the group name can be seen with mouse hovering.
+3. The plot is generated using the plotly application, it can zoom in/out, save figure as PNG format, and do all other available functionality for plotly figures.
+4. User can also download the dynamic figure as html file.
+5. To generate the PCA plot one additional TEXT file is needed. This single-column file must have "group" as header and should store the sample group in the same order as you have in the Sample_Group column of the Sample_shee.csv file. Please find [here](https://github.com/JD2112/methylr/blob/main/data/groupData.txt) an example of this file that you can use with the test data provided with this distribution. \
+
+::: {.callout-note}
+Please note that, the single column with header **"group"** should be supplied in this file. Match the column names of the variable data file with the group. \
+***Example:***
+If in the variable data file, the column names are -
+    sampleA1 sampleA2 sampleA3  sampleB1    sampleB2    sampleB3
+the group text file should be like this -
+group \
+A \
+A \
+A \
+B \
+B \
+B \
+For more, please see the [test data](https://sourceforge.net/projects/methylr/) files.
+:::
+
+![Principal Component Analysis plot](_images/PCA.png)
+
+
+## R packages used
+1. [FactoMineR](https://cran.r-project.org/web/packages/FactoMineR/FactoMineR.pdf)
+2. [factoExtra](https://cran.r-project.org/web/packages/factoextra/factoextra.pdf)
+3. [explor](https://cran.r-project.org/web/packages/explor/explor.pdf)
+

@@ -1,0 +1,48 @@
+# Gene Ontology (GO) enrichment analysis {#sec-go} 
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+Gene Ontology is a very well-known method for accessing the functions of the gene identified through methylation analysis or expression analysis.
+Here in *methylR*, we used ontology analysis using the [clusterProfiler package](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html) [@yu2012clusterprofiler; @wu2021clusterprofiler].
+
+## How to use
+### Data upload & Parameters setup
+
+#### Parameters setup
+1. *Choose GO analysis type*: user can choose to do the analysis whether **over-representation analysis** or the **gene-set enrichment analysis** (GSEA) from the drop-down menu.
+2. *Select the adjusted p-value*: user can also choose the adjusted *p*-value for the analysis. Default is set to 0.05.
+3. *Select the adjusted q-value*: q-value or the FDR can also be adjusted as per user's requirement. Default is 0.05.
+4. *Select number of ontology classes*: to see the number of ontologies on the graph, user can setup different number. Default is 20.
+5. *Select P-value adjustment method* As per clusterProfiler, we set different *p*-value adjustment methods, Benjamini-Hochberg, Benjamini-Yeketuli, Bonferroni, Holm, Hommel, Hochberg, FDR or none. Default is Benjamini-Hochberg.
+6. *Select ontology class*: As defined in GO classification, we included all three ontology classes which user can select to show the plot.
+
+#### Data upload
+At present, user can upload the DMC data produced by the main analysis (see @sec-methylysis ) directly. The input file should be in a **text (tab-delimited)** format.
+
+## Analysis result
+1. On the right tab, the analysis result the plot will be generated as soon as computation finished. The plot is generated with plotly and it will be dynamic in nature as before. User can download the plot as PNG format, zoom in/out or do other stuffs as per plotly figures. The dynamic figure can also be downloaded as a html file.
+
+::: {.callout-note}
+1. All horizontal bars (Gene Ontology terms) are clickable and will open a new tab with the respective gene onlogy detail from the [AmiGO](http://amigo.geneontology.org/amigo) database. 
+2. Each interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each gene ontology term can open the respective detail from [AmiGO](http://amigo.geneontology.org/amigo) database.
+:::
+
+### Biological processes
+![Gene Ontology - Biological Processes](_images/GO-BP.png)
+
+### Cellular component
+![Gene Ontology - Cellular Component](_images/GO-CC.png)
+
+### Molecular function
+![Gene Ontology - Molecular Function](_images/GO-MF.png)
+
+2. On the second right tab, user will get the result as a table format. It might takes some time to compute result and generates the table. User can download the result as an Excel file from the current page or the entire result. \
+
+![Gene Ontology data table](_images/GO-table.png)
+
+::: {.callout-warning}
+1. In the gene onlogy enrichment table, the GO ID is clickable and will open the respective GO class from the AmiGO database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the GO source.
+2. The GO enrichment table will download the full result (i.e., all GO classes, Cellular Component, Molecular Function and Biological Processes), user donot need to run the table again for different GO classes.
+:::
+
+## R packages used
+1. [clusterProfiler](https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html)

@@ -1,0 +1,64 @@
+# Pathway enrichment analysis {#sec-pathway}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+Pathway enrichment analysis helps the user to get the mechanistic insights of the important genes from genome-wide data analysis. In *methylR*, we introduced the pathway analysis module that can compute the enriched pathways from three different databases, [KEGG](https://www.genome.jp/kegg/) [@Kanehisa2000], [Reactome](https://reactome.org/) [@Gillespie2021] and [Wikipathways](https://www.wikipathways.org/) [@pico2008plos; @martens2020nar].
+
+## How to use
+
+### Data upload & Parameters setup
+#### Data upload
+User can upload the direct output result from the main analysis. At present, user can upload the DMC data produced by the main analysis (See @sec-methylysis). The input file should be in a **text (tab-delimited)** format.
+
+#### Parameters setup
+
+1. *Choose pathway analysis type*: Please select pathway analysis type from the drop-down list
+    - Over representation analysis (ORA);
+    - Gene set enrichment analysis (GSEA);
+    By default, the tool will use the over representation analysis.
+
+2. *Choose pathway database*: user can choose to use different pathway database, namely 
+    - [Reactome](https://reactome.org/), 
+    - [KEGG](https://www.genome.jp/kegg/) or 
+    - [Wikipathways](https://www.wikipathways.org/).
+
+3. *Choose number of pathways*: Please select number of pathways for graphical display. The default is Top 20 pathways. The Top 20 enriched pathways is selected based on the adjusted P-values.
+
+::: {.callout-tip}
+1. If the analysis result does not get 20 pathways (as default setup) or the number selected by the user, then the plot will only shows the result with less number of pathways. User can change the parameters to see if they can get more number of enriched pathways.
+2. If there is no enriched pathways with selected parameters, the figure tab may show warning like ["check the logs or contact the author"]{style="color: red;"} \textcolor{red}{check the logs or contact the author}, please change the parameters and run again the analysis. If you are experiencing trouble, donot hesitate to contact us.
+:::
+
+4. *Select P-value cut-off for correction*: The default value for *p*-value correction is set to 0.05. User can set their own cut-off values.
+
+5. *Select P-value correction method*: The default method for adjustment of P-value is the Benjamini-Hochberg (BH) correction method. User can choose different method using the drop-down list:
+    - Benjamini-Hochberg (BH)
+    - Benjamini-Yeketuli (BY)
+    - Bonferroni
+    - Holm
+    - Hommel
+    - Hochberg
+    - FDR
+    - none
+
+6. *Upload data file*: The input file should be in a **text (tab-delimited)** format. The user can upload the *ChAMP* result file (DMC file) directly for the analysis.
+
+## Analysis result
+1. *Pathway enrichment plot*: after "Run Analysis", the plot will be generated as soon as computation has been done. Depends on the size of data, it might take few minutes (See @sec-calctime). At present the plot will be generated as a dot plot which is also a product of plotly, hence dynamic and have similar functionalities with mouse pointing. At present, with the mouse hover over, each dot will show the pathway name, count of genes from the input list for that particular pathway, the corrected p-value and gene ratio. The color scale bar shows in the legend. User can download the figure as PNG as described above and the dynamic figure as a html file. \
+
+::: {.callout-note}
+1. All dots (pathway enrichment terms) are clickable and will open a new tab with the respective pathway detail from the selected database (Reactome/KEGG/Wiki). 
+2. The interactive figure can be downloaded as HTML file and PNG file. The HTML file is clickable and each pathway enrichment term can open the respective database for pathway details.
+:::
+
+![Pathway Enrichment Plot](_images/Pathway-Enrichment.png)
+
+2. *Pathway enrichment table*: with the same input file and parameter setup, user can also get the result as an excel file (current page as well as full table). \
+
+![Pathway Enrichment Table](_images/PathEnrichTable1.png)
+
+::: {.callout-warning}
+In the pathway enrichment table, the pathway ID is clickable and will open the respective pathway from the database. However, this feature is only avaible on the browser, if the user download the table, there is no such link to check the pathway source.
+:::
+
+## R packages used
+1. [clusterProfiler](https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html)

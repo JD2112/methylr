@@ -1,0 +1,34 @@
+# Chromosome plot {#sec-chromosome}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+Chromosome plot is a way to visualize coordinates at DMC positions over the chromosome structure. In *methylR*, Users can change the cut-off for adjusted *p*-value as well as the fold change value. It is possible to visualize one chromosome at a time or all the chromosomes on the same figure.
+
+## How to use
+
+### Data upload & Parameters setup
+#### Data upload
+1. User needs to upload a text (tab-delimited) file with adjusted *p*-values and logFC values. At present, user can use the DMCs data file directly generated from the main analysis (See @sec-methylysis).
+2. To setup the adjusted p-value, user can change the cut-off. Default is setup to 0.05.
+3. LogFC cut-off can also be changed as per user requirement. Default is 0.3.
+4. After the file upload and setting up the cut-off for adjusted *p*-value and logFC, click the "Create plot" button.
+
+::: {.callout-tip}
+1. After creating the plot, if the user needs to add more chromosomes to the plot, please add the chromosome number from the "Select Chromosome" drop-down list and the plot will be updated automatically (***do not need to click "Create plot" again.***) and the same will hapeen if the user wants to remove one chromosome from the figure, just ***DELETE** it from the "Select Chromosome" drop-down menu. 
+2. "Change font size" will also updated automatically after the figure generation. Just change the font size as desired (max. 2).
+:::
+
+## Analysis result
+### Chromosome plot
+1. The figure will be generated as soon as the computation finishes and it will allow you to vary the font size on the flow.
+2. User can download the plot as a static figure (PDF, PNG, SVG, TIFF). \
+
+![Chromosome plot](_images/chromosome1.png)
+
+::: {.callout-note}
+In the Chromosome plot, the [blue]{style="color: blue;"} \textcolor{blue}{blue} text (e.g. [FAAH]{style="color: blue;"} \textcolor{blue}{FAAH}) in the left side is the gene symbol and the \textcolor{orange}{text} [orange]{style="color: orange;"} in the right side is the CpG ID from Illumina annotation (e.g. [cg20099409]{style="color: orange;"} \textcolor{orange}{cg20099409}). Please note, CpGs without the gene symbol only shows the CpG ID on the right side.
+:::
+
+3. On the right tab, user can also see the volcano data table which is useful when they are using the full dataset from the main analysis (See @sec-methylysis ).
+
+## R packages
+1. [Chromplot](https://www.bioconductor.org/packages/release/bioc/vignettes/chromPlot/inst/doc/chromPlot.pdf)

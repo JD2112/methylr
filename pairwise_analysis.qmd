@@ -1,0 +1,61 @@
+# Pairwise analysis (Heatmap) {#sec-pairwise}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+A heatmap module (Pairwise Plot) is added in *methylR* to show the $\beta$ value distribution of the differentially methylated CpGs. A pairwise correlation analysis can also be performed in the module.
+
+## How to use
+### Upload
+User can upload the input data matrix in **Tab** (.txt) or **Comma** (.csv) or **Semicolon** (.csv but with ;) separated format. If you don't have the matrix, this modules provides the functionality to make it starting from the main results coming from *methylysis* (see @sec-methylysis). Either ChAMP and minfi will provide the input data or you can get test data by clicking on "Matrix example data" and "List example data" buttons. For a better view of the result, we added the functionality to change the number of variables on the heatmap.
+
+### Settings
+1. **Plot type** - User can choose the heatmap or correlation plot function for the analysis.
+2. **Correlation Coefficient** - four different types of correlation coefficient added in the module, 1) Pearson, 2) Spearman, 3) Kendall and 4) no-correlation (better for heatmap). Default chosen 'non' (no-correlation).
+
+::: {.callout-important}
+***PLEASE NOTE: IF YOU WANT TO PERFORM THE CORRELATION PLOT, THEN PLEASE SELECT PEARSON, SPEARMAN OR KENDALL.***
+:::
+
+3. **Agglomeration method for hclust** - different agglomeration method for hierarchical cluster analysis provided in the module, 1) ward.D, 2) ward.D2, 3) single, 4) Complete, 5) Average, 6) Mcquitty, 7) Median, and 8) Centroid. Default chosen 'Complete'.
+4. **No. of clusters for hclust** - user can set the number of hierarchical cluster for their data. Default is 3.
+5. **Distance Matrix computation** - different types of distance matrix calculation can be applied to generate the heatmap, 1) Euclidean, 2) Manhattan, 3) Canberra, 4) Minkowski or 5) none. Default is 'Euclidean'.
+6. **Dendrogram** - user can choose to show the dendrogram on the row and/or column list.
+7. **Color key** - selecting color key will give option to change the size of the color key. However, user can choose not to show the color-key. Also color key title is user-defined.
+8. **axis label** - both x and y-axis label is user-defined. User can change the label of the x and y axis.
+9. **Title** - It will change the title of the heatmap/ correlation plot.
+10. **Zoom in & out Heatmap** - for the static plot, user can set the zoom in/out option.
+
+### Font & Color
+1. **Select theme** - with the pre-defined theme colors, custom-defined color for the heatmap is also enabled.
+2. **label** - user can separately define the size, rotation and color of the label text.
+3. **Color** - rectangle border, grid color and label color is also user-defined.
+
+### Matrix preparation
+We added a tab for the user to build the heatmap matrix by starting from the results of the main analysis, regardless the user choice to perform it with ChAMP or minfi. The matrix can be uploaded directly on the *Upload* tab to run the heatmap analysis. \
+1. **Upload normalized data table** - user can upload the normalized table from the main analysis directly without any modification. \
+2. **Upload DMC data table** - user can upload the differentially methylated CpG data table from the main analysis directly without any modification. \
+3. **Select adjusted P-value** - for more filtration on the dataset, we set a adjusted p-value (BH-corrected as defined in the main analysis section, both ChAMP or minfi) parameter. Default is 0.05. \
+4. **Select logFC value** - for more filtration on the dataset, we set a logFC (as defined in the main analysis section, both ChAMP or minfi) parameter. Default is 0.1.
+
+## Analysis result
+1. **Heatmap** - the figure will be shown in the adjacent panel. It can be downloaded in the following formats, PDF, PNG, SVG and TIFF. \
+
+![Static Heatmap](_images/heatmap.png)
+
+::: {.callout-tip}
+**Correlation plot** - for correlation plot, please adjust the 'Settings', 'Plot type' to ***Corrplot*** and 'Correlation Coefficient' to ***Pearson/Spearman/Kendall***.
+:::
+
+![Correlation plot](_images/correlationplot-setting.png)
+
+2. **Interactive heatmap** - an interactive heatmap will also be generated and can be downloaded as HTML file. \
+
+![Interactive Heatmap](_images/heatmap2.png)
+
+3. **Data table** - a data table will be generated from the heatmap figure data.
+
+![Heatmap/Correlation data table](_images/heatmap-datatable.png)
+
+## R packages used
+1. [heatmap2](https://biocorecrg.github.io/CRG_RIntroduction/heatmap-2-function-from-gplots-package.html)
+2. [D3heatmap](https://github.com/talgalili/d3heatmap)
+3. [intervene](https://github.com/asntech/intervene)

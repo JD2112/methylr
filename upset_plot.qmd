@@ -1,0 +1,82 @@
+# UpSet Plots {#sec-upset}
+^[TO ALL OUR USERS, IF YOU ARE EXPERIENCING ANY TROUBLE WITH THE APP, BEFORE SENDING THE BUG REPORT, PLEASE RESTART THE DOCKER CONTAINER AND TRY AGAIN.]
+
+UpSet plot will show the relation between different sets. We adopt the part from [intervene](https://github.com/asntech/intervene) [@khan2017intervene] application and modified as required for *methylR* use.
+
+## How to use
+
+### Data upload
+1. *Upload*: Data can be uploaded as **Tab** (.txt) or **Comma** (.csv) or **Semicolon** (.csv but with ;) separated format. Please look into the example data file. A demo test dataset is running by default and it is available for download by clicking on the “List example data” button.
+    UpSet module takes three types of inputs.
+
+    i. *List type data*:
+   List data is a correctly formatted csv/text file, with lists of names. Each column represents a set, and each row represents an element (names/gene/SNPs). Header names (first row) will be used as set names.
+    ii. *Binary type data*:
+    In the binary input file each column represents a set, and each row represents an element. If a names is in the set then it is represented as a 1, else it is represented as a 0.
+    iii. *Combination/expression type data:*
+    Combination/expression type data is the possible combinations of set intersections.
+
+::: {.callout-note}
+PLEASE NOTE: ***"OR enter set combinations/expression"*** has the priority over **"Upload file"**. If you use the "set combinations", and then want to "upload file", please remove the "set combination" from the input box. To see how the "OR enter set combinations/expression" works, please use the example below the box (not the list/binary example file).
+:::
+
+### Parameters setup
+2. *Settings*: there are multiple options to display the plot -
+
+    i. *select sets*: select the dataset from the input data.
+
+    ii. *Number of intersections to show*: Please add the number to calculate the intersection.
+
+    iii. *Order intersections by*: From the drop-down menu, please select the intersection order -
+    - Frequency
+    - degree
+    iv. *Increasing/Decreasing*: Please select the order of the frequency/degree.
+
+    v. *Scale intersections*: Please select the scale intersection from the drop-down menu -
+    - Original,
+    - log10,
+    - log2
+
+    vi. *scale sets*: Please select the scale intersection from the drop-down menu -
+    - Original,
+    - log10,
+    - log2
+
+    vii. *Plot width*: select the plot width from the slider.
+
+    viii. *Plot height*: select the plot height from the slider.
+
+    ix. *Bar matrix ratio*: select the bar matrix ratio from the slider.
+
+    x. *Angle of number on the bar*: slider to change the angle of the numbers on the bar.
+
+    xi. *Connecting point size*: change the connecting point size .
+
+    xii. *Connecting line size*: change the connecting line size.
+
+3. *Font & Color*: multiple options are included for font and colours -
+
+    i. *Select main bar colour*: Change colour of the bars of intersection size.
+
+    ii. *Select set bar colour*: Change the set bar colour on the side (set).
+
+    iii. *Font size of intersection size label*: Change the font size of the intersection size.
+
+    iv. *Set size label font*: Change the font size of the set label.
+
+    v. *Set size ticks font*: Change the tick size (numerical value) on the set size bar.
+
+    vi. *Intersection size numbers font size*: Change the tick size (numerical value) on the intersection set bar.
+
+    vii. *Set names font size*: Change the font size for the set names.
+
+
+## Result
+
+User can download the figure in different format, PDF, PNG, SVG or TIFF.
+
+![UpSet plot](_images/upset.png)
+
+## R packages used
+1. [UpSetR](http://gehlenborglab.org/research/projects/upsetr/)
+2. [intervene](https://github.com/asntech/intervene)

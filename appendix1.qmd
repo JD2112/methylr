@@ -1,0 +1,62 @@
+# Create the input zip file for *methylR* {#sec-inputzip}
+
+This section describes how to create a zip archive containing the input files to start the methylysis analysis.
+
+## Methods
+We will describe three methods to create a zip file:
+
+1. Windows zip utility
+2. 7-zip ([https://www.7-zip.org/](https://www.7-zip.org/))
+3. Bash script ([https://www.github.com/](https://github.com/JD2112/methylr/blob/main/script.sh))
+4. Command line (Ubuntu Linux)
+
+### Description
+Users need to collect the Sample_sheet.csv file and all the idat files belonging to the analysis as they come from the sequencer. All the methods require to create a New folder (you can give any name, for example **testData**) and move the *Sample_sheet.csv* file inside. Enter the testData directory and then create a folder named **idat**, then move all the directories generated with the analysis and containing the *idat files* (green and red) into this idat folder. In the end you will get this kind of organisation:
+
+![How to create zip: Figure 1](_images/zip1.png)
+
+## 1. Windows zip utility (Windows 7, 8, 10, 11)
+1. Right-click on the New folder you created with the file structure discussed above.
+2. Then click Send to > Compressed (zipped) folder
+
+![How to create zip: Figure 2](_images/zip2.png)
+
+## 2. 7-zip utility (Windows 7, 8, 10, 11)
+7-Zip is a free open-source file archiver with a high compression ratio. You can use 7-Zip on any computer, including a computer in a commercial organization. You don't need to register or pay for 7-Zip. You can download 7-zip for Windows at ([https://www.7-zip.org/](https://www.7-zip.org/)). If you have installed 7-zip and want to create the input file for *methylR* you just:
+
+1. Right-click on the New folder you created with the file structure discussed above.
+2. Then click 7-Zip > Add to archive...
+
+![How to create zip: Figure 3](_images/zip3.png)
+
+## 3. Bash script (MacOS/Linux)
+We provide an automathized bash script that is able to create the file structure discussed above for you.
+
+### Linux:
+Depending on which interface you use (e.g., GNOME, KDE, Xfce), the terminal will be accessed differently. We recommend you check [Ubuntu's Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal?action=show&redirect=BasicCommands) page for the several ways to access the terminal.
+
+1. Click Start and search for "Terminal". Alternatively, press *Alt + Ctrl + t* and type "cmd" then click OK.
+2. Then type the following command:
+```
+cd /path/to/data/
+sh script.sh
+```
+
+### MacOS:
+1. You can access the terminal by pressing ⌘ + space on your keyboard and searching for "terminal".
+2. Then type the following command and press Enter:
+```
+cd /path/to/data/
+sh script.sh
+```
+
+## 4. Command line (Linux)
+Depending on which interface you use (e.g. GNOME, KDE, Xfce), the terminal will be accessed differently. We recommend you check [Ubuntu's Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal?action=show&redirect=BasicCommands) page for the several ways to access the terminal.
+
+1. Click Start and search for "Terminal". Alternatively, press *Alt + Ctrl + t* and type "cmd" then click OK.
+2. Then move to the New folder and create the zip archive by typing the following command and press Enter:
+```
+cd /path/to/data/
+zip folder/
+```
+

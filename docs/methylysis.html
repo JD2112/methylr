@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>MethylR manual - 1&nbsp; Methylysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./feanaly.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MethylR manual</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/JD2112/methylr" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./MethylR-manual.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Acknowledgements</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">Welcome to methylR: DNA Methylation Data Analysis Pipeline</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methylysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./feanaly.html" class="sidebar-item-text sidebar-link">Feature Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Multi_D_Analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multi-D Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gene_Features_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gene Features analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pairwise_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pairwise analysis (Heatmap)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Volcano_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Volcano plot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chromosome_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chromosome plot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./assco.html" class="sidebar-item-text sidebar-link">Association Study</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./go_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gene Ontology (GO) enrichment analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pathway_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pathway enrichment analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./setana.html" class="sidebar-item-text sidebar-link">Set Analysis</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./venn_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Venn analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./upset_plot.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">UpSet Plots</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Create the input zip file for <em>methylR</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Use of Docker Container</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Convert DMCs table to BED</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Time calculation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">FAQs/Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><img src="_images/logo-final.png" class="img-fluid"></p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link active" data-scroll-target="#how-to-use"><span class="toc-section-number">1.1</span>  How to use</a>
+  <ul class="collapse">
+  <li><a href="#data-upload-parameters-setup" id="toc-data-upload-parameters-setup" class="nav-link" data-scroll-target="#data-upload-parameters-setup"><span class="toc-section-number">1.1.1</span>  Data upload &amp; Parameters setup</a></li>
+  <li><a href="#structure-of-sample_sheet.csv" id="toc-structure-of-sample_sheet.csv" class="nav-link" data-scroll-target="#structure-of-sample_sheet.csv"><span class="toc-section-number">1.1.2</span>  Structure of sample_sheet.csv</a></li>
+  </ul></li>
+  <li><a href="#parameters-setup" id="toc-parameters-setup" class="nav-link" data-scroll-target="#parameters-setup"><span class="toc-section-number">1.2</span>  Parameters setup</a>
+  <ul class="collapse">
+  <li><a href="#choose-analysis-algorithm" id="toc-choose-analysis-algorithm" class="nav-link" data-scroll-target="#choose-analysis-algorithm"><span class="toc-section-number">1.2.1</span>  Choose analysis algorithm</a></li>
+  </ul></li>
+  <li><a href="#technical-setup" id="toc-technical-setup" class="nav-link" data-scroll-target="#technical-setup"><span class="toc-section-number">1.3</span>  Technical setup:</a></li>
+  <li><a href="#requirement-for-data-upload" id="toc-requirement-for-data-upload" class="nav-link" data-scroll-target="#requirement-for-data-upload"><span class="toc-section-number">1.4</span>  Requirement for data upload</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JD2112/methylr/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-methylysis" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Methylysis</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><em>Methylysis</em> is the most important section in <em>methylR</em> since it contains the tools to analyze the DNA methylation data for two different Illumina arrays, 450K and 850K array. Two of the most used well-defined pipelines are currently available in <em>methylR</em>: The Chip Analysis Methylation Pipeline <a href="https://bioconductor.org/packages/release/bioc/vignettes/ChAMP/inst/doc/ChAMP.html">ChAMP</a> and <a href="https://bioconductor.org/packages/release/bioc/vignettes/minfi/inst/doc/minfi.html">minfi</a>. Those are alternative pipelines and, although the user has the freedom to decide to test both, only the results from one of them is required to run to visualize and explore the data in the downstream sections. For new users, we suggest to run <strong>ChAMP</strong> as it is the latest, well packed and well maintained pipeline for <em>Illumina HumanMethylation Array</em> data analysis. Both pipelines offer different input options and parameters that can be modified based on the user’s actual data. If users wish to compare the results from both the pipelines, <em>methylR</em> offers this possibility through the downstream processing (Venn Analysis see <a href="venn_analysis.html"><span>Chapter&nbsp;9</span></a> and UpSet Plot see <a href="upset_plot.html"><span>Chapter&nbsp;10</span></a> sections).</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>After uploading the zip file <a href="appendix1.html">See Appendix&nbsp;<span>A</span></a>, the pipeline will start automatically by displaying the notification <span style="color: teal;">“Computing methylysis, please wait…”</span> . When the notification turns off, the user can go to different tabs to display the result. Please wait 5-10 seconds (see <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>, <em>Calculation Time for each process</em>) to display the result on the tab. Depending on the sample size, it may requires more time to display properly.</li>
+</ol>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="2" type="1">
+<li>If the <em>methylysis</em> page goes <span style="color: gray;">“dim/disconnected”</span>, the analysis may encounter some errors during the run and the program stops working. Please refresh the page and run the same analysis again with different filters/parameters. Example, for ChAMP pipeline, if the user selects the “adjusted P-value” = 0.05 (as default), may be for the sample data, there is no differentially methylated CpGs at that value. Please change the adjusted P-value (recommend to set it at 1, and check the table after the run that what is appropriate cut-off) and run the pipeline again.</li>
+</ol>
+</div>
+</div>
+<section id="how-to-use" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="how-to-use"><span class="header-section-number">1.1</span> How to use</h2>
+<p>Details are provided below -</p>
+<section id="data-upload-parameters-setup" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="data-upload-parameters-setup"><span class="header-section-number">1.1.1</span> Data upload &amp; Parameters setup</h3>
+<p>The current version can handle the upload of the data directory. Please put all RAW IDAT (intensity data) files (as generated by the Illumina sequencer) and the “Sample_sheet.csv” together in a directory.</p>
+</section>
+<section id="structure-of-sample_sheet.csv" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="structure-of-sample_sheet.csv"><span class="header-section-number">1.1.2</span> Structure of sample_sheet.csv</h3>
+<p>The Sample_sheet.csv must have the following components -<br>
+1. Sample_Name<br>
+2. Sample_Group<br>
+3. Sentrix_ID<br>
+4. Sentrix_position</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Note</em> If the user uses Microsoft Excel to build the Sample_sheet.csv, please check that<br>
+1. <strong>Sentrix_ID</strong> : are in text format (not in number format, which Excel will change to scientific numbers and will not properly displayed).<br>
+2. <em>Optional check</em>: Copy and paste the Excel table of Sample_sheet in some text editor like notepad or VS code and check the format.</p>
+</div>
+</div>
+<p>Every section in <em>methylR</em> comes with the proper testing data linked at the bottom of the page, just search for the <strong><em>“example data”</em></strong> button.</p>
+</section>
+</section>
+<section id="parameters-setup" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="parameters-setup"><span class="header-section-number">1.2</span> Parameters setup</h2>
+<section id="choose-analysis-algorithm" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="choose-analysis-algorithm"><span class="header-section-number">1.2.1</span> Choose analysis algorithm</h3>
+<p>Currently, we have included two most usable algorithms to analyze the data - ChAMP and minfi.<br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/methylysis_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Algorithm choice</figcaption><p></p>
+</figure>
+</div>
+<section id="champ-pipeline-parameters" class="level4" data-number="1.2.1.1">
+<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="champ-pipeline-parameters"><span class="header-section-number">1.2.1.1</span> <strong>ChAMP pipeline parameters</strong></h4>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>PLEASE NOTE</strong>: ChAMP process will do all filtration automatically, independent of User’s input. The following filtration will be done -<br>
+i. <em>filtering probes with detection p-value &gt; 0.01</em>,<br>
+ii. <em>filter out probes with &lt;3 beads in at least 5% of samples per probe</em>,<br>
+iii. <em>filter all non-CpG probes</em><br>
+iv. <em>filter all SNP-related probes</em><br>
+v. <em>filter all multi-hit probes</em><br>
+vi. <em>filter all probes located in X and Y chromosomes</em></p>
+</div>
+</div>
+<ol type="1">
+<li><p><em>Choose type of Illumina array</em>: Two options are provided to choose, namely EPIC/850K array and 450K array from Illumina array analysis.</p></li>
+<li><p><em>Adjusted P-value</em>: User can define there own adjusted P-value to run the analysis. The default is 0.05.</p></li>
+<li><p><em>Normalization</em>: User can choose different normalization methods from the drop-down list,</p>
+<ul>
+<li>BMIQ (Beta-Mixture Quantile Normalization) <span class="citation" data-cites="teschendorff2013beta">(<a href="references.html#ref-teschendorff2013beta" role="doc-biblioref">Teschendorff et al. 2013</a>)</span>,</li>
+<li>PBC (Peak-Based Correction) <span class="citation" data-cites="dedeurwaerder2011evaluation">(<a href="references.html#ref-dedeurwaerder2011evaluation" role="doc-biblioref">Dedeurwaerder et al. 2011</a>)</span>,</li>
+</ul></li>
+</ol>
+<p>The default setup will run with the BMIQ normalization method.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please check references for different type of normalization method.</p>
+</div>
+</div>
+<ol start="4" type="1">
+<li><em>Batch Effect Correction</em>: <em>ComBat</em> function is used to correct the batch effect. User can choose whether to compute the batch effect or not by clicking the button. When the button is <span style="color: green;">“green”</span> (<strong>ON</strong>), it will prompt to select the factors for the batch effect correction, <em>Slide</em>, <em>Array</em>, <em>Age</em>, <em>Sex</em>, or <em>Other</em>. Select as necessary and should have the column in the Sample_sheet (check the Sample_sheet in the testdata set). If you have other option than <em>Slide</em>, <em>Array</em>, <em>Age</em>, or <em>Sex</em>, rename the column as <strong>‘Other’</strong> and run batch effect correction.<br>
+If the button is <span style="color: red;">“red”</span> (<strong>OFF</strong>), the pipeline will continue without analyzing the batch effect.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please check the reference for the batch effect correction using combat method <span class="citation" data-cites="johnson2007adjusting">(<a href="references.html#ref-johnson2007adjusting" role="doc-biblioref">Johnson, Li, and Rabinovic 2007</a>)</span>.</p>
+</div>
+</div>
+<ol start="5" type="1">
+<li><em>Cell Type Heterogeneity</em>: Houseman et al (2013) <span class="citation" data-cites="houseman2012dna">(<a href="references.html#ref-houseman2012dna" role="doc-biblioref">Houseman et al. 2012</a>)</span> algorithm is applied to calculate the cell-type heterogeneity from PBMC (<em>Peripheral Bllod Mononuclear Cells</em>) dataset using the <em>refbase</em> function. This is deactivated as default. Press the button to activate and run during the analysis.<br>
+</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/methylysis_02.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ChAMP parameters setup</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="minfi-pipeline-parameters" class="level4" data-number="1.2.1.2">
+<h4 data-number="1.2.1.2" class="anchored" data-anchor-id="minfi-pipeline-parameters"><span class="header-section-number">1.2.1.2</span> <strong>Minfi pipeline parameters</strong></h4>
+<ol type="1">
+<li><p><em>Choose preprocess method</em> : There are several methods available for preprocessing or normalizing the raw data using the RGset. Here we listed them as the user’s input options to select the preprocess/normalization method as per their choice:</p>
+<ul>
+<li>Raw: No processing of the raw data,</li>
+<li>SWAN: Subset Quantile Within array Normalization <span class="citation" data-cites="maksimovic2012swan touleimat2012complete">(<a href="references.html#ref-maksimovic2012swan" role="doc-biblioref">Maksimovic, Gordon, and Oshlack 2012</a>; <a href="references.html#ref-touleimat2012complete" role="doc-biblioref">Touleimat and Tost 2012</a>)</span>,</li>
+<li>Noob: Noob preprocessing <span class="citation" data-cites="triche2013low">(<a href="references.html#ref-triche2013low" role="doc-biblioref">Triche Jr et al. 2013</a>)</span>,</li>
+<li>Illumina: Illumina preprocessing, as performed by Genome Studio (reverse engineered by minfi authors) <span class="citation" data-cites="aryee2014minfi">(<a href="references.html#ref-aryee2014minfi" role="doc-biblioref">Aryee et al. 2014</a>)</span></li>
+<li>Funnorm: Functional normalization <span class="citation" data-cites="fortin2014functional">(<a href="references.html#ref-fortin2014functional" role="doc-biblioref">Fortin et al. 2014</a>)</span></li>
+</ul></li>
+<li><p><em>Select filtration method</em>: In this section, we assigned options for the user to perform the different filters, like removal of XY chromosomes from the analysis, removal of SNPs or removal of non-specific probes from the dataset. By default, the pipeline will use p-value detection 0.01.</p></li>
+<li><p><em>Compute cell type heterogeneity</em>: similar as ChAMP, we used Houseman method to correct the cell type heterogeneity. In minfi pipeline we used default minfi function <em>estimateCellCounts</em>. As before, user can choose to avoid this if the samples are not from PBMC cell types.</p></li>
+<li><p><em>Choose genome annotation database</em>: To annotate the DMC list from the analysis, use the human genome reference annotation data file. For 850K array, make sure to use the hg38 array to compare the result with the output of ChAMP pipeline.<br>
+</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/methylysis_03.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Minfi parameters setup</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="technical-setup" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="technical-setup"><span class="header-section-number">1.3</span> Technical setup:</h2>
+<p>Both pipelines require the user to set the following technical parameters:</p>
+<ol type="1">
+<li><em>Number of cores</em>: Both pipeline can run on 1 core which will take more time to compute the entire process. User can choose to setup the number of cores depending the availability. The default is set to 1 core for Minfi, and 2 cores for ChAMP and maximum is 4 cores.</li>
+</ol>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Multi-threading for DNA methylation analysis is mainly used in the <strong>Normalization</strong> process. If you have data with more than 50 samples, using 4 cores may reduce the calculation time. If the dataset has less number of samples, increasing the number of cores will not do effectively any better time reduction (See <a href="appendix4.html"><span>Appendix&nbsp;D</span></a>).</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><em>Data upload</em> The user should set the parameters first and choose all parameters as described above and then upload the data directory. To do that, just click on the button “Browse…” and locate the zip archive containing raw files. As soon as the pipeline finishes the upload of the data directory, it will start running the analysis.</li>
+</ol>
+</section>
+<section id="requirement-for-data-upload" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="requirement-for-data-upload"><span class="header-section-number">1.4</span> Requirement for data upload</h2>
+<ol type="1">
+<li><strong><em>idat files</em></strong>: all idat files, green and red as received from Illumina sequencing array should be provided for the analysis. All files should be in one directory/folder.</li>
+<li><strong><em>Sample_sheet.csv</em></strong>: the “Sample_sheet.csv” should also be provided in the same directory with idat files.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check the <a href="https://github.com/JD2112/methylr/tree/main/data">github</a> repository for sample data file. You may download the Sample_sheet.csv file and use as a template for your sample_sheet.</p>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-aryee2014minfi" class="csl-entry" role="doc-biblioentry">
+Aryee, Martin J, Andrew E Jaffe, Hector Corrada-Bravo, Christine Ladd-Acosta, Andrew P Feinberg, Kasper D Hansen, and Rafael A Irizarry. 2014. <span>“Minfi: A Flexible and Comprehensive Bioconductor Package for the Analysis of Infinium DNA Methylation Microarrays.”</span> <em>Bioinformatics</em> 30 (10): 1363–69.
+</div>
+<div id="ref-dedeurwaerder2011evaluation" class="csl-entry" role="doc-biblioentry">
+Dedeurwaerder, Sarah, Matthieu Defrance, Emilie Calonne, Hélene Denis, Christos Sotiriou, and François Fuks. 2011. <span>“Evaluation of the Infinium Methylation 450K Technology.”</span> <em>Epigenomics</em> 3 (6): 771–84.
+</div>
+<div id="ref-fortin2014functional" class="csl-entry" role="doc-biblioentry">
+Fortin, Jean-Philippe, Aurélie Labbe, Mathieu Lemire, Brent W Zanke, Thomas J Hudson, Elana J Fertig, Celia MT Greenwood, and Kasper D Hansen. 2014. <span>“Functional Normalization of 450k Methylation Array Data Improves Replication in Large Cancer Studies.”</span> <em>Genome Biology</em> 15 (11): 1–17.
+</div>
+<div id="ref-houseman2012dna" class="csl-entry" role="doc-biblioentry">
+Houseman, Eugene Andres, William P Accomando, Devin C Koestler, Brock C Christensen, Carmen J Marsit, Heather H Nelson, John K Wiencke, and Karl T Kelsey. 2012. <span>“DNA Methylation Arrays as Surrogate Measures of Cell Mixture Distribution.”</span> <em>BMC Bioinformatics</em> 13 (1): 1–16.
+</div>
+<div id="ref-johnson2007adjusting" class="csl-entry" role="doc-biblioentry">
+Johnson, W Evan, Cheng Li, and Ariel Rabinovic. 2007. <span>“Adjusting Batch Effects in Microarray Expression Data Using Empirical Bayes Methods.”</span> <em>Biostatistics</em> 8 (1): 118–27.
+</div>
+<div id="ref-maksimovic2012swan" class="csl-entry" role="doc-biblioentry">
+Maksimovic, Jovana, Lavinia Gordon, and Alicia Oshlack. 2012. <span>“SWAN: Subset-Quantile Within Array Normalization for Illumina Infinium HumanMethylation450 BeadChips.”</span> <em>Genome Biology</em> 13 (6): 1–12.
+</div>
+<div id="ref-teschendorff2013beta" class="csl-entry" role="doc-biblioentry">
+Teschendorff, Andrew E, Francesco Marabita, Matthias Lechner, Thomas Bartlett, Jesper Tegner, David Gomez-Cabrero, and Stephan Beck. 2013. <span>“A Beta-Mixture Quantile Normalization Method for Correcting Probe Design Bias in Illumina Infinium 450 k DNA Methylation Data.”</span> <em>Bioinformatics</em> 29 (2): 189–96.
+</div>
+<div id="ref-touleimat2012complete" class="csl-entry" role="doc-biblioentry">
+Touleimat, Nizar, and Jörg Tost. 2012. <span>“Complete Pipeline for Infinium<span></span> Human Methylation 450K BeadChip Data Processing Using Subset Quantile Normalization for Accurate DNA Methylation Estimation.”</span> <em>Epigenomics</em> 4 (3): 325–41.
+</div>
+<div id="ref-triche2013low" class="csl-entry" role="doc-biblioentry">
+Triche Jr, Timothy J, Daniel J Weisenberger, David Van Den Berg, Peter W Laird, and Kimberly D Siegmund. 2013. <span>“Low-Level Processing of Illumina Infinium DNA Methylation Beadarrays.”</span> <em>Nucleic Acids Research</em> 41 (7): e90–90.
+</div>
+</div>
+</section>
+
+<p>Copyright © 2022-2023. Massimiliano Volpe and Jyotirmoy Das.</p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome to methylR: DNA Methylation Data Analysis Pipeline</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./feanaly.html" class="pagination-link">
+        <span class="nav-page-text">Feature Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
