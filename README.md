@@ -29,6 +29,7 @@
 For non-commercial Academic and Research purpose only! \
 Here we introduce *methylR*, a complete pipeline for the analysis of both 450K and EPIC Illumina arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
 
+**IMPORTANT- MethylR moved from the previous server to a new one - [https://methylr.serve.scilifelab.se](https://methylr.serve.scilifelab.se)**
 
 ## Diagram
 
