@@ -3,7 +3,16 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JD2112/methylr/main?labpath=docs)
 [![methylr manual](https://github.com/JD2112/methylr/actions/workflows/publish.yml/badge.svg)](https://github.com/JD2112/methylr/actions/workflows/publish.yml)
 [![Download methylr](https://img.shields.io/sourceforge/dm/methylr.svg)](https://sourceforge.net/projects/methylr/files/latest/download)
+[![Download methylr](https://img.shields.io/sourceforge/dt/methylr.svg)](https://sourceforge.net/projects/methylr/files/latest/download)
 [![Download methylr](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/methylr/files/latest/download)
+
+<!-- Begin SF Tag -->
+<div class="sf-root" data-id="3543523" data-badge="oss-users-love-us-white" style="width:125px">
+    <a href="https://sourceforge.net/projects/methylr/" target="_blank">methylr</a>
+</div>
+<script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=3543523';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
+</script>
+<!-- End SF Tag -->
 
 **IMPORTANT: MethylR web-server moved from methylr.research.liu.se to [https://methylr.serve.scilifelab.se/](https://methylr.serve.scilifelab.se/)**
 
@@ -29,7 +38,7 @@
 - [Credits](#credits)
 
 ## Description
-For non-commercial Academic and Research purpose only! \
+
 Here we introduce *methylR*, a complete pipeline for the analysis of both 450K and EPIC Illumina arrays which not only offers data visualization and normalization but also provide additional features such as the annotation of the genomic features resulting from the analysis, pairwise comparisons of DMCs with different graphical representation plus functional and pathway enrichment as downstream analysis, all packed in a minimal, elegant and intuitive graphical user interface which brings the analysis of array DNA methylation data.
 
 
