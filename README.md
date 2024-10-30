@@ -6,13 +6,6 @@
 [![Download methylr](https://img.shields.io/sourceforge/dt/methylr.svg)](https://sourceforge.net/projects/methylr/files/latest/download)
 [![Download methylr](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/methylr/files/latest/download)
 
-<!-- Begin SF Tag -->
-<div class="sf-root" data-id="3543523" data-badge="oss-users-love-us-white" style="width:125px">
-    <a href="https://sourceforge.net/projects/methylr/" target="_blank">methylr</a>
-</div>
-<script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=3543523';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
-</script>
-<!-- End SF Tag -->
 
 **IMPORTANT: MethylR web-server moved from methylr.research.liu.se to [https://methylr.serve.scilifelab.se/](https://methylr.serve.scilifelab.se/)**
 
